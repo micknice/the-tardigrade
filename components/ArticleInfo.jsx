@@ -68,26 +68,22 @@ const ArticleInfo = ({article}) => {
                         }
                         
                     </div>
-                    <div className='border-b-[1px] border-guard-div-grey pt-2 flex flex-row'>
-                        
-                        
-                        
 
-                    </div>
+                    <div className='border-b-[1px] border-guard-div-grey pt-2 flex flex-row' />
+
                     <div className='border-guard-div-grey'>
-                    <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row'/>
-                    <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row'/>
-                    <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row'/>
-                    {article &&
+                        <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row'/>
+                        <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row'/>
+                        <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row'/>
+                        {article &&
 
-                        <p className='text-guard-topicheadtext-orange text-lg font-bold font-serif'>{capitalizeAuthor(article.author)}</p>
-                    }
-                    {article &&
-                        <p className='text-guard-posted text-xs pt-2 pb-1'>{formatDate(article.created_at)}</p>
+                            <p className='text-guard-topicheadtext-orange text-lg font-bold font-serif'>{capitalizeAuthor(article.author)}</p>
+                        }
+                        {article &&
+                            <p className='text-guard-posted text-xs pt-2 pb-1'>{formatDate(article.created_at)}</p>
 
-                    }
-                    <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row '/>
-                        
+                        }
+                        <div className='border-b-[1px] border-guard-div-grey pt-[3px] flex flex-row '/>
                     </div>
                     <div className=' border-guard-div-grey pt-3 flex flex-row '>
                             <ButtonFb topic={article.topic}/>

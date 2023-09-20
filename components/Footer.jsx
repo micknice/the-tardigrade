@@ -9,6 +9,7 @@ import SupportButton from './SupportButton'
 
 
 
+
 const Footer = () => {
     return (
         <div className='w-full  bg-white '>

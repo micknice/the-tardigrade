@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Link from 'next/link'
 import {HiChevronDown} from 'react-icons/hi2'
 import { RiMoneyPoundCircleFill} from 'react-icons/ri'
@@ -10,6 +10,14 @@ import SupportButton from './SupportButton'
 
 
 const Header = () => {
+
+    const [tabTopic, setTabTopic] = useState(null)
+
+
+    const handleTabClick = (e) => {
+
+    }
+
     return (
         <div className='w-full bg-white pt-10'>
             <div className='w-full h-48 bg-guard-blue-mid px-40 flex items-center justify-center'>
@@ -38,8 +46,8 @@ const Header = () => {
                     {/* topic tabs */}
                     <div className='flex h-full border-l-[1px] border-t-[1px] border-r-[1px] border-guard-div-blue'>
 
-                        <div className='flex items-center hover:border-t-4 border-guard-topic-red'>
-                            <Link className='flex pl-2 pr-20 items-center ' href='/#coding' >
+                        <div className='flex items-center hover:border-t-4 border-guard-topic-red' >
+                            <Link className='flex pl-2 pr-20 items-center ' href={`/topic/coding`} >
                                 <p className='text-2xl font-serif pl-2 font-bold'>Coding</p>
                             </Link>
                         </div>
@@ -47,7 +55,7 @@ const Header = () => {
                         <div className='w-px bg-guard-div-blue h-2/3'/>
 
                         <div className='flex items-center hover:border-t-4 border-guard-topic-orange'>
-                            <Link className='flex pl-2 pr-20 items-center' href='/#cooking' >
+                            <Link className='flex pl-2 pr-20 items-center' href='/topic/cooking' >
                                 <p className='text-2xl font-serif pl-2 font-bold '>Cooking</p>
                             </Link>
                         </div>
@@ -55,7 +63,7 @@ const Header = () => {
                         <div className='w-px bg-guard-div-blue h-2/3'/>
 
                         <div className='flex items-center hover:border-t-4 border-guard-topic-sky'>
-                            <Link className='flex pl-2 pr-20 items-center' href='/#football' >
+                            <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
                                 <p className='text-2xl font-serif pl-2 font-bold '>Football</p>
                             </Link>
                         </div>

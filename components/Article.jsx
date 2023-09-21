@@ -57,7 +57,7 @@ const Article = ({article}) => {
                                     </div>
                                 </div>
                             </div>
-                            <Comments/>
+                            <Comments article={article}/>
                     </div>
 
                             

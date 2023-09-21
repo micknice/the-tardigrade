@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import dummyText from '../utils/dummytext'
-import { getArticles } from '../pages/api/news/newsApi'
-import ArticleInfo from './ArticleInfo'
-import MostViewed from './MostViewed'
 import {HiChevronDown} from 'react-icons/hi2'
-
-import ArticleBody from './ArticleBody'
 import { BiSolidUserCircle } from 'react-icons/bi'
-import ComentCard from './CommentCard'
+import CommentCard from './CommentCard'
 import { getCommentsByArticleId } from '../pages/api/news/newsApi'
-
-
 
 
 const Comments = ({article}) => {
@@ -22,7 +14,6 @@ const Comments = ({article}) => {
             const fetchComments = async() => {
                 const commentsArr = await getCommentsByArticleId(article.article_id)
                 setComments(commentsArr)
-                console.log('commentsArr', commentsArr)
             }
             fetchComments()
         }
@@ -77,7 +68,7 @@ const Comments = ({article}) => {
 
                             {comments ? comments.map((comment) => {
                                 return (
-                                    <ComentCard comment={comment}/>
+                                    <CommentCard comment={comment}/>
                                     )
                                 }) : () => {
                                 return (

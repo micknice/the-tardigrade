@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
-import SupportButton from './SupportButton'
-import Brand from '../public/assets/brandy.jpg'
 import { getArticleByArticleId, getArticleFromArticleId } from '../pages/api/news/newsApi'
 import { getPostAge } from '../utils/utils'
 import Link from 'next/link'
@@ -11,7 +8,6 @@ import Link from 'next/link'
 
 
 const BigArticleCard = ({article}) => {
-    
 
     const [actualArticle, setActualArticle] = useState(null)
     const [actualArticleBody, setActualArticleBody] = useState(null)
@@ -43,11 +39,11 @@ const BigArticleCard = ({article}) => {
             <div className='col-span-3  pt-3 h-38 max-h-38 min-h-38'>
                 <Link href={`/article/${article.article_id}`}>
                         <div className=' h-full w-full grid grid-cols-3 pr-3 bg-guard-topictile-red hover:bg-guard-topictile-hover-red'>
-                            <div className=' col-span-1 h-full border-guard-topictext-red hover:bg-guard-topictile-hover-red px-2'>
+                            <div className=' col-span-1 h-full border-t-[1px] border-guard-topictext-red hover:bg-guard-topictile-hover-red px-2'>
                                 {/* text */}
                                 <div className=' h-full border-t-[1px] '>
                                     {article &&
-                                        <p className='text-guard-topictext-red  text-2xl font-black font-serif'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                        <p className='text-guard-topictext-red  text-2xl font-black font-serif tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                                     }
                                     {article &&
                                         <p className='text-guard-subhead  text-2xl font-medium font-serif leading-7'>{article.title}</p>
@@ -80,7 +76,7 @@ const BigArticleCard = ({article}) => {
                             {/* text */}
                             <div className='h-full px-2'>
                                 {article &&
-                                    <p className='text-guard-topictext-orange  text-2xl font-black font-serif'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                    <p className='text-guard-topictext-orange  text-2xl font-black font-serif tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                                 }
                                 {article &&
                                     <p className='text-guard-subhead  text-2xl font-medium font-serif leading-7'>{article.title}</p>
@@ -115,7 +111,7 @@ const BigArticleCard = ({article}) => {
                                 {/* text */}
                                 <div className='h-full px-2'>
                                     {article &&
-                                        <p className='text-guard-topictext-sky  text-2xl font-black font-serif'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                        <p className='text-guard-topictext-sky  text-2xl font-black font-serif tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                                     }
                                     {article &&
                                         <p className='text-guard-subhead  text-2xl font-medium font-serif leading-7'>{article.title}</p>

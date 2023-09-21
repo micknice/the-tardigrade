@@ -1,44 +1,80 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
 import {HiChevronDown} from 'react-icons/hi2'
-import { RiMoneyPoundCircleFill} from 'react-icons/ri'
-import { GoArrowRight} from 'react-icons/go'
-import GuardLogo from '../public/assets/tard.png'
-import Image from 'next/image'
 import SupportButton from './SupportButton'
-
-
+import { useRouter } from 'next/router';
 
 
 const Footer = () => {
+
+    const router = useRouter();
+    const { topic } = router.query;
+
+    const [tabTopic, setTabTopic] = useState(null)
+    const handleTabClick = (topic) => {
+        setTabTopic(topic)
+    }
+
+    useEffect(() => {
+        if(topic) {
+            setTabTopic(topic)
+        } else {
+            setTabTopic(null)
+        }
+    },[topic])
+
     return (
         <div className='w-full  bg-white '>
             <div className='w-full  bg-guard-blue-mid px-40 flex items-center justify-center'>
                 <div className=' w-5/6 h-full grid grid-rows-5'>
                     {/* topic tabs */}
                     <div className='flex  h-2/3 border-l-[1px] border-b-[1px] border-r-[1px] border-guard-div-blue'>
-
-                        <div className='flex items-center hover:border-t-4 border-guard-topic-red'>
-                            <Link className='flex pl-2 pr-20 items-center ' href='/#coding' >
-                                <p className='text-2xl font-serif pl-2 font-bold'>Coding</p>
-                            </Link>
-                        </div>
+                        {tabTopic && tabTopic === 'coding' &&
+                            <div className='flex items-center border-t-4 border-guard-topic-red' onClick={() => handleTabClick('coding')}>
+                                <Link className='flex pl-2 pr-20 items-center ' href={`/topic/coding`} >
+                                    <p className='text-2xl font-serif pl-2 font-bold'>Coding</p>
+                                </Link>
+                            </div>
+                        }
+                        {tabTopic !== 'coding' &&
+                            <div className='flex items-center hover:border-t-4 border-guard-topic-red' onClick={() => handleTabClick('coding')}>
+                                <Link className='flex pl-2 pr-20 items-center ' href={`/topic/coding`} >
+                                    <p className='text-2xl font-serif pl-2 font-bold'>Coding</p>
+                                </Link>
+                            </div>
+                        }
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
-
-                        <div className='flex items-center hover:border-t-4 border-guard-topic-orange'>
-                            <Link className='flex pl-2 pr-20 items-center' href='/#cooking' >
-                                <p className='text-2xl font-serif pl-2 font-bold '>Cooking</p>
-                            </Link>
-                        </div>
+                        {tabTopic && tabTopic === 'cooking' &&
+                            <div className='flex items-center border-t-4 border-guard-topic-orange' onClick={() => handleTabClick('cooking')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/cooking' >
+                                    <p className='text-2xl font-serif pl-2 font-bold '>Cooking</p>
+                                </Link>
+                            </div>
+                        }
+                        {tabTopic !== 'cooking'  &&
+                            <div className='flex items-center hover:border-t-4 border-guard-topic-orange' onClick={() => handleTabClick('cooking')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/cooking' >
+                                    <p className='text-2xl font-serif pl-2 font-bold '>Cooking</p>
+                                </Link>
+                            </div>
+                        }
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
-
-                        <div className='flex items-center hover:border-t-4 border-guard-topic-sky'>
-                            <Link className='flex pl-2 pr-20 items-center' href='/#football' >
-                                <p className='text-2xl font-serif pl-2 font-bold '>Football</p>
-                            </Link>
-                        </div>
+                        {tabTopic && tabTopic === 'football' &&
+                            <div className='flex items-center border-t-4 border-guard-topic-sky' onClick={() => handleTabClick('football')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
+                                    <p className='text-2xl font-serif pl-2 font-bold '>Football</p>
+                                </Link>
+                            </div>
+                        }
+                        {tabTopic !== 'football' &&
+                            <div className='flex items-center hover:border-t-4 border-guard-topic-sky' onClick={() => handleTabClick('football')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
+                                    <p className='text-2xl font-serif pl-2 font-bold '>Football</p>
+                                </Link>
+                            </div>
+                        }
 
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>

@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import getCurrentWeatherReport  from '../pages/api/weather/currentWeather'
 import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWeather'
 import ReactLoading from 'react-loading';
-import { BiLinkExternal } from 'react-icons/bi'
 import {HiChevronDown} from 'react-icons/hi2'
-
 
 const WeatherWidget = () => {
 
@@ -20,10 +18,8 @@ const WeatherWidget = () => {
       const latitude = pos.coords.latitude;
       const longitude = pos.coords.longitude;
       const coordStr = `${latitude}, ${longitude}`
-      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       if(pos.coords.latitude && pos.coords.longitude) {
         setPosition(coordStr)
-        console.log('pos',position)
 
       }
     }
@@ -35,11 +31,8 @@ const WeatherWidget = () => {
                 if(result.state === 'granted') {
                     const getLoc = () => {
                       const loc = navigator.geolocation.getCurrentPosition(success)
-
                     }
                     getLoc()
-                    console.log('position in useEffect', position)
-                    
                 }
             });
         } else {
@@ -50,28 +43,20 @@ const WeatherWidget = () => {
 
     useEffect(() => {
         if (position) {
-            console.log('second useEffect', position)
             const fetchReport = async() => {
                     const report = await getCurrentWeatherReport(position)
-                    console.log('reprot', report)
                     setWeather(report)
             } 
             const fetchDaily = async() => {
                 const dailyReport = await getDailyForecastWeatherReport(position)
-                console.log('dailyReport', dailyReport)
                 setDailyWeather(dailyReport)
             }
             fetchReport() 
             fetchDaily()
                 
-                
         }
 
     }, [position])
-
-
-
-
 
     return (
         <div className=' h-[380px] col-span-1 pt-3 px-3'>

@@ -14,8 +14,6 @@ const ArticlePage = () => {
   
   useEffect(() => {
     if (topic) {
-      console.log(topic)
-      // Fetch the article by topic and set it in the state
       const fetchArticle = async () => {
         const articlesData = await getArticlesByTopic(topic);
         setArticles(articlesData);
@@ -25,11 +23,9 @@ const ArticlePage = () => {
   }, [topic]);
 
   // if (!articles) {
-  //   // You can render a loading state here
   //   return <p>Loading...</p>;
   // }
 
-  // Render your article content using the fetched data
   return (
     <Topic topic={topic}/>
   );

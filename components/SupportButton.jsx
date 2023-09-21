@@ -1,8 +1,6 @@
 import React, {useState, useEffect}from 'react'
 import { GoArrowRight} from 'react-icons/go'
 
-
-
 const SupportButton = () => {
        return (
         <div className='h-[34px] w-[130px] rounded-3xl bg-guard-yellow hover:bg-guard-yellow-button flex items-center justify-center'>

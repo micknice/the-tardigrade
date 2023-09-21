@@ -2,36 +2,25 @@ import { useRouter } from 'next/router';
 import React, {useEffect, useState} from 'react'
 import Link from 'next/link'
 import {HiChevronDown} from 'react-icons/hi2'
-import { RiMoneyPoundCircleFill} from 'react-icons/ri'
-import { GoArrowRight} from 'react-icons/go'
 import GuardLogo from '../public/assets/tard.png'
 import Image from 'next/image'
 import SupportButton from './SupportButton'
-import { set } from 'zod';
-
-
 
 const Header = () => {
 
     const router = useRouter();
     const { topic } = router.query;
-    console.log('topic', topic)
-
-   
 
     const [tabTopic, setTabTopic] = useState(null)
 
 
     const handleTabClick = (topic) => {
         setTabTopic(topic)
-        console.log('tabTopic', tabTopic)
     }
 
     useEffect(() => {
         if(topic) {
-            console.log('topic', topic)
             setTabTopic(topic)
-            console.log('tabTopic', tabTopic)
         } else {
             setTabTopic(null)
         }

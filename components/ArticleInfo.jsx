@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import ReactLoading from 'react-loading';
-import { BiLinkExternal } from 'react-icons/bi'
-import {HiChevronDown} from 'react-icons/hi2'
 import { capitalizeAuthor, formatDate } from '../utils/utils'
-import { RiFacebookFill, RiTwitterXFill, RiInstagramLine } from 'react-icons/ri'
-import { GoMail } from 'react-icons/go'
 import ButtonFb from './ButtonFb'
 import ButtonX from './ButtonX'
 import ButtonMail from './ButtonMail'

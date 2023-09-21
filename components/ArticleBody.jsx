@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import dummyText from '../utils/dummytext'
 import ButtonFb from './ButtonFb'
 import ButtonX from './ButtonX'
 import ButtonMail from './ButtonMail'
@@ -7,7 +6,6 @@ import { PiCameraFill } from 'react-icons/pi'
 
 
 const ArticleBody = ({article}) => {
-    console.log(article)
 
     return (
         <div className='col-span-2 w-11/12 px-2 pt-2'>
@@ -15,9 +13,7 @@ const ArticleBody = ({article}) => {
                 {article.title}
             </p>
             <div className='w-full h-8'/>
-            {/* <p className='text-guard-subhead text-lg font-black font-serif leading-snug tracking-tighter'>
-                Plans set to be announced on Friday could include delaying ban on sales of new petrol and diesel cars
-            </p> */}
+            
             <div className='w-full h-1'/>
             <div>
                 <img src={article.article_img_url}></img>

@@ -1,11 +1,9 @@
+import { getArticleByArticleId, getArticlesByArticleId } from "@/pages/api/news/newsApi"
 
 const formatDate = (dateStr) => {
-    console.log('dateStr', dateStr)
     const date = new Date(dateStr).toUTCString()
-    console.log(date)
     return date
 }
-
 
 const getPostAge = (timeOfCreation) => {
     const creation = new Date(timeOfCreation)
@@ -38,11 +36,9 @@ const getShortenedTitle = (title) => {
             fullTitle = `${slice}...`
         }
         return fullTitle
-
 }
 
 const capitalizeAuthor = (author) => {
-    console.log('author', author)
     const splitStr = author.split(' ')
     if (splitStr.length === 1) {
         return `${splitStr[0][0].toUpperCase()}${splitStr[0].slice(1, splitStr[0].length)}`
@@ -50,9 +46,17 @@ const capitalizeAuthor = (author) => {
         const first = `${splitStr[0][0].toUpperCase()}${splitStr[0].slice(1, splitStr[0].length)}`
         const second = `${splitStr[1][0].toUpperCase()}${splitStr[1].slice(1, splitStr[1].length)}`
         return `${first} ${second}`
-
     }
 }
 
+const getSimilarArticles = async(article) => {
+    const firstSimilar = await getArticleByArticleId(article.similar_article)
+    const similarArticleArr = [firstSimilar]
+    while(similarArticleArr.length < 6) {
+        const nextSimilar = await getArticleByArticleId(similarArticleArr[similarArticleArr.length - 1].similar_article)
+            similarArticleArr.push(nextSimilar)
+    }
+    return similarArticleArr
+}
 
-export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate}
+export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles}

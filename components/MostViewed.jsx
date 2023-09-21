@@ -1,29 +1,48 @@
 import React, { useEffect, useState } from 'react'
 import MostViewedItem from '../components/MostViewedItem'
+import { getSimilarArticles } from '@/utils/utils'
 
+const MostViewed = ({article}) => {
 
-const MostViewed = () => {
+    const [similarArticles, setSimilarArticles] = useState([])
 
-    const dummyImgUrl = 'https://images.pexels.com/photos/17832815/pexels-photo-17832815/free-photo-of-timbyen.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    const dummyHeadline = 'Fathers have "unique effect" on childrens educational outcomes, study finds.'
+    useEffect(() => {
+        const fetchArticles = async() => {
+            if (article) {
+            const articlesArr = await getSimilarArticles(article)
+            setSimilarArticles(articlesArr)
+            }
+        }
+        fetchArticles()
+    }, [article])
+
+    
     return (
         <div className=' flex flex-col justify-items-center px-2'>
             <div className=' border-b-[1px] h-1 border-guard-div-grey pt-6'/>
             <div className=' border-b-[1px] h-1 border-guard-div-grey pt-[2px]'/>
             <div className=' border-b-[1px] h-1 border-guard-div-grey pt-[2px]'/>
             <div className=' border-b-[1px] h-1 border-guard-div-grey pt-[2px]'/>
-            <p className='text-black text-lg font-black font-serif leading-tight'>Most viewed</p>
-            
-            <MostViewedItem imgUrl={dummyImgUrl} headline={dummyHeadline}/>
+            <p className='text-black text-lg font-black font-serif leading-tight'>Similar articles</p>
+            {similarArticles[0] &&
+                <MostViewedItem article={similarArticles[0]} />
+            }
             <div className=' border-b-[1px] h-1 border-guard-div-grey '/>
-            <MostViewedItem imgUrl={dummyImgUrl} headline={dummyHeadline}/>
+            {similarArticles[1] &&
+                <MostViewedItem article={similarArticles[1]} />
+            }
             <div className=' border-b-[1px] h-1 border-guard-div-grey '/>
-            <MostViewedItem imgUrl={dummyImgUrl} headline={dummyHeadline}/>
+            {similarArticles[2] &&
+                <MostViewedItem article={similarArticles[2]} />
+            }
             <div className=' border-b-[1px] h-1 border-guard-div-grey '/>
-            <MostViewedItem imgUrl={dummyImgUrl} headline={dummyHeadline}/>
+            {similarArticles[3] &&
+                <MostViewedItem article={similarArticles[3]} />
+            }
             <div className=' border-b-[1px] h-1 border-guard-div-grey '/>
-            <MostViewedItem imgUrl={dummyImgUrl} headline={dummyHeadline}/>
-
+            {similarArticles[4] &&
+                <MostViewedItem article={similarArticles[4]} />
+            }            
     </div>
     )
 }

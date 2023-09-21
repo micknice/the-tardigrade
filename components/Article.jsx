@@ -1,41 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import dummyText from '../utils/dummytext'
 import { getArticles } from '../pages/api/news/newsApi'
 import ArticleInfo from './ArticleInfo'
 import MostViewed from './MostViewed'
-import {HiChevronDown} from 'react-icons/hi2'
-
 import ArticleBody from './ArticleBody'
-import { BiSolidUserCircle } from 'react-icons/bi'
 import Comments from './Comments'
 
 
 const Article = ({article}) => {
-
-    
-
     
     const [headlinesArr, setHeadlinesArr] = useState([])
 
     useEffect(() => {
         const fetchArticles = async() => {
             const articlesArr = await getArticles()
-            console.log('articlesArr', articlesArr)
             const headlines = []
             for(let i = 0; i < 10; i++) {
                 const randomIndex = Math.floor(Math.random() * (articlesArr.length))
                 headlines.push(articlesArr[randomIndex])
             }
             setHeadlinesArr(headlines)
-            console.log('set', headlinesArr)
         }
         fetchArticles()
 
     }, [])
-
-
-
-
 
     return (
         <div className=' w-full bg-white flex  justify-center items-center px-40'>
@@ -53,7 +40,7 @@ const Article = ({article}) => {
                                 <div className=' col-span-4 grid grid-cols-3 gap-x-6 pr- '>
                                     <ArticleBody article={article}/>
                                     <div className=''>
-                                        <MostViewed/>
+                                        <MostViewed article={article}/>
                                     </div>
                                 </div>
                             </div>

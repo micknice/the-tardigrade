@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const niceNewsApi = axios.create({
-    baseURL: 'https://nice-news.onrender.com/api',
+    baseURL: process.env.NEXT_PUBLIC_NCNEWS_API_URL,
 });
 
 const getTopics = async () => {
@@ -46,8 +46,14 @@ const deleteCommentByCommentId = async (commentId) => {
 
 }
 
+const patchVotesByCommentId = async (commentId) => {
+    const reqBody = {inc_votes: 1}
+    const { data } = await niceNewsApi.patch(`/comments/${commentId}`, reqBody)
+    return data.patched_comment
+}
 
 
 
 
-export { getTopics, getArticles, getArticlesByTopic, getArticleByArticleId, getCommentsByArticleId, postCommentByArticleId, patchVotesByArticleId, getUsers, deleteCommentByCommentId };
+
+export { getTopics, getArticles, getArticlesByTopic, getArticleByArticleId, getCommentsByArticleId, postCommentByArticleId, patchVotesByArticleId, getUsers, deleteCommentByCommentId, patchVotesByCommentId };

@@ -1,22 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
-import {HiChevronDown} from 'react-icons/hi2'
-import { RiMoneyPoundCircleFill} from 'react-icons/ri'
-import { GoArrowRight} from 'react-icons/go'
-import GuardLogo from '../public/assets/gruardlogowhite.png'
-import Image from 'next/image'
-import SupportButton from './SupportButton'
-import Brand from '../public/assets/brandy.jpg'
 import BigArticleCard from './BigArticleCard'
 import MediumArticleCard from './MediumArticleCard'
 import SmallArticleCard from './SmallArticleCard'
 import WeatherWidget from './WeatherWiget'
-import getCurrentWeatherReport  from '../pages/api/weather/currentWeather'
-import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWeather'
-import ReactLoading from 'react-loading';
 import { getArticlesByTopic } from '../pages/api/news/newsApi'
-
-
 
 const Main = ( {topic} ) => {
 
@@ -27,17 +14,14 @@ const Main = ( {topic} ) => {
             if (topic) {
 
                 const articlesArr = await getArticlesByTopic(topic)
-                console.log('articlesArr', articlesArr)
                 
                 setHeadlinesArr(articlesArr)
-                console.log('set', headlinesArr)
             }
         }
         fetchArticles()
 
     }, [topic])
 
-   
     return (
         <div className='h-screen w-full bg-white flex  justify-center items-center px-40'>
             <div className='h-full w-5/6 flex items-center justify-center '>

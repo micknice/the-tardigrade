@@ -1,11 +1,10 @@
 import axios from 'axios';
 
 export default async function getDailyForecastWeatherReport(coordStr)  {
-    const apiKey = 'mL8Vxm#8+kNVUZW'
     return new Promise((resolve, reject) => {
-        axios.get(`https://api.weatherapi.com/v1/forecast.json?key=bc6526e02d764054a1061905231809&q=Leeds&days=2&hours=24`)
+      
+    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${coordStr}&aqi=no&days=2&hours=24`)
         .then((response) => {
-            console.log('apiresult', response.data)
             const weatherArr1 = response.data.forecast.forecastday[0].hour
             const weatherArr2 = response.data.forecast.forecastday[1].hour
             const weatherArr3 = weatherArr1.concat(weatherArr2)

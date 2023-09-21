@@ -3,9 +3,6 @@ import { getArticleByArticleId, getArticleFromArticleId } from '../pages/api/new
 import { getPostAge } from '../utils/utils'
 import Link from 'next/link'
 
-
-
-
 const MediumArticleCard = ({article}) => {
 
     const [actualArticle, setActualArticle] = useState(null)
@@ -22,7 +19,6 @@ const MediumArticleCard = ({article}) => {
         }
     }, [article])
 
-    
 
     if(article && article.topic === 'coding') {
         return (
@@ -35,7 +31,7 @@ const MediumArticleCard = ({article}) => {
                     }
                         <div className='h-2/5'>
                             {article &&
-                                <p className='text-guard-topictext-red  text-xl font-black font-serif px-2'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                <p className='text-guard-topictext-red  text-xl font-black font-serif px-2 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                             }
                             {article &&
                                 <p className='text-guard-subhead  text-xl font-medium font-serif leading-5 px-2'>{article.title}</p>
@@ -59,7 +55,7 @@ const MediumArticleCard = ({article}) => {
                     }
                         <div className='h-2/5'>
                             {article &&
-                                <p className='text-guard-topictext-orange  text-xl font-black font-serif px-2'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                <p className='text-guard-topictext-orange  text-xl font-black font-serif px-2 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                             }
                             {article &&
                                 <p className='text-guard-subhead  text-xl font-medium font-serif leading-5 px-2'>{article.title}</p>
@@ -83,7 +79,7 @@ const MediumArticleCard = ({article}) => {
                     }
                         <div className='h-2/5'>
                             {article &&
-                                <p className='text-guard-topictext-sky  text-xl font-black font-serif px-2'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                <p className='text-guard-topictext-sky  text-xl font-black font-serif px-2 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                             }
                             {article &&
                                 <p className='text-guard-subhead  text-xl font-medium font-serif leading-5 px-2'>{article.title}</p>

@@ -1,14 +1,9 @@
 import React, {useState, useEffect}from 'react'
-import {IconContext} from 'react-icons'
-import Image from 'next/image'
 import Link from 'next/link'
-import {AiOutlineClose, AiOutlineMail, AiOutlineMenu} from 'react-icons/ai'
 import { GoSearch } from 'react-icons/go'
-import {FaLinkedinIn, FaGithub} from 'react-icons/fa'
 import {FaCircleUser} from 'react-icons/fa6'
 import { RiMoneyPoundCircleFill} from 'react-icons/ri'
-// import navLogo from '../public/assets/nav/brain.png'
-import { useSession, signIn, signOut } from "next-auth/react"
+// import { useAuth0 } from "@auth0/nextjs-auth0";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false)
@@ -33,7 +28,6 @@ const Navbar = () => {
         setShadow(4)
       }
     }
-    console.log('shadow', shadow)
     window.addEventListener('scroll', handleShadow)
   },);
 

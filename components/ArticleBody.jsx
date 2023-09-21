@@ -6,24 +6,30 @@ import { PiCameraFill } from 'react-icons/pi'
 
 
 const ArticleBody = ({article}) => {
+    console.log('!!!!', article)
 
     return (
         <div className='col-span-2 w-11/12 px-2 pt-2'>
+            {article &&
             <p className='text-guard-subhead text-3xl font-black font-serif leading-tighter tracking-tight'>
                 {article.title}
             </p>
+            }
             <div className='w-full h-8'/>
             
             <div className='w-full h-1'/>
+            {article &&
             <div>
                 <img src={article.article_img_url}></img>
             </div>
-            
+            }
             <div className='pt-2 flex gap-x-1 '>
                 <PiCameraFill size={20} color='#707070'/>
                 <p className='text-guard-posted text-sm text-sans pb-4'> Rishi Sunak said some stuff about some very important matters find out more below.</p>
             </div>
+            {article &&
             <p className='text-guard-subhead  font-serif'>{article.body}</p>
+            }
             <div className=' border-b-[1px] h-5 border-guard-div-grey'></div>
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>

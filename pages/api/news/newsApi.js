@@ -10,6 +10,7 @@ const getTopics = async () => {
 }
 const getArticles = async () => {
     const { data } = await niceNewsApi.get('/articles');
+    console.log("data", data.articles)
     return data.articles;
 }
 const getArticlesByTopic = async (topic) => {

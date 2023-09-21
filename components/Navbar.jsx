@@ -3,9 +3,11 @@ import Link from 'next/link'
 import { GoSearch } from 'react-icons/go'
 import {FaCircleUser} from 'react-icons/fa6'
 import { RiMoneyPoundCircleFill} from 'react-icons/ri'
-// import { useAuth0 } from "@auth0/nextjs-auth0";
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 const Navbar = () => {
+  const { user, isLoading, error } = useUser();
+  console.log('user', user)
   const [nav, setNav] = useState(false)
 
   const [shadow, setShadow] = useState(4)
@@ -49,10 +51,18 @@ const Navbar = () => {
             </div>
             <div className='  w-px bg-guard-div-blue h-3/4'/>
             <div className='flex items-center'>
-              <Link className='flex px-3 items-center' href='/#signin' >
+              {!user && !isLoading &&
+              <Link className='flex px-3 items-center' href='/api/auth/login' >
                 <FaCircleUser size={22}/>
                 <p className=' pl-2 font-bold hover:border-b'>Sign in</p>
               </Link>
+              }
+              {user && !isLoading &&
+              <Link className='flex px-3 items-center' href='/api/auth/login' >
+                <FaCircleUser size={22}/>
+                <p className=' pl-2 font-bold hover:border-b'>{user.name}</p>
+              </Link>
+              }
             </div>
             <div className='  w-px bg-guard-div-blue h-3/4'/>
             <Link className='flex px-3 items-center' href='/#search' >

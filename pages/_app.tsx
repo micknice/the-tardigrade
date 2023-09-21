@@ -7,14 +7,14 @@ import Article from '../components/Article'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <SessionProvider>
+    // <SessionProvider>
       <>
         <Navbar />
     
         <Component {...pageProps} />
         
       </>
-    </SessionProvider>
+    // </SessionProvider>
     
     )
 }

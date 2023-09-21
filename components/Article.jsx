@@ -3,11 +3,16 @@ import dummyText from '../utils/dummytext'
 import { getArticles } from '../pages/api/news/newsApi'
 import ArticleInfo from './ArticleInfo'
 import MostViewed from './MostViewed'
+import {HiChevronDown} from 'react-icons/hi2'
 
 import ArticleBody from './ArticleBody'
+import { BiSolidUserCircle } from 'react-icons/bi'
+import Comments from './Comments'
 
 
 const Article = () => {
+
+    
 
     
     const [headlinesArr, setHeadlinesArr] = useState([])
@@ -50,13 +55,12 @@ const Article = () => {
                                     <div className=''>
                                         <MostViewed/>
                                     </div>
-                                    
                                 </div>
                             </div>
+                            <Comments/>
+                    </div>
 
                             
-                    </div>
-    
                 </div>
             </div>
 

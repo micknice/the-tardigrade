@@ -57,7 +57,8 @@ const config: Config = {
         'guard-div-grey': '#dcdcdc',
         
         'guard-subhead': '#121212',
-        'guard-posted': '#707070'
+        'guard-posted': '#707070',
+        'guard-text-grey': '#b4b5b6'
         
 
       },

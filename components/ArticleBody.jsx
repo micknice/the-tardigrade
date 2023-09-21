@@ -6,12 +6,13 @@ import ButtonMail from './ButtonMail'
 import { PiCameraFill } from 'react-icons/pi'
 
 
-const ArticleBody = () => {
+const ArticleBody = ({article}) => {
+    console.log(article)
 
     return (
-        <div className='col-span-2 w-11/12 px-2'>
+        <div className='col-span-2 w-11/12 px-2 pt-2'>
             <p className='text-guard-subhead text-3xl font-black font-serif leading-tighter tracking-tight'>
-                Sunak planning to drop net zero policies in pre-election challenge to Labour
+                {article.title}
             </p>
             <div className='w-full h-8'/>
             <p className='text-guard-subhead text-lg font-black font-serif leading-snug tracking-tighter'>
@@ -19,14 +20,14 @@ const ArticleBody = () => {
             </p>
             <div className='w-full h-1'/>
             <div>
-                <img src='https://e3.365dm.com/23/07/1600x900/skynews-scotland-rishi-sunak_6236311.jpg?20230731165318'></img>
+                <img src={article.article_img_url}></img>
             </div>
             
             <div className='pt-2 flex gap-x-1 '>
                 <PiCameraFill size={20} color='#707070'/>
                 <p className='text-guard-posted text-sm text-sans pb-4'> Rishi Sunak said some stuff about some very important matters find out more below.</p>
             </div>
-            <p className='text-guard-subhead  font-serif'>{dummyText}</p>
+            <p className='text-guard-subhead  font-serif'>{article.body}</p>
             <div className=' border-b-[1px] h-5 border-guard-div-grey'></div>
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>

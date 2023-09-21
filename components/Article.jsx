@@ -10,7 +10,7 @@ import { BiSolidUserCircle } from 'react-icons/bi'
 import Comments from './Comments'
 
 
-const Article = () => {
+const Article = ({article}) => {
 
     
 
@@ -49,9 +49,9 @@ const Article = () => {
                         
 
                             <div className='h-full grid grid-cols-5 px-2 pr-8  row-span-1 '>
-                                <ArticleInfo article={headlinesArr[0]}/>
+                                <ArticleInfo article={article}/>
                                 <div className=' col-span-4 grid grid-cols-3 gap-x-6 pr- '>
-                                    <ArticleBody/>
+                                    <ArticleBody article={article}/>
                                     <div className=''>
                                         <MostViewed/>
                                     </div>

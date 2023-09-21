@@ -109,7 +109,7 @@ const BigArticleCard = ({article}) => {
 
         
             <div className='col-span-3  pt-3 h-38 max-h-38 min-h-38'>
-                <Link href={`article/${article.article_id}`}>
+                <Link href={`/article/${article.article_id}`}>
                     <div className=' h-full w-full grid grid-cols-3 bg-guard-topictile-sky hover:bg-guard-topictile-hover-sky'>
                             <div className=' col-span-1 h-full border-t-[1px] border-guard-topictext-sky'>
                                 {/* text */}

@@ -24,19 +24,18 @@ const Main = ( {topic} ) => {
 
     useEffect(() => {
         const fetchArticles = async() => {
-            const articlesArr = await getArticlesByTopic(topic)
-            console.log('articlesArr', articlesArr)
-            const headlines = []
-            for(let i = 0; i < 10; i++) {
-                const randomIndex = Math.floor(Math.random() * (articlesArr.length))
-                headlines.push(articlesArr[randomIndex])
+            if (topic) {
+
+                const articlesArr = await getArticlesByTopic(topic)
+                console.log('articlesArr', articlesArr)
+                
+                setHeadlinesArr(articlesArr)
+                console.log('set', headlinesArr)
             }
-            setHeadlinesArr(headlines)
-            console.log('set', headlinesArr)
         }
         fetchArticles()
 
-    }, [])
+    }, [topic])
 
    
     return (

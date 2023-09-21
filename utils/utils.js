@@ -28,8 +28,11 @@ const getShortenedTitle = (title) => {
     const fullTitleSplitArr = title.split(/[.?]/)
         let fullTitle = fullTitleSplitArr[0]
         if(fullTitle.length < 60) {
-            fullTitle = `${fullTitleSplitArr[0]} ${fullTitleSplitArr[1]}.`
-        }
+            if (fullTitleSplitArr[1]) {
+                fullTitle = `${fullTitleSplitArr[0]} ${fullTitleSplitArr[1]}.`
+            } else {
+            fullTitle = `${fullTitleSplitArr[0]}.`
+        }   }
         if (fullTitle.length > 40) {
             const slice = fullTitle.slice(0, 37)
             fullTitle = `${slice}...`

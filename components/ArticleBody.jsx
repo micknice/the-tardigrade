@@ -15,9 +15,9 @@ const ArticleBody = ({article}) => {
                 {article.title}
             </p>
             <div className='w-full h-8'/>
-            <p className='text-guard-subhead text-lg font-black font-serif leading-snug tracking-tighter'>
+            {/* <p className='text-guard-subhead text-lg font-black font-serif leading-snug tracking-tighter'>
                 Plans set to be announced on Friday could include delaying ban on sales of new petrol and diesel cars
-            </p>
+            </p> */}
             <div className='w-full h-1'/>
             <div>
                 <img src={article.article_img_url}></img>

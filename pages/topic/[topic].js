@@ -24,10 +24,10 @@ const ArticlePage = () => {
     }
   }, [topic]);
 
-  if (!articles) {
-    // You can render a loading state here
-    return <p>Loading...</p>;
-  }
+  // if (!articles) {
+  //   // You can render a loading state here
+  //   return <p>Loading...</p>;
+  // }
 
   // Render your article content using the fetched data
   return (

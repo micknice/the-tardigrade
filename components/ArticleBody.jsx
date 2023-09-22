@@ -3,6 +3,7 @@ import ButtonFb from './ButtonFb'
 import ButtonX from './ButtonX'
 import ButtonMail from './ButtonMail'
 import { PiCameraFill } from 'react-icons/pi'
+import Link from 'next/link'
 
 
 const ArticleBody = ({article}) => {
@@ -36,14 +37,14 @@ const ArticleBody = ({article}) => {
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
             <p className='text-guard-subhead text-xs'>Explore more on these topics</p>
             <div className='flex flex-row pt-2 gap-x-1'>
-                <div className='flex border-guard-topicheadtext-red border-[1px] rounded-full'>
-                    <p className='text-guard-topicheadtext-red text-sm font-sans px-2'>Coding</p>
+                <div className='flex border-guard-topicheadtext-red hover:bg-guard-topicheadtext-red border-[1px] hover: rounded-full' >
+                    <Link href='/topic/coding'><p className='text-guard-topicheadtext-red text-sm   hover:text-white font-sans px-2'>Coding</p></Link>
                 </div>
-                <div className='flex border-guard-topicheadtext-red border-[1px] rounded-full'>
-                    <p className='text-guard-topicheadtext-red text-sm font-sans px-2'>Cooking</p>
+                <div className='flex border-guard-topicheadtext-red hover:bg-guard-topicheadtext-red border-[1px] rounded-full'>
+                    <Link href='/topic/cooking'><p className='text-guard-topicheadtext-red text-sm  hover:text-white font-sans px-2'>Cooking</p></Link>
                 </div>
-                <div className='flex border-guard-topicheadtext-red border-[1px] rounded-full'>
-                    <p className='text-guard-topicheadtext-red text-sm font-sans px-2'>Football</p>
+                <div className='flex border-guard-topicheadtext-red hover:bg-guard-topicheadtext-red border-[1px] rounded-full'>
+                    <Link href='/topic/football'><p className='text-guard-topicheadtext-red text-sm hover:text-white  font-sans px-2'>Football</p></Link>
                 </div>
             </div>
             <div className=' border-b-[1px] h-3 border-guard-div-grey'></div>

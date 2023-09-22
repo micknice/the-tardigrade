@@ -4,34 +4,20 @@ import { GoSearch } from 'react-icons/go'
 import {FaCircleUser} from 'react-icons/fa6'
 import { RiMoneyPoundCircleFill} from 'react-icons/ri'
 import { useUser } from '@auth0/nextjs-auth0/client';
+import ReactLoading from 'react-loading';
 
 const Navbar = () => {
-  const { user, isLoading, error } = useUser();
+  const { user, isLoading, error, logout } = useUser();
   console.log('user', user)
   const [nav, setNav] = useState(false)
 
-  const [shadow, setShadow] = useState(4)
-
-  useEffect(() => {
-    const handleShadow = () => {
-      if (window.scrollY >= 0 && window.scrollY <50) {
-        setShadow(4)
-      } 
-      else if (window.scrollY >= 50 && window.scrollY <100) {
-        setShadow(0)
-      } 
-      else if (window.scrollY >= 100 && window.scrollY <150) {
-        setShadow(1)
-      }  else if (window.scrollY >= 150 && window.scrollY <250) {
-        setShadow(2)
-      } else if (window.scrollY >= 250) {
-        setShadow(3)
-      } else {
-        setShadow(4)
-      }
+  const handleLogout = async() => {
+    try{
+      await logout()
+    } catch(err) {
+      console.log(err)
     }
-    window.addEventListener('scroll', handleShadow)
-  },);
+  }
 
   const handleNav = () => {
     setNav(!nav)
@@ -53,14 +39,25 @@ const Navbar = () => {
             <div className='flex items-center'>
               {!user && !isLoading &&
               <Link className='flex px-3 items-center' href='/api/auth/login' >
-                <FaCircleUser size={22}/>
+                <ReactLoading type={'bars'} color={'#dcdcdc'}/>
                 <p className=' pl-2 font-bold hover:border-b'>Sign in</p>
               </Link>
               }
-              {user && !isLoading &&
+              {isLoading &&
               <Link className='flex px-3 items-center' href='/api/auth/login' >
                 <FaCircleUser size={22}/>
-                <p className=' pl-2 font-bold hover:border-b'>{user.name}</p>
+                {/* <p className=' pl-2 font-bold hover:border-b'>Sign in</p> */}
+              </Link>
+              }
+              {user && !isLoading &&
+              <Link className='flex px-3 items-center' href='/api/auth/logout' >
+                {user.picture &&
+                <img className='h-6 rounded-full' src={user.picture}/>
+                }
+                {!user.picture &&
+                <FaCircleUser size={22}/>
+                }
+                <p className=' pl-2 font-bold hover:border-b'>{user.nickname}</p>
               </Link>
               }
             </div>

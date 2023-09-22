@@ -3,9 +3,12 @@ import {HiChevronDown} from 'react-icons/hi2'
 import { BiSolidUserCircle } from 'react-icons/bi'
 import CommentCard from './CommentCard'
 import { getCommentsByArticleId } from '../pages/api/news/newsApi'
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 
 const Comments = ({article}) => {
+
+    const { user, isLoading, error, logout } = useUser();
 
     const [comments, setComments] = useState([])
 
@@ -14,6 +17,7 @@ const Comments = ({article}) => {
             const fetchComments = async() => {
                 const commentsArr = await getCommentsByArticleId(article.article_id)
                 setComments(commentsArr)
+                console.log('commentsArr', commentsArr)
             }
             fetchComments()
         }
@@ -25,11 +29,26 @@ const Comments = ({article}) => {
             <div className='h-[380px] w-full col-span-1 pt-1 px-4  flex flex-col'>
                 <div className=' w-full flex flex-row gap-x-1 px-1'>
                     <p className='text-guard-subhead text-2xl font-black font-serif tracking-tighter'>comments</p>
-                    <p className='text-guard-text-grey text-xl font-black font-serif tracking-tighter'>{`(${dummyCommentCount})`}</p>
+                    <p className='text-guard-text-grey text-2xl font-black font-serif tracking-tighter'>{`(${comments.length})`}</p>
                 </div>
+                {user && user.picture &&
+                <img className='h-auto w-[80px] rounded-full' src={user.picture}/>
+                // <BiSolidUserCircle size={80} color='#b4b5b6'/>
+                }
+                {!user || !user.picture &&
                 <BiSolidUserCircle size={80} color='#b4b5b6'/>
+                }
+                {user &&
+                <div>
                 <p className='text-guard-posted text-lg tracking-tighter px-1'>Signed in as</p>
-                <p className='text-guard-subhead text-lg font-bold tracking-tighter px-1'>Guardian User</p>
+                <p className='text-guard-subhead text-lg font-bold tracking-tighter px-1'>{user.nickname}</p>
+                </div>
+                }
+                {!user &&
+                <div>
+                <p className='text-guard-posted text-lg tracking-tighter px-1'>Sign in...</p>
+                </div>
+                }
             </div>
             <div className='col-span-4 grid grid-cols-3 '>
                 <div className=' col-span-2'>
@@ -68,7 +87,7 @@ const Comments = ({article}) => {
 
                             {comments ? comments.map((comment) => {
                                 return (
-                                    <CommentCard comment={comment}/>
+                                    <CommentCard comment={comment} article={article}/>
                                     )
                                 }) : () => {
                                 return (

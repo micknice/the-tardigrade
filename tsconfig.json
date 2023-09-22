@@ -37,7 +37,7 @@
     "components/Navbar.jsx",
     "components/Main.jsx",
     ".next/types/**/*.ts"
-, "pages/_app.tsx"  ],
+, "pages/_app.tsx", "components/BigArticleCardLive.jsx"  ],
   "exclude": [
     "node_modules"
   ]

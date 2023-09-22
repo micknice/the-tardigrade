@@ -59,4 +59,21 @@ const getSimilarArticles = async(article) => {
     return similarArticleArr
 }
 
-export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles}
+// query the youtube api to check if channel is live  
+const checkIfLive = async(channelId) => {
+    const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`) 
+    const data = await res.json()    
+    
+
+    return data.items.length > 0
+} 
+
+// query the youtube api to get url  and description
+const getVideoInfo = async(videoId) => {
+    const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`) 
+    const data = await res.json()
+    return data.items[0]
+}   
+
+
+export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo}

@@ -4,10 +4,12 @@ import MediumArticleCard from './MediumArticleCard'
 import SmallArticleCard from './SmallArticleCard'
 import WeatherWidget from './WeatherWiget'
 import { getArticles } from '../pages/api/news/newsApi'
+import { checkIfLive } from '@/utils/utils' 
 
 const Main = () => {
 
     const [headlinesArr, setHeadlinesArr] = useState([])
+    const [live, setLive] = useState(false)
 
     useEffect(() => {
         const fetchArticles = async() => {
@@ -19,7 +21,13 @@ const Main = () => {
             }
             setHeadlinesArr(headlines)
         }
+        const fetchLive = async() => { 
+            const live = await checkIfLive('UCeY0bbntWzzVIaj2z3QigXg')
+            console.log('live', live)
+            setLive(live)
+         }
         fetchArticles()
+        fetchLive()
 
     }, [])
 
@@ -38,7 +46,10 @@ const Main = () => {
 
                             <div className='h-full grid grid-cols-5 px-2 pr-20 gap-x-3 row-span-1 '>
                                 <WeatherWidget/>
+                                
                                 <BigArticleCard article={headlinesArr[0]}/>
+                                
+                                
                                 <MediumArticleCard article={headlinesArr[1]}/>
                             </div>
 

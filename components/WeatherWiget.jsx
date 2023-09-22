@@ -31,6 +31,7 @@ const WeatherWidget = () => {
                 if(result.state === 'granted') {
                     const getLoc = () => {
                       const loc = navigator.geolocation.getCurrentPosition(success)
+                      console.log('loc', loc)
                     }
                     getLoc()
                 }

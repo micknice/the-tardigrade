@@ -31,7 +31,7 @@ const Comments = ({article}) => {
                     <p className='text-guard-text-grey text-2xl font-black font-serif tracking-tighter'>{`(${comments.length})`}</p>
                 </div>
                 {user && user.picture &&
-                <img className='h-auto w-[80px] rounded-full' src={user.picture}/>
+                <img className='h-auto w-[80px] rounded-full' src={user.picture} alt='/'/>
                 // <BiSolidUserCircle size={80} color='#b4b5b6'/>
                 }
                 {!user || !user.picture &&
@@ -86,7 +86,7 @@ const Comments = ({article}) => {
 
                             {comments ? comments.map((comment) => {
                                 return (
-                                    <CommentCard comment={comment} article={article}/>
+                                    <CommentCard key={comment.comment_id} comment={comment} article={article}/>
                                     )
                                 }) : () => {
                                 return (

@@ -75,7 +75,7 @@ const WeatherWidget = () => {
                         <ReactLoading type={'bars'} color={'#dcdcdc'}/>
                     }
                     {weather &&
-                    <img className='pb-2' src={weather.current.condition.icon}></img>
+                    <img className='pb-2' src={weather.current.condition.icon} alt='/'></img>
                     
                 }
                     <div className='grid grid-rows-3'>
@@ -96,7 +96,7 @@ const WeatherWidget = () => {
                             <p className='text-guard-subhead text-sm font-semibold'>{`${dailyWeather[0].temp_c}°C`}</p>
                         }
                         {dailyWeather &&
-                            <img className='pb-2' src={dailyWeather[0].condition.icon}></img>
+                            <img className='pb-2' src={dailyWeather[0].condition.icon} alt='/'></img>
                         }
                         
                         
@@ -109,7 +109,7 @@ const WeatherWidget = () => {
                             <p className='text-guard-subhead text-sm font-semibold'>{`${dailyWeather[1].temp_c}°C`}</p>
                         }
                         {dailyWeather &&
-                            <img className='pb-2' src={dailyWeather[1].condition.icon}></img>
+                            <img className='pb-2' src={dailyWeather[1].condition.icon} alt='/'></img>
                         }
 
                     </div>
@@ -121,7 +121,7 @@ const WeatherWidget = () => {
                             <p className='text-guard-subhead text-sm font-semibold'>{`${dailyWeather[2].temp_c}°C`}</p>
                         }
                         {dailyWeather &&
-                            <img className='pb-2' src={dailyWeather[2].condition.icon}></img>
+                            <img className='pb-2' src={dailyWeather[2].condition.icon} alt='/'></img>
                         }
                     </div>
                     <div className='border-guard-div-grey flex flex-col'>
@@ -132,7 +132,7 @@ const WeatherWidget = () => {
                             <p className='text-guard-subhead text-sm font-semibold'>{`${dailyWeather[3].temp_c}°C`}</p>
                         }
                         {dailyWeather &&
-                            <img className='pb-2' src={dailyWeather[3].condition.icon}></img>
+                            <img className='pb-2' src={dailyWeather[3].condition.icon} alt='/'></img>
                         }
                     </div>
                 </div>

@@ -60,7 +60,7 @@ const BigArticleCard = ({article}) => {
                                 {/* picture */}
                                 <div className='col-span-2 w-[492px]  object-contain flex justify-center items-center'>
                                     {actualArticle &&
-                                        <ReactPlayer className=''url='https://www.youtube.com/watch?v=cRe1k2ZYQkw' playing='true' muted='true' config={{youtube: {playerVars: {cc_load_policy: 1, }}}}/>  
+                                        <ReactPlayer className=''url='https://www.youtube.com/watch?v=cRe1k2ZYQkw' playing='true' muted='true' config={{youtube: {playerVars: {cc_load_policy: 1, }}}} alt='/'/>  
             
                                     }
                 

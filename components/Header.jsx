@@ -46,7 +46,7 @@ const Header = () => {
                         {/* right header */}
                         <div className=' col-span-1 h-2/3 w-full flex items-center justify-center flex-col pr-20 pb-20'>
                             {/* <Image height={96} src={GuardLogo} /> */}
-                            <Image height={120} src={GuardLogo} />
+                            <Image height={120} src={GuardLogo} alt='/'/>
                             {/* <p className='text-base font-semibold  text-guard-yellow font-sans'>A newspaper of all time</p> */}
                         </div>
 

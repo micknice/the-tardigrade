@@ -51,7 +51,7 @@ const Navbar = () => {
               {user && !isLoading &&
               <Link className='flex px-3 items-center' href='/api/auth/logout' >
                 {user.picture &&
-                <img className='h-6 rounded-full' src={user.picture}/>
+                <img className='h-6 rounded-full' src={user.picture} alt='/'/>
                 }
                 {!user.picture &&
                 <FaCircleUser size={22}/>

@@ -26,7 +26,7 @@ const MediumArticleCard = ({article}) => {
                 <Link href={`/article/${article.article_id}`}>
                     <div className='h-full w-full  bg-guard-topictile-red hover:bg-guard-topictile-hover-red'>
                     {actualArticle &&
-                        <img className='h-2/5 w-full object-cover' src={actualArticle.article_img_url}/>
+                        <img className='h-2/5 w-full object-cover' src={actualArticle.article_img_url} alt='/'/>
     
                     }
                         <div className='h-2/5'>
@@ -50,7 +50,7 @@ const MediumArticleCard = ({article}) => {
                 <Link href={`/article/${article.article_id}`}>
                     <div className='h-full w-full  bg-guard-topictile-orange hover:bg-guard-topictile-hover-orange'>
                     {actualArticle &&
-                        <img className='h-2/5 w-full object-cover' src={actualArticle.article_img_url}/>
+                        <img className='h-2/5 w-full object-cover' src={actualArticle.article_img_url} alt='/'/>
     
                     }
                         <div className='h-2/5'>
@@ -74,7 +74,7 @@ const MediumArticleCard = ({article}) => {
                 <Link href={`/article/${article.article_id}`}>
                     <div className='h-full w-full  bg-guard-topictile-sky hover:bg-guard-topictile-hover-sky'>
                     {actualArticle &&
-                        <img className='h-2/5 w-full object-cover' src={actualArticle.article_img_url}/>
+                        <img className='h-2/5 w-full object-cover' src={actualArticle.article_img_url} alt='/'/>
     
                     }
                         <div className='h-2/5'>

@@ -19,7 +19,7 @@ const ArticleBody = ({article}) => {
             <div className='w-full h-1'/>
             {article &&
             <div>
-                <img src={article.article_img_url}></img>
+                <img src={article.article_img_url} alt='/'></img>
             </div>
             }
             <div className='pt-2 flex gap-x-1 '>

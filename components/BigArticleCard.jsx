@@ -58,7 +58,7 @@ const BigArticleCard = ({article}) => {
                                 {/* picture */}
                                 <div className='col-span-2 w-[492px]  object-cover'>
                                     {actualArticle &&
-                                    <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  />
+                                    <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  alt='/'/>
             
                                     }
                 
@@ -91,7 +91,7 @@ const BigArticleCard = ({article}) => {
                             {/* picture */}
                             <div className='col-span-2 w-[492px] h-full  object-cover'>
                                 {actualArticle &&
-                                <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  />
+                                <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  alt='/'/>
         
                                 }
             
@@ -126,7 +126,7 @@ const BigArticleCard = ({article}) => {
                                 {/* picture */}
                                 <div className='col-span-2 w-full'>
                                     {actualArticle &&
-                                    <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  />
+                                    <img className='object-contain w-full h-auto' src={actualArticle.article_img_url} alt='/' />
             
                                     }
                 

@@ -22,7 +22,6 @@ const Comments = ({article}) => {
             fetchComments()
         }
     }, [article])
-    const dummyCommentCount = 206
 
     return (
         <div className=' h-auto w-full border-t-[1px] border-x-guard-div-grey grid grid-cols-5'>

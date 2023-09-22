@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import ButtonFb from './ButtonFb'
 import ButtonX from './ButtonX'
 import ButtonMail from './ButtonMail'
@@ -7,8 +7,6 @@ import Link from 'next/link'
 
 
 const ArticleBody = ({article}) => {
-    console.log('!!!!', article)
-
     return (
         <div className='col-span-2 w-11/12 px-2 pt-2'>
             {article &&

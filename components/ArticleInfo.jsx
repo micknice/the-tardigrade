@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { capitalizeAuthor, formatDate } from '../utils/utils'
 import ButtonFb from './ButtonFb'
 import ButtonX from './ButtonX'

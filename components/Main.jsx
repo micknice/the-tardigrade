@@ -23,11 +23,9 @@ const Main = () => {
         }
         const fetchLive = async() => { 
             const live = await checkIfLive('UCeY0bbntWzzVIaj2z3QigXg')
-            console.log('live', live)
             setLive(live)
          }
         fetchArticles()
-        fetchLive()
 
     }, [])
 

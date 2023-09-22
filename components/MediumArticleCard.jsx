@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { getArticleByArticleId, getArticleFromArticleId } from '../pages/api/news/newsApi'
+import { getArticleByArticleId} from '../pages/api/news/newsApi'
 import { getPostAge } from '../utils/utils'
 import Link from 'next/link'
 

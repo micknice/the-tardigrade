@@ -1,4 +1,4 @@
-import { getArticleByArticleId, getArticlesByArticleId } from "@/pages/api/news/newsApi"
+import { getArticleByArticleId} from "@/pages/api/news/newsApi"
 
 const formatDate = (dateStr) => {
     const date = new Date(dateStr).toUTCString()

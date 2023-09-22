@@ -8,7 +8,6 @@ import ReactLoading from 'react-loading';
 
 const Navbar = () => {
   const { user, isLoading, error, logout } = useUser();
-  console.log('user', user)
   const [nav, setNav] = useState(false)
 
   const handleLogout = async() => {

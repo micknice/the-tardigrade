@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>The Tardigrade - Refector</title>
-        <meta name="description" content="etc. etc."/>
+        <title>The Tardigrade</title>
+        <meta name="description" content="Its a marathon not a sprint"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

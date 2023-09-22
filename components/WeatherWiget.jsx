@@ -15,6 +15,7 @@ const WeatherWidget = () => {
     const [weather, setWeather] = useState(null)
     const [dailyWeather, setDailyWeather] = useState(null)
     const success = (pos) => {
+        console.log('pos', pos)
       const latitude = pos.coords.latitude;
       const longitude = pos.coords.longitude;
       const coordStr = `${latitude}, ${longitude}`

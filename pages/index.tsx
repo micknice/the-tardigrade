@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Mike McCullagh - Portfolio</title>
+        <title>The Tardigrade - Refector</title>
         <meta name="description" content="etc. etc."/>
         <link rel="icon" href="/favicon.ico" />
       </Head>

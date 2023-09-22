@@ -24,7 +24,7 @@ const ArticleBody = ({article}) => {
             }
             <div className='pt-2 flex gap-x-1 '>
                 <PiCameraFill size={20} color='#707070'/>
-                <p className='text-guard-posted text-sm text-sans pb-4'> Rishi Sunak said some stuff about some very important matters find out more below.</p>
+                <p className='text-guard-posted text-sm text-sans pb-4'></p>
             </div>
             {article &&
             <p className='text-guard-subhead  font-serif'>{article.body}</p>

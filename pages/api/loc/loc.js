@@ -8,7 +8,7 @@ export default  getGeoLoc = async (req, res) => {
     // Use the 'loc' value to fetch weather data from your weather API
     // Example: Fetch weather data using the 'loc' value
 
-    const weatherData = await fetchWeatherData(loc);
+    return loc
 
     res.status(200).json(weatherData);
   } catch (error) {

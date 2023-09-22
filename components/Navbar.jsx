@@ -36,16 +36,11 @@ const Navbar = () => {
             </div>
             <div className='  w-px bg-guard-div-blue h-3/4'/>
             <div className='flex items-center'>
-              {!user && !isLoading &&
-              <Link className='flex px-3 items-center' href='/api/auth/login' >
-                <ReactLoading type={'bars'} color={'#dcdcdc'}/>
-                <p className=' pl-2 font-bold hover:border-b'>Sign in</p>
-              </Link>
-              }
-              {isLoading &&
+              
+              {!user &&
               <Link className='flex px-3 items-center' href='/api/auth/login' >
                 <FaCircleUser size={22}/>
-                {/* <p className=' pl-2 font-bold hover:border-b'>Sign in</p> */}
+                <p className=' pl-2 font-bold hover:border-b'>Sign in</p>
               </Link>
               }
               {user && !isLoading &&

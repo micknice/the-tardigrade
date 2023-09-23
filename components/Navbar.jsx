@@ -39,7 +39,7 @@ const Navbar = () => {
               
               {!user &&
               <Link className='flex px-3 items-center' href='/api/auth/login' >
-                <FaCircleUser size={22}/>
+                <FaCircleUser size={22} color={'#ffff'}/>
                 <p className=' pl-2 font-bold hover:border-b text-white'>Sign in</p>
               </Link>
               }

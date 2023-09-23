@@ -18,8 +18,10 @@ const Comments = ({article}) => {
 
     const [comments, setComments] = useState([])
     const [commentsSort, setCommentsSort] = useState([])
+    const [paginatedComments, setPaginatedComments] = useState([])
     const [sortBy, setSortBy] = useState('Latest')
     const [perPage, setPerPage] = useState(10)
+    const [commentPage, setCommentPage] = useState(1)
 
     useEffect(() => {
         if (article) {
@@ -44,9 +46,36 @@ const Comments = ({article}) => {
         }
 
     }, [sortBy])
+    
+    useEffect(() => {
+        if (perPage === 'All') {
+            setPaginatedComments([commentsSort])
+        } else if (perPage === 10){
+            const paginatedArr = []
+            for (let i=0; i<commentsSort.length; i+=10) {
+                paginatedArr.push(commentsSort.slice(i, i+10))
+            }
+            setPaginatedComments(paginatedArr)
+        } else if (perPage === 50){
+            const paginatedArr = []
+            for (let i=0; i<commentsSort.length; i+=50) {
+                paginatedArr.push(commentsSort.slice(i, i+50))
+            }
+            setPaginatedComments(paginatedArr)
+        }
+        
+
+    }, [perPage, commentsSort])
 
     const handleChangeSortBy = (sortStr) => {
         setSortBy(sortStr)
+    }
+    const handleChangePerPage = (perPageVal) => {
+        setPerPage(perPageVal)
+    }
+
+    const handleChangePage = (pageVal) => {
+        setCommentPage(pageVal)
     }
 
     return (
@@ -121,14 +150,39 @@ const Comments = ({article}) => {
                                     <div className='pt-1'>
                                         <HiChevronDown size={10} color='#707070'/>
                                     </div> */}
+                                    {perPage === 10 &&
+
                                     <Dropdown inline label={perPage}>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Oldest')}}>
-                                        Oldest
+                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
+                                        50
                                     </p>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Votes')}}>
-                                        Votes
+                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage('All')}}>
+                                        All
                                     </p>
-                                </Dropdown>
+                                    </Dropdown>
+                                    }
+                                    {perPage === 50 &&
+
+                                    <Dropdown inline label={perPage}>
+                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(10)}}>
+                                        10
+                                    </p>
+                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage('All')}}>
+                                        All
+                                    </p>
+                                    </Dropdown>
+                                    }
+                                    {perPage === 'All' &&
+
+                                    <Dropdown inline label={perPage}>
+                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(10)}}>
+                                        10
+                                    </p>
+                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
+                                        50
+                                    </p>
+                                    </Dropdown>
+                                    }
                                 </div>
                             </div>
                             {/* <div className=' border-l-[1px] px-2 flex flex-col'>
@@ -141,9 +195,22 @@ const Comments = ({article}) => {
                                 </div>
                             </div> */}
                         </div>
+                        <div className=' border-t-[1px]  border-guard-div-grey flex flex-row py-1 gap-x-3 items-center' >
+                            {paginatedComments.length > 0 &&
+                            paginatedComments.map((page, index) => 
+                                <div className='h-5 w-5  rounded-full  hover:bg-guard-topictile-hover-red flex items-center justify-center pr-1 pb-1' onClick={()=>{handleChangePage(index + 1)}}>
+                                    {commentPage === index + 1 &&
+                                    <p className='text-guard-topicheadtext-red font-semibold font-sans tracking-tight '>{index+1}</p>
+                                    }
+                                    {commentPage !== index + 1 &&
+                                    <p className='text-guard-posted font-semibold font-sans tracking-tight hover:text-guard-subhead select-none  '>{index+1}</p>
+                                    }
+                                </div>
+                            )}
+                        </div>
                         
 
-                            {commentsSort ? commentsSort.map((comment) => {
+                            {paginatedComments.length > 0 ? paginatedComments[0].map((comment) => {
                                 return (
                                     <CommentCard key={comment.comment_id} comment={comment} article={article}/>
                                     )

@@ -1,38 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Front end for news serving app with basic social functionality.
 
-## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Made using Next.JS, React, Tailwind.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To run locally clone the repo, then run npm i.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+For login functionality and all social behaviours that are contingent on logged in status you will require an auth0 account and an auth0 project set up.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+create a .env.local file in root and add the following:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+AUTH0_DOMAIN={your auth0 domain}
+AUTH0_CLIENT_ID={your auth0 client id}
+AUTH0_CLIENT_SECRET={your auth0 client secret}
+AUTH0_SECRET={your auth0 secret}
+AUTH0_BASE_URL='http://localhost:3000'
+AUTH0_ISSUER_BASE_URL={your issuer base url}
+AUTH0_AUDIENCE=
+AUTH0_SCOPE='openid profile'
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+for help with this follow the rlevant parts of this guide: https://www.smashingmagazine.com/2021/05/implement-authentication-nextjs-auth0/
 
-## Learn More
+For the weather widget functionality you will require a https://www.weatherapi.com/ API key
 
-To learn more about Next.js, take a look at the following resources:
+create a .env file in root and add the following:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NEXT_PUBLIC_WEATHER_API_KEY={your weather api key}
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm run dev to run locally.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Live site hosted here: https://www.thetardigrade.co.uk/
+
+Code for back end here: https://github.com/micknice/nc-news-back-end
+
+
+Issues:
+
+Weather widget currently non functional in deployed version due to geolocation acquisition not working. I'm working on it.
+
+Logout behaviour with auth0 leaves app in a permanent state of logging out, known issue with no solution I have found. Will be moving over to NextAuth.

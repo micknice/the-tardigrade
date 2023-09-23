@@ -11,10 +11,16 @@ export const getServerSideProps = ({ query }) => ({
 
 
 const WeatherWidget = ({
+    name,
+    languages,
     city,
-  }) => {
+    region,
+    country,
+    currencyCode,
+    currencySymbol,
+  })=> {
+    name = decodeURIComponent(name)
     city = decodeURIComponent(city)
-    console.log(city)
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-50">
         <div className="fixed inset-0 overflow-hidden opacity-75 bg-[#f8fafb]">
@@ -61,16 +67,20 @@ const WeatherWidget = ({
                 /> */}
               </div>
               <div className="ml-4 mr-auto text-left">
+                <h4 className="font-semibold">{name}</h4>
                 <h5 className="text-gray-700">{city}</h5>
               </div>
+              <p className="self-center text-gray-700">{country}</p>
             </div>
             <div className="p-4 flex justify-center items-between border-b bg-gray-50">
               <h4 className="font-semibold text-left mr-auto">Languages</h4>
               <div className="self-center">
+                <p className="text-gray-700">{languages}</p>
               </div>
             </div>
             <div className="p-4 flex justify-center items-between border-b bg-gray-50">
               <h4 className="font-semibold text-left mr-auto">Currency</h4>
+              <p className="text-gray-700">{`${currencyCode} ${currencySymbol}`}</p>
             </div>
             <div className="p-4 flexborder-b bg-gray-50 rounded-b-lg">
               <h4 className="font-semibold text-left">Geolocation Headers</h4>
@@ -81,9 +91,11 @@ const WeatherWidget = ({
                 </p>
                 <p>
                   <strong>{'x-vercel-ip-country-region: '}</strong>
+                  {region}
                 </p>
                 <p>
                   <strong>{'x-vercel-ip-country: '}</strong>
+                  {country}
                 </p>
               </pre>
             </div>

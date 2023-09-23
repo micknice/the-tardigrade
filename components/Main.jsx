@@ -3,7 +3,7 @@ import BigArticleCard from './BigArticleCard'
 import BigArticleCardLive from './BigArticleCardLive'
 import MediumArticleCard from './MediumArticleCard'
 import SmallArticleCard from './SmallArticleCard'
-import WeatherWidget from './WeatherWiget'
+import WeatherWidget from './WeatherWidget'
 import { getArticles } from '../pages/api/news/newsApi'
 import { checkIfLive } from '@/utils/utils' 
 

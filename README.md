@@ -16,7 +16,6 @@ AUTH0_CLIENT_SECRET={your auth0 client secret}
 AUTH0_SECRET={your auth0 secret}
 AUTH0_BASE_URL='http://localhost:3000'
 AUTH0_ISSUER_BASE_URL={your issuer base url}
-AUTH0_AUDIENCE=
 AUTH0_SCOPE='openid profile'
 
 for help with this follow the rlevant parts of this guide: https://www.smashingmagazine.com/2021/05/implement-authentication-nextjs-auth0/
@@ -38,6 +37,6 @@ Code for back end here: https://github.com/micknice/nc-news-back-end
 
 Issues:
 
-Weather widget currently non functional in deployed version due to geolocation acquisition not working. I'm working on it.
+Weather widget currently non functional in deployed version. 
 
-Logout behaviour with auth0 leaves app in a permanent state of logging out, known issue with no solution I have found. Will be moving over to NextAuth.
+Logout behaviour with auth0 leaves app in a permanent state of logging out. 

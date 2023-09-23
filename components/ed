@@ -1,0 +1,99 @@
+Skip to content
+GitLab
+Why GitLab
+Pricing
+Contact Sales
+Explore
+Sign in
+ Search or go to…
+Project
+P
+Portfolio
+
+Manage
+
+Plan
+
+Code
+Merge requests
+0
+Repository
+Branches
+Commits
+Tags
+Repository graph
+Compare revisions
+
+Build
+
+Deploy
+
+Operate
+
+Monitor
+
+Analyze
+Edward
+Portfolio
+Repository
+Portfolio
+README.md
+Ed's avatar
+Adding cnn
+Ed authored 3 years ago
+28bc2c6b
+README.md
+2.18 KiB
+Contents list
+Py :
+Reinforcement learning:
+Policy gradient tic tac toe solver -> tic_tac_policy_grad.py
+Alpha Zero chess, single and multi threaded, also tic tac toe -> Alpha Zero
+Basic and pixel cartpole agents -> Cart Pole
+MuZero cart pole solver -> MuZero
+Q-Learning and SARSA agents > Uni RL -> reinforcementLearning.py
+Deep learning:
+Group learning algorithm (invention) -> Group Learning
+Numpy dense neural network -> Uni RL -> mlp.py
+Perceptron algorithm -> Uni RL -> perceptron.py
+CAMELYON - CNN gigapixel cancer classification -> tf
+C++ :
+Deep Learning:
+Convolutional Neural Network totally from scratch -> CNN
+Graphics:
+Vulkan firework particle project -> vfw
+OpenGL & QT Scene -> Globe
+Raytacing scene renderring with materials, lighting etc. -> Raytracing
+Embedded systems 2D games -> mbed
+Basic triangle renderring -> Triangles
+Robotics:
+NAO humanoid robot control from motion capture suit -> Robot Control
+Parallel:
+Multithreaded parallel NQueen problem solver -> Threading
+Leetcode Problems: -> LeetCode
+Two sum
+Add two numbers (linked list)
+Longest substring without repetition
+Longest palindromic substring
+Reverse integer
+String to integer
+Palindrome number
+C :
+Data Structures:
+Dynamic arrays and linked list data structures -> Structures
+Trees -> Quadtree
+Nightmarish string manipulations -> Strings
+Graphics:
+Various 3D mesh manipulations -> MeshGeneration
+SDL game -> Game
+C# :
+Augmented reality modelling software (MS HoloLens) -> Hololens
+VERILOG (FPGA):
+Tamagotchi style game -> tam
+Java :
+Andoid app -> Android-FDM
+Command line baccarat game -> Baccarat
+Routefinding -> Routefinder
+MATLAB :
+Naive Bayes algorithm implemntation
+The contained code in this portfolio was written by Edward Cottle from 2015 to present.

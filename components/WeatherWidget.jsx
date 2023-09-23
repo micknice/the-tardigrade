@@ -10,7 +10,7 @@ export const getServerSideProps = ({ query }) => ({
   })
 
 
-const WeatherWidget = () => {
+const WeatherWidget = ({city}) => {
 
     city = decodeURIComponent(city)
     console.log('city', city)

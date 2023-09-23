@@ -5,16 +5,8 @@ import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWea
 import ReactLoading from 'react-loading';
 import {HiChevronDown} from 'react-icons/hi2'
 
-export const getServerSideProps = ({ query }) => ({
-    props: query,
-    console: console.log(query, 'query')
-  })
 
-
-const WeatherWidget = ({city}) => {
-
-    city = decodeURIComponent(city)
-    console.log('city', city)
+const WeatherWidget = () => {
 
     const getTimeStr = (weatherObj) => {
         const splitArr = weatherObj.time.split(' ')

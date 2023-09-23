@@ -47,10 +47,16 @@ const deleteCommentByCommentId = async (commentId) => {
 
 }
 
-const patchVotesByCommentId = async (commentId) => {
-    const reqBody = {inc_votes: 1}
-    const { data } = await niceNewsApi.patch(`/comments/${commentId}`, reqBody)
-    return data.patched_comment
+const patchVotesByCommentId = async (commentId, vote) => {
+    if (vote === "up") {
+        const reqBody = {inc_votes: 1}
+        const { data } = await niceNewsApi.patch(`/comments/${commentId}`, reqBody)
+        return data.patched_comment
+    } else if (vote === "down") {
+        const reqBody = {inc_votes: -1}
+        const { data } = await niceNewsApi.patch(`/comments/${commentId}`, reqBody)
+        return data.patched_comment
+    }
 }
 
 

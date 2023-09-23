@@ -5,7 +5,7 @@ import CommentCard from './CommentCard'
 import { getCommentsByArticleId } from '../pages/api/news/newsApi'
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Dropdown } from 'flowbite-react';
-import { compareVotes} from '../utils/utils'
+import { sortByVotesDescending} from '../utils/utils'
 
 
 const Comments = ({article}) => {
@@ -20,16 +20,16 @@ const Comments = ({article}) => {
     const [commentsSort, setCommentsSort] = useState([])
     const [paginatedComments, setPaginatedComments] = useState([])
     const [sortBy, setSortBy] = useState('Latest')
-    const [perPage, setPerPage] = useState(10)
+    const [perPage, setPerPage] = useState('All')
     const [commentPage, setCommentPage] = useState(1)
 
     useEffect(() => {
         if (article) {
             const fetchComments = async() => {
                 const commentsArr = await getCommentsByArticleId(article.article_id)
-                setComments(commentsArr)
-                setCommentsSort(commentsArr)
-                console.log('commentsArr', commentsArr)
+                const commentsClone = [...commentsArr]
+                setComments(commentsClone)
+                setCommentsSort(commentsClone)
             }
             fetchComments()
         }
@@ -39,12 +39,16 @@ const Comments = ({article}) => {
         if(sortBy === 'Latest') {
             setCommentsSort(comments)
         } else if (sortBy === 'Oldest') {
-            setCommentsSort(comments.reverse())
+            const commentsClone = [...comments]
+            commentsClone.reverse()
+            setCommentsSort(commentsClone)
         } else if (sortBy === 'Votes') {
-            const commentsSorted = comments.sort(compareVotes)
+            const commentsClone = [...comments]
+            sortByVotesDescending(commentsClone)
+            const commentsSorted = commentsClone
             setCommentsSort(commentsSorted)
         }
-
+        
     }, [sortBy])
     
     useEffect(() => {
@@ -70,6 +74,7 @@ const Comments = ({article}) => {
     const handleChangeSortBy = (sortStr) => {
         setSortBy(sortStr)
     }
+    
     const handleChangePerPage = (perPageVal) => {
         setPerPage(perPageVal)
     }
@@ -185,15 +190,6 @@ const Comments = ({article}) => {
                                     }
                                 </div>
                             </div>
-                            {/* <div className=' border-l-[1px] px-2 flex flex-col'>
-                            <p className='text-guard-posted font-semibold font-sans tracking-tight'>Display threads</p>
-                                <div className=' flex flex-row items-center  gap-x-1'>
-                                    <p className='text-guard-posted font-sans tracking-tight'>Collapsed</p>
-                                    <div className='pt-1'>
-                                        <HiChevronDown size={10} color='#707070'/>
-                                    </div>
-                                </div>
-                            </div> */}
                         </div>
                         <div className=' border-t-[1px]  border-guard-div-grey flex flex-row py-1 gap-x-3 items-center' >
                             {paginatedComments.length > 0 &&

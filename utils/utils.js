@@ -75,9 +75,11 @@ const getVideoInfo = async(videoId) => {
     return data.items[0]
 }   
 
-const compareVotes = (a, b) => {
-    return a.votes - b.votes
-}
+const sortByVotesDescending =(arr) => {
+    arr.sort(function(a, b) {
+      return b.votes - a.votes;
+    });
+  }
 
 
-export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo, compareVotes}
+export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo, sortByVotesDescending}

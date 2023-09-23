@@ -4,7 +4,7 @@ import CommentCard from './CommentCard'
 import { getCommentsByArticleId } from '../pages/api/news/newsApi'
 import { useUser } from '@auth0/nextjs-auth0/client';
 import dynamic from 'next/dynamic';
-const Dropdown = dynamic(() => import("flowbite-react"), { ssr: false });
+const Dropdown = dynamic(() => import("flowbite-react"), {loading: ()=> <Spinner/>});
 import { sortByVotesDescending} from '../utils/utils'
 
 

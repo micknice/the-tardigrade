@@ -14,6 +14,7 @@ const WeatherWidget = ({
     city,
   }) => {
     city = decodeURIComponent(city)
+    console.log(city)
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-50">
         <div className="fixed inset-0 overflow-hidden opacity-75 bg-[#f8fafb]">

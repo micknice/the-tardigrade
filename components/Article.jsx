@@ -44,7 +44,7 @@ const Article = ({article}) => {
                                     </div>
                                 </div>
                             </div>
-                            <Comments article={article}/>
+                            {/* <Comments article={article}/> */}
                     </div>
 
                             

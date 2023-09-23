@@ -26,6 +26,9 @@ const Header = () => {
         }
     },[topic])
 
+
+    
+
     return (
         <div className='w-full bg-white pt-10'>
             <div className='w-full h-48 bg-guard-blue-mid px-40 flex items-center justify-center'>
@@ -36,7 +39,7 @@ const Header = () => {
                         <div className='col-span-2 h-full w-full items-center px-8'>
                             
                             <p className='text-[32px] font-serif font-bold text-guard-yellow'>Support the Tardigrade</p>
-                            <p className='text-[16px] font-bold font-sans  '>Fund independent journalism with £5 per month</p>
+                            <p className='text-[16px] font-bold font-sans text-white '>Fund independent journalism with £5 per month</p>
                             <div className='h-3'></div>
 
                             
@@ -56,14 +59,14 @@ const Header = () => {
                         {tabTopic && tabTopic === 'coding' &&
                             <div className='flex items-center border-t-4 border-guard-topic-red' onClick={() => handleTabClick('coding')}>
                                 <Link className='flex pl-2 pr-20 items-center ' href={`/topic/coding`} >
-                                    <p className='text-2xl font-serif pl-2 font-bold'>Coding</p>
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Coding</p>
                                 </Link>
                             </div>
                         }
                         {tabTopic !== 'coding' &&
                             <div className='flex items-center hover:border-t-4 border-guard-topic-red' onClick={() => handleTabClick('coding')}>
                                 <Link className='flex pl-2 pr-20 items-center ' href={`/topic/coding`} >
-                                    <p className='text-2xl font-serif pl-2 font-bold'>Coding</p>
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Coding</p>
                                 </Link>
                             </div>
                         }
@@ -72,14 +75,14 @@ const Header = () => {
                         {tabTopic && tabTopic === 'cooking' &&
                             <div className='flex items-center border-t-4 border-guard-topic-orange' onClick={() => handleTabClick('cooking')}>
                                 <Link className='flex pl-2 pr-20 items-center' href='/topic/cooking' >
-                                    <p className='text-2xl font-serif pl-2 font-bold '>Cooking</p>
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white '>Cooking</p>
                                 </Link>
                             </div>
                         }
                         {tabTopic !== 'cooking'  &&
                             <div className='flex items-center hover:border-t-4 border-guard-topic-orange' onClick={() => handleTabClick('cooking')}>
                                 <Link className='flex pl-2 pr-20 items-center' href='/topic/cooking' >
-                                    <p className='text-2xl font-serif pl-2 font-bold '>Cooking</p>
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Cooking</p>
                                 </Link>
                             </div>
                         }
@@ -88,14 +91,14 @@ const Header = () => {
                         {tabTopic && tabTopic === 'football' &&
                             <div className='flex items-center border-t-4 border-guard-topic-sky' onClick={() => handleTabClick('football')}>
                                 <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
-                                    <p className='text-2xl font-serif pl-2 font-bold '>Football</p>
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Football</p>
                                 </Link>
                             </div>
                         }
                         {tabTopic !== 'football' &&
                             <div className='flex items-center hover:border-t-4 border-guard-topic-sky' onClick={() => handleTabClick('football')}>
                                 <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
-                                    <p className='text-2xl font-serif pl-2 font-bold '>Football</p>
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Football</p>
                                 </Link>
                             </div>
                         }
@@ -105,7 +108,7 @@ const Header = () => {
 
                         <div className='flex items-center hover:border-t-4 border-guard-topic-pink'>
                             <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
-                                <p className='text-2xl font-serif pl-2 font-bold '>Gaming</p>
+                                <p className='text-2xl font-serif pl-2 font-bold text-white'>Gaming</p>
                             </Link>
                         </div>
 
@@ -113,8 +116,8 @@ const Header = () => {
 
                         <div className='flex items-center'>
                             <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
-                                <p className='text-2xl font-serif pl-2  hover:text-guard-yellow'>More</p>
-                            <HiChevronDown className='pl-2 ' size={20}/>
+                                <p className='text-2xl font-serif pl-2 text-white hover:text-guard-yellow'>More</p>
+                            <HiChevronDown className='pl-2 ' color={'#ffff'} size={20}/>
                             </Link>
                         </div>
 

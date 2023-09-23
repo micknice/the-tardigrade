@@ -3,7 +3,7 @@ import getCurrentWeatherReport  from '../pages/api/weather/currentWeather'
 import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWeather'
 import ReactLoading from 'react-loading';
 import {HiChevronDown} from 'react-icons/hi2'
-import {getGeoLoc} from '../pages/api/weather/geoLoc'
+// import {getGeoLoc} from '../pages/api/weather/geoLoc'
 
 const WeatherWidget = () => {
 
@@ -25,32 +25,32 @@ const WeatherWidget = () => {
 
       }
     }
-    // useEffect(() => {
-    //     if (navigator.geolocation) {
-    //         navigator.permissions
-    //         .query({ name: "geolocation" })
-    //         .then((result) => {
-    //             if(result.state === 'granted') {
-    //                 const getLoc = () => {
-    //                   const loc = navigator.geolocation.getCurrentPosition(success)
-    //                   console.log('loc', loc)
-    //                 }
-    //                 getLoc()
-    //             }
-    //         });
-    //     } else {
-    //         console.log("Geolocation is not supported by this browser.");
-    //     }
-
-    // },[])
-
     useEffect(() => {
-        const getLoc = async() => {
-            const loc = await getGeoLoc()
-            setPosition(loc)
+        if (navigator.geolocation) {
+            navigator.permissions
+            .query({ name: "geolocation" })
+            .then((result) => {
+                if(result.state === 'granted') {
+                    const getLoc = () => {
+                      const loc = navigator.geolocation.getCurrentPosition(success)
+                      console.log('loc', loc)
+                    }
+                    getLoc()
+                }
+            });
+        } else {
+            console.log("Geolocation is not supported by this browser.");
         }
-        getLoc()
-    })
+
+    },[])
+
+    // useEffect(() => {
+    //     const getLoc = async() => {
+    //         const loc = await getGeoLoc()
+    //         setPosition(loc)
+    //     }
+    //     getLoc()
+    // })
 
     useEffect(() => {
         if (position) {
@@ -147,9 +147,9 @@ const WeatherWidget = () => {
                         }
                     </div>
                 </div>
-                <div className=' border-guard-div-grey pt-3 '>
+                <div className=' border-guard-div-grey pt-3 flex flex-row '>
                     <p className='text-guard-subhead text-md  font-sans pt-4 '>View full forecast</p>
-                    <HiChevronDown className='pl-2 ' size={20}/>
+                    <HiChevronDown className='pl-2 self-center pb-2' size={20}/>
                 </div>
 
             </div>

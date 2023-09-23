@@ -40,7 +40,7 @@ const Navbar = () => {
               {!user &&
               <Link className='flex px-3 items-center' href='/api/auth/login' >
                 <FaCircleUser size={22}/>
-                <p className=' pl-2 font-bold hover:border-b'>Sign in</p>
+                <p className=' pl-2 font-bold hover:border-b text-white'>Sign in</p>
               </Link>
               }
               {user && !isLoading &&
@@ -51,14 +51,14 @@ const Navbar = () => {
                 {!user.picture &&
                 <FaCircleUser size={22}/>
                 }
-                <p className=' pl-2 font-bold hover:border-b'>{user.nickname}</p>
+                <p className=' pl-2 font-bold hover:border-b text-white'>{user.nickname}</p>
               </Link>
               }
             </div>
             <div className='  w-px bg-guard-div-blue h-3/4'/>
             <Link className='flex px-3 items-center' href='/#search' >
-              <GoSearch size={25}/>
-              <p className=' pl-2 font-bold hover:border-b '>Search</p>
+              <GoSearch color={'#fff'}size={25}/>
+              <p className=' pl-2 font-bold hover:border-b text-white'>Search</p>
             </Link>
         </div>
       </div>

@@ -75,5 +75,9 @@ const getVideoInfo = async(videoId) => {
     return data.items[0]
 }   
 
+const compareVotes = (a, b) => {
+    return a.votes - b.votes
+}
 
-export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo}
+
+export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo, compareVotes}

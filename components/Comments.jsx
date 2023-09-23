@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import {HiChevronDown} from 'react-icons/hi2'
 import { BiSolidUserCircle } from 'react-icons/bi'
 import CommentCard from './CommentCard'
 import { getCommentsByArticleId } from '../pages/api/news/newsApi'
 import { useUser } from '@auth0/nextjs-auth0/client';
-import { Dropdown } from 'flowbite-react';
+import dynamic from 'next/dynamic';
+const Dropdown = dynamic(() => import("flowbite-react"), { ssr: false });
 import { sortByVotesDescending} from '../utils/utils'
 
 
@@ -116,7 +116,7 @@ const Comments = ({article}) => {
                             <div className=''>
                             <p className='text-guard-posted font-semibold font-sans tracking-tight'>Sort by</p>
                                 
-                                {/* {sortBy === 'Latest' && 
+                                {sortBy === 'Latest' && 
                                 <Dropdown inline label={sortBy}>
                                     <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Oldest')}}>
                                         Oldest
@@ -145,13 +145,13 @@ const Comments = ({article}) => {
                                         Oldest
                                     </p>
                                 </Dropdown>
-                                } */}
+                                }
                             </div>
                             <div className=' border-l-[1px] px-2 flex flex-col'>
                             <p className='text-guard-posted font-semibold font-sans tracking-tight'>Per page</p>
                                 <div className=' flex flex-row items-center  gap-x-1'>
                                     
-                                    {/* {perPage === 10 &&
+                                    {perPage === 10 &&
 
                                     <Dropdown inline label={perPage}>
                                     <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
@@ -183,14 +183,14 @@ const Comments = ({article}) => {
                                         50
                                     </p>
                                     </Dropdown>
-                                    } */}
+                                    }
                                 </div>
                             </div>
                         </div>
                         <div className=' border-t-[1px]  border-guard-div-grey flex flex-row py-1 gap-x-3 items-center' >
                             {paginatedComments.length > 0 &&
                             paginatedComments.map((page, index) => 
-                                <div className='h-5 w-5  rounded-full  hover:bg-guard-topictile-hover-red flex items-center justify-center pr-1 pb-1' onClick={()=>{handleChangePage(index + 1)}}>
+                                <div key={index} className='h-5 w-5  rounded-full  hover:bg-guard-topictile-hover-red flex items-center justify-center pr-1 pb-1' onClick={()=>{handleChangePage(index + 1)}}>
                                     {commentPage === index + 1 &&
                                     <p className='text-guard-topicheadtext-red font-semibold font-sans tracking-tight '>{index+1}</p>
                                     }

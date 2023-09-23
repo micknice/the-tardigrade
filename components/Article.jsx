@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import { getArticles } from '../pages/api/news/newsApi'
 import ArticleInfo from './ArticleInfo'
@@ -44,7 +45,7 @@ const Article = ({article}) => {
                                     </div>
                                 </div>
                             </div>
-                            {/* <Comments article={article}/> */}
+                            <Comments article={article}/>
                     </div>
 
                             

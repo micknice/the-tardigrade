@@ -48,7 +48,7 @@ const Comments = ({article}) => {
             setCommentsSort(commentsSorted)
         }
         
-    }, [sortBy])
+    }, [sortBy, comments])
     
     useEffect(() => {
         if (perPage === 'All') {
@@ -83,7 +83,7 @@ const Comments = ({article}) => {
     }
 
     return (
-        <div className=' h-auto w-full border-t-[1px] border-x-guard-div-grey grid grid-cols-5'>
+        <div className=' h-auto w-full border-t-[1px] border-x-guard-div-grey grid grid-cols-5 pb-2'>
             <div className='h-[380px] w-full col-span-1 pt-1 px-4  flex flex-col'>
                 <div className=' w-full flex flex-row gap-x-1 px-1'>
                     <p className='text-guard-subhead text-2xl font-black font-serif tracking-tighter'>comments</p>

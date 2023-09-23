@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import getCurrentWeatherReport  from '../pages/api/weather/currentWeather'
 import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWeather'

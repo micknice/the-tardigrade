@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import BigArticleCard from './BigArticleCard'
 import MediumArticleCard from './MediumArticleCard'
 import SmallArticleCard from './SmallArticleCard'
-import WeatherWidget from './WeatherWiget'
+import WeatherWidget from './WeatherWidget'
 import { getArticlesByTopic } from '../pages/api/news/newsApi'
 
 const Main = ( {topic} ) => {

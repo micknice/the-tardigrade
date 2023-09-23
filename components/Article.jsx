@@ -1,4 +1,3 @@
-"use client"
 import React, { useEffect, useState } from 'react'
 import { getArticles } from '../pages/api/news/newsApi'
 import ArticleInfo from './ArticleInfo'

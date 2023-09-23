@@ -74,7 +74,7 @@ const Comments = ({article}) => {
     const handleChangeSortBy = (sortStr) => {
         setSortBy(sortStr)
     }
-    
+
     const handleChangePerPage = (perPageVal) => {
         setPerPage(perPageVal)
     }
@@ -92,7 +92,6 @@ const Comments = ({article}) => {
                 </div>
                 {user && user.picture &&
                 <img className='h-auto w-[80px] rounded-full' src={user.picture} alt='/'/>
-                // <BiSolidUserCircle size={80} color='#b4b5b6'/>
                 }
                 {!user || !user.picture &&
                 <BiSolidUserCircle size={80} color='#b4b5b6'/>
@@ -117,7 +116,7 @@ const Comments = ({article}) => {
                             <div className=''>
                             <p className='text-guard-posted font-semibold font-sans tracking-tight'>Sort by</p>
                                 
-                                {sortBy === 'Latest' && 
+                                {/* {sortBy === 'Latest' && 
                                 <Dropdown inline label={sortBy}>
                                     <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Oldest')}}>
                                         Oldest
@@ -146,16 +145,13 @@ const Comments = ({article}) => {
                                         Oldest
                                     </p>
                                 </Dropdown>
-                                }
+                                } */}
                             </div>
                             <div className=' border-l-[1px] px-2 flex flex-col'>
                             <p className='text-guard-posted font-semibold font-sans tracking-tight'>Per page</p>
                                 <div className=' flex flex-row items-center  gap-x-1'>
-                                    {/* <p className='text-guard-posted font-sans tracking-tight'>100</p>
-                                    <div className='pt-1'>
-                                        <HiChevronDown size={10} color='#707070'/>
-                                    </div> */}
-                                    {perPage === 10 &&
+                                    
+                                    {/* {perPage === 10 &&
 
                                     <Dropdown inline label={perPage}>
                                     <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
@@ -187,7 +183,7 @@ const Comments = ({article}) => {
                                         50
                                     </p>
                                     </Dropdown>
-                                    }
+                                    } */}
                                 </div>
                             </div>
                         </div>

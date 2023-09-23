@@ -19,32 +19,56 @@ const getArticlesByTopic = async (topic) => {
     return data.articles;
 }
 const getArticleByArticleId = async (articleId) => {
-    const { data } = await niceNewsApi.get(`/articles/${articleId}`);
-    return data.article;
+    try {
+        const { data } = await niceNewsApi.get(`/articles/${articleId}`);
+        return data.article;
+    } catch (err) {
+        console.log(err, 'err')
+    }
 }
 const getCommentsByArticleId = async (articleId) => {
-    const { data } = await niceNewsApi.get(`/articles/${articleId}/comments`);
-    return data.comments;
+    try {
+        const { data } = await niceNewsApi.get(`/articles/${articleId}/comments`);
+        return data.comments;
+    } catch (err) {
+        console.log(err, 'err')
+    }
 }
 const postCommentByArticleId = async (articleId, username, body) => {
-    const reqBody = {username: username, body: body}   
-    const { data } = await niceNewsApi.post(`/articles/${articleId}/comments`, reqBody);
-    return data.posted_comment;
+    const reqBody = {username: username, body: body}
+    try {
+        const  data  = await niceNewsApi.post(`/articles/${articleId}/comments`, reqBody);
+        console.log(data, 'data')
+        return data;
+    } catch (err) { 
+        console.log(err, 'err')
+    }  
+    ;
 }
 const patchVotesByArticleId = async (articleId) => {
     const reqBody = {inc_votes: 1}    
-    const { data } = await niceNewsApi.patch(`/articles/${articleId}`, reqBody);
-    return data.patched_article;
-
+    try {
+        const { data } = await niceNewsApi.patch(`/articles/${articleId}`, reqBody);
+        return data.patched_article;
+    } catch (err) {
+        console.log(err, 'err')
+    }
 }
 const getUsers = async () => {
-    const { data } = await niceNewsApi.get('/users');
-    return data.users;
+    try {
+        const { data } = await niceNewsApi.get('/users');
+        return data.users;
+    } catch (err) {
+        console.log(err, 'err')
+    }
 }
 const deleteCommentByCommentId = async (commentId) => {
-    const { data } = await niceNewsApi.delete(`/comments/${commentId}`);
-    return data.article;
-
+    try {
+        const { data } = await niceNewsApi.delete(`/comments/${commentId}`);
+        return data;
+    } catch (err) {
+        console.log(err, 'err')
+    }
 }
 
 const patchVotesByCommentId = async (commentId, vote) => {

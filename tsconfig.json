@@ -35,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "components/WeatherWidget.jsx"  ],
+, "components/WeatherWidget.jsx", "pages/api/news/newsApi.js"  ],
   "exclude": [
     "node_modules"
   ]

@@ -20,12 +20,10 @@ const CommentCard = ( {comment, article} ) => {
             setVoted(true)
             setVoteCount(voteCount + 1)
             const response = await patchVotesByCommentId(comment.comment_id, vote)
-            console.log(response)
         } else if (voted && vote === 'down'){
             setVoted(false)
             setVoteCount(voteCount - 1)
-            const response = await patchVotesByCommentId(comment.comment_id, )
-            console.log(response)
+            const response = await patchVotesByCommentId(comment.comment_id, vote)
         }
     }
 

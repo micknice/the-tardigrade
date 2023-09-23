@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { BiSolidUserCircle } from 'react-icons/bi'
 import CommentCard from './CommentCard'
-import { getCommentsByArticleId } from '../pages/api/news/newsApi'
+import { getCommentsByArticleId, postCommentByArticleId } from '../pages/api/news/newsApi'
 import { useUser } from '@auth0/nextjs-auth0/client';
 import { Dropdown } from 'flowbite-react';
 import { sortByVotesDescending} from '../utils/utils'
@@ -21,6 +21,7 @@ const Comments = ({article}) => {
     const [sortBy, setSortBy] = useState('Latest')
     const [perPage, setPerPage] = useState('All')
     const [commentPage, setCommentPage] = useState(1)
+    const [commentText, setCommentText] = useState('')
 
     useEffect(() => {
         if (article) {
@@ -82,6 +83,19 @@ const Comments = ({article}) => {
         setCommentPage(pageVal)
     }
 
+    const handleChangeComment = (e) => {
+        setCommentText(e.target.value)
+        console.log(e.target.value)
+        console.log(commentText)
+    }
+
+    const handleSubmitComment = async() => {
+        console.log(article.article_id, user.nickname, commentText)
+        const response = await postCommentByArticleId(article.article_id, user.nickname, commentText)
+        console.log(response, 'response')
+        console.log(user, 'user')
+    }
+
     return (
         <div className=' h-auto w-full border-t-[1px] border-x-guard-div-grey grid grid-cols-5 pb-2'>
             <div className='h-[380px] w-full col-span-1 pt-1 px-5  flex flex-col'>
@@ -110,12 +124,14 @@ const Comments = ({article}) => {
             <div className='col-span-4 grid grid-cols-3 '>
                 <div className=' col-span-2'>
                     <div className='  h-2  flex flex-row pt-2 gap-x-3' />
+                    {/* comment text box */}
                         <div className='h-16  pb-3'>
-                            <textarea className='h-full w-full px-2 py-1 placeholder:text-black border-[1px] border-guard-div-grey font-bold tracking-tighter' placeholder='Join the discussion' />
+                            <textarea className='h-full w-full px-2 py-1 placeholder:text-black border-[1px] border-guard-div-grey font-bold tracking-tighter' placeholder='Join the discussion' onChange={(e)=> {handleChangeComment(e)}}/>
                         
                         </div>
-                        <div className='h-9 w-44 bg-guard-topicheadtext-orange  rounded-full flex items-center pb-1 px-5'>
-                            <p className='text-white font-sans font-bold tracking-tighter'>Post your comment</p>
+                        {/* post comment button */}
+                        <div className='h-9 w-44 bg-guard-topicheadtext-orange hover:bg-guard-topicheadtext-red rounded-full flex items-center pt-1 px-5 select-none' onClick={handleSubmitComment}>
+                            <p className='h-full w-full text-white font-sans font-bold tracking-tighter '>Post your comment</p>
                         </div>
                         <div className='h-5'/>
                         <div className='flex flex-row h-auto gap-x-3 pb-3 border-t-[1px]'>

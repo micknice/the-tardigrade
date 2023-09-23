@@ -5,6 +5,11 @@ import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWea
 import ReactLoading from 'react-loading';
 import {HiChevronDown} from 'react-icons/hi2'
 
+export const getServerSideProps = ({ query }) => ({
+    props: query,
+  })
+
+
 const WeatherWidget = () => {
 
     const getTimeStr = (weatherObj) => {
@@ -15,59 +20,31 @@ const WeatherWidget = () => {
     const [position, setPosition] = useState(null)
     const [weather, setWeather] = useState(null)
     const [dailyWeather, setDailyWeather] = useState(null)
-    const success = (pos) => {
-        console.log('pos', pos)
-      const latitude = pos.coords.latitude;
-      const longitude = pos.coords.longitude;
-      const coordStr = `${latitude}, ${longitude}`
-      if(pos.coords.latitude && pos.coords.longitude) {
-        setPosition(coordStr)
-
-      }
-    }
+    
     useEffect(() => {
-        if (navigator.geolocation) {
-            navigator.permissions
-            .query({ name: "geolocation" })
-            .then((result) => {
-                if(result.state === 'granted') {
-                    const getLoc = () => {
-                      const loc = navigator.geolocation.getCurrentPosition(success)
-                      console.log('loc', loc)
-                    }
-                    getLoc()
-                }
-            });
-        } else {
-            console.log("Geolocation is not supported by this browser.");
-        }
-
-    },[])
-
-    // useEffect(() => {
-    //     const getLoc = async() => {
-    //         const loc = await getGeoLoc()
-    //         setPosition(loc)
-    //     }
-    //     getLoc()
-    // })
-
-    useEffect(() => {
+        fetch('/?geo')
+          .then((response) => response.json())
+          .then((data) => {
+            setPosition(data.geo)
+            setLoading(false)
+          })
+          .catch((error) => {
+            console.error(error)
+          })
+      }, [])
+    
+      useEffect(() => {
         if (position) {
-            const fetchReport = async() => {
-                    const report = await getCurrentWeatherReport(position)
-                    setWeather(report)
-            } 
-            const fetchDaily = async() => {
-                const dailyReport = await getDailyForecastWeatherReport(position)
-                setDailyWeather(dailyReport)
-            }
-            fetchReport() 
-            fetchDaily()
-                
+          getCurrentWeatherReport(position.latitude, position.longitude, position.city).then((data) => {
+            setWeather(data)
+          })
+          getDailyForecastWeatherReport(position.latitude, position.longitude, position.city).then((data) => {
+            setDailyWeather(data)
+          })
         }
-
-    }, [position])
+      }, [position])
+    
+     
 
     return (
         <div className=' h-[380px] col-span-1 pt-3 px-3'>

@@ -84,79 +84,88 @@ const Comments = ({article}) => {
 
     return (
         <div className=' h-auto w-full border-t-[1px] border-x-guard-div-grey grid grid-cols-5 pb-2'>
-            <div className='h-[380px] w-full col-span-1 pt-1 px-4  flex flex-col'>
-                <div className=' w-full flex flex-row gap-x-1 px-1'>
-                    <p className='text-guard-subhead text-2xl font-black font-serif tracking-tighter'>comments</p>
-                    <p className='text-guard-text-grey text-2xl font-black font-serif tracking-tighter'>{`(${comments.length})`}</p>
+            <div className='h-[380px] w-full col-span-1 pt-1 px-5  flex flex-col'>
+                <div className=' w-full flex flex-row gap-x-1 pb-1'>
+                    <p className='text-guard-subhead text-xl font-black font-serif tracking-tighter'>comments</p>
+                    <p className='text-guard-text-grey text-xl font-black font-serif tracking-tighter'>{`(${comments.length})`}</p>
                 </div>
                 {user && user.picture &&
-                <img className='h-auto w-[80px] rounded-full' src={user.picture} alt='/'/>
+                <img className='h-auto w-[60px] rounded-full pb-1' src={user.picture} alt='/'/>
                 }
                 {!user || !user.picture &&
                 <BiSolidUserCircle size={80} color='#b4b5b6'/>
                 }
                 {user &&
-                <div>
-                <p className='text-guard-posted text-lg tracking-tighter px-1'>Signed in as</p>
-                <p className='text-guard-subhead text-lg font-bold tracking-tighter px-1'>{user.nickname}</p>
+                <div >
+                <p className='text-guard-posted tracking-tighter '>Signed in as</p>
+                <p className='text-guard-subhead font-bold tracking-tighter '>{user.nickname}</p>
                 </div>
                 }
                 {!user &&
                 <div>
-                <p className='text-guard-posted text-lg tracking-tighter px-1'>Sign in...</p>
+                <p className='text-guard-posted text-lg tracking-tighter '>Sign in...</p>
                 </div>
                 }
             </div>
             <div className='col-span-4 grid grid-cols-3 '>
                 <div className=' col-span-2'>
-                    <div className=' border-b-[1px] h-2 border-guard-div-grey flex flex-row pt-2 gap-x-3' />
-                        <div className='flex flex-row h-auto gap-x-3 pb-3'>
+                    <div className='  h-2  flex flex-row pt-2 gap-x-3' />
+                        <div className='h-16  pb-3'>
+                            <textarea className='h-full w-full px-2 py-1 placeholder:text-black border-[1px] border-guard-div-grey font-bold tracking-tighter' placeholder='Join the discussion' />
+                        
+                        </div>
+                        <div className='h-9 w-44 bg-guard-topicheadtext-orange  rounded-full flex items-center pb-1 px-5'>
+                            <p className='text-white font-sans font-bold tracking-tighter'>Post your comment</p>
+                        </div>
+                        <div className='h-5'/>
+                        <div className='flex flex-row h-auto gap-x-3 pb-3 border-t-[1px]'>
 
                             <div className=''>
-                            <p className='text-guard-posted font-semibold font-sans tracking-tight'>Sort by</p>
+                            <p className='text-guard-posted font-semibold font-sans  tracking-tighter'>Sort by</p>
                                 
                                 {sortBy === 'Latest' && 
                                 <Dropdown inline label={sortBy}>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Oldest')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Oldest')}}>
                                         Oldest
                                     </p>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Votes')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Votes')}}>
                                         Votes
                                     </p>
                                 </Dropdown>
                                 }
                                 {sortBy === 'Oldest' && 
                                 <Dropdown inline label={sortBy}>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Latest')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Latest')}}>
                                         Latest
                                     </p>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Votes')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Votes')}}>
                                         Votes
                                     </p>
                                 </Dropdown>
                                 }
                                 {sortBy === 'Votes' && 
                                 <Dropdown inline label={sortBy}>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Latest')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Latest')}}>
                                         Latest
                                     </p>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Oldest')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangeSortBy('Oldest')}}>
                                         Oldest
                                     </p>
                                 </Dropdown>
                                 }
                             </div>
+
                             <div className=' border-l-[1px] px-2 flex flex-col'>
-                            <p className='text-guard-posted font-semibold font-sans tracking-tight'>Per page</p>
+                            <p className='text-guard-posted font-semibold font-sans tracking-tighter'>Per page</p>
                                 <div className=' flex flex-row items-center  gap-x-1'>
                                     
                                     {perPage === 10 &&
 
                                     <Dropdown inline label={perPage}>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
                                         50
                                     </p>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage('All')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage('All')}}>
                                         All
                                     </p>
                                     </Dropdown>
@@ -164,10 +173,10 @@ const Comments = ({article}) => {
                                     {perPage === 50 &&
 
                                     <Dropdown inline label={perPage}>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(10)}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(10)}}>
                                         10
                                     </p>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage('All')}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage('All')}}>
                                         All
                                     </p>
                                     </Dropdown>
@@ -175,10 +184,10 @@ const Comments = ({article}) => {
                                     {perPage === 'All' &&
 
                                     <Dropdown inline label={perPage}>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(10)}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(10)}}>
                                         10
                                     </p>
-                                    <p className='text-guard-posted font-sans tracking-tight hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
+                                    <p className='text-guard-posted font-sans tracking-tighter hover:text-guard-subhead select-none px-2 hover:bg-guard-topictile-hover-red' onClick={() => {handleChangePerPage(50)}}>
                                         50
                                     </p>
                                     </Dropdown>
@@ -186,19 +195,22 @@ const Comments = ({article}) => {
                                 </div>
                             </div>
                         </div>
+                        
                         <div className=' border-t-[1px]  border-guard-div-grey flex flex-row py-1 gap-x-3 items-center' >
                             {paginatedComments.length > 0 &&
                             paginatedComments.map((page, index) => 
                                 <div key={index} className='h-5 w-5  rounded-full  hover:bg-guard-topictile-hover-red flex items-center justify-center pr-1 pb-1' onClick={()=>{handleChangePage(index + 1)}}>
                                     {commentPage === index + 1 &&
-                                    <p className='text-guard-topicheadtext-red font-semibold font-sans tracking-tight '>{index+1}</p>
+                                    <p className='text-guard-topicheadtext-red font-semibold font-sans tracking-tighter '>{index+1}</p>
                                     }
                                     {commentPage !== index + 1 &&
-                                    <p className='text-guard-posted font-semibold font-sans tracking-tight hover:text-guard-subhead select-none  '>{index+1}</p>
+                                    <p className='text-guard-posted font-semibold font-sans tracking-tighter hover:text-guard-subhead select-none  '>{index+1}</p>
                                     }
                                 </div>
                             )}
                         </div>
+
+                        
                         
 
                             {paginatedComments.length > 0 ? paginatedComments[0].map((comment) => {

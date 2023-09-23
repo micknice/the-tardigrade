@@ -6,25 +6,38 @@ export const config = {
   matcher: '/',
 }
 
-export async function middleware(req: NextRequest) {
+import { NextRequest as NR, NextResponse as NRS } from 'next/server'
+import countriesData from './lib/countries.json'
+
+export async function middleware(req: NR) {
   const { nextUrl: url, geo } = req
-  const country = geo.country || 'US'
-  const city = geo.city || 'San Francisco'
-  const region = geo.region || 'CA'
+  const country = geo?.country || 'US'
+  const city = geo?.city || 'San Francisco'
+  const region = geo?.region || 'CA'
 
-  const countryInfo = countries.find((x) => x.cca2 === country)
+  const countryInfo = countriesData.find((x) => x.cca2 === country)
 
-  const currencyCode = Object.keys(countryInfo.currencies)[0]
-  const currency = countryInfo.currencies[currencyCode]
-  const languages = Object.values(countryInfo.languages).join(', ')
+  let currencyCode: string | undefined, currency: { symbol: string, name: string } | undefined, languages: string | undefined
+  if (countryInfo) {
+    currencyCode = Object.keys(countryInfo.currencies)[0]
+    currency = countryInfo.currencies[currencyCode]
+    languages = Object.values(countryInfo.languages).join(', ')
+  }
 
   url.searchParams.set('country', country)
   url.searchParams.set('city', city)
   url.searchParams.set('region', region)
-  url.searchParams.set('currencyCode', currencyCode)
-  url.searchParams.set('currencySymbol', currency.symbol)
-  url.searchParams.set('name', currency.name)
-  url.searchParams.set('languages', languages)
+  if (currencyCode) {
+    url.searchParams.set('currencyCode', currencyCode)
+  }
+  if (currency) {
+    url.searchParams.set('currencySymbol', currency.symbol)
+    url.searchParams.set('name', currency.name)
+  }
+  if (languages) {
+    url.searchParams.set('languages', languages)
+  }
 
-  return NextResponse.rewrite(url)
+  return NRS.rewrite(url)
 }
+

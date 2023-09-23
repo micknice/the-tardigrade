@@ -7,6 +7,7 @@ import {HiChevronDown} from 'react-icons/hi2'
 
 export const getServerSideProps = ({ query }) => ({
     props: query,
+    console: console.log(query, 'query')
   })
 
 

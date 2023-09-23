@@ -3,7 +3,10 @@ import { getArticles } from '../pages/api/news/newsApi'
 import ArticleInfo from './ArticleInfo'
 import MostViewed from './MostViewed'
 import ArticleBody from './ArticleBody'
-import Comments from './Comments'
+import dynamic from 'next/dynamic'
+// import Comments from './Comments'
+
+const Comments = dynamic(() => import("./Comments"), { ssr: false });
 
 
 const Article = ({article}) => {

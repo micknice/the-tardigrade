@@ -3,9 +3,7 @@ import { BiSolidUserCircle } from 'react-icons/bi'
 import CommentCard from './CommentCard'
 import { getCommentsByArticleId } from '../pages/api/news/newsApi'
 import { useUser } from '@auth0/nextjs-auth0/client';
-import ReactLoading from 'react-loading';
-import dynamic from 'next/dynamic';
-const Dropdown = dynamic(() => import("flowbite-react"), {loading: ()=> <ReactLoading  type={'bars'} color={'#dcdcdc'} />});
+import { Dropdown } from 'flowbite-react';
 import { sortByVotesDescending} from '../utils/utils'
 
 

@@ -3,7 +3,6 @@ import getCurrentWeatherReport  from '../pages/api/weather/currentWeather'
 import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWeather'
 import ReactLoading from 'react-loading';
 import {HiChevronDown} from 'react-icons/hi2'
-// import {getGeoLoc} from '../pages/api/weather/geoLoc'
 
 const WeatherWidget = () => {
 

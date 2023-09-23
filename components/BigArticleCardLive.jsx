@@ -4,6 +4,7 @@ import { getPostAge } from '../utils/utils'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+import ReactLoading from 'react-loading';
 
 
 
@@ -35,32 +36,34 @@ const BigArticleCard = ({article}) => {
         }
     }, [article])
     
-    
+    if(article) {
         return (
-        
             <div className='col-span-3  pt-3 h-38 max-h-38 min-h-38'>
                 <Link href={`/article/${article.article_id}`}>
-                        <div className=' h-full w-full grid grid-cols-3 pr-3 bg-guard-topictile-red hover:bg-guard-topictile-hover-red'>
-                            <div className=' col-span-1 h-full border-t-[1px] border-guard-topictext-red hover:bg-guard-topictile-hover-red px-2'>
+                        <div className=' h-full w-full grid grid-cols-3  bg-guard-topictext-red '>
+                            <div className=' col-span-1 h-full   hover:bg-guard-topicheadtext-red px-2 '>
                                 {/* text */}
-                                <div className=' h-full border-t-[1px] '>
+                                <div className=' h-full flex flex-col gap-y-1'>
                                     {article &&
-                                        <p className='text-guard-topictext-red  text-2xl font-black font-serif tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                        <div className='h-auto flex flex-row gap-x-3 pb-3'>
+                                            <p className='text-white  text-2xl font-black font-serif tracking-tighter'>Live</p>
+                                            <div className=' h-4 w-4 bg-white rounded-full self-center'></div>
+                                        </div>
                                     }
                                     {article &&
-                                        <p className='text-guard-subhead  text-2xl font-medium font-serif leading-7'>{article.title}</p>
+                                        <p className='text-white  text-2xl font-medium font-serif leading-7'>{article.title}</p>
                                     }
                                     {actualArticleBody &&
-                                        <p className='text-guard-subhead text-base font-serif leading-tight pt-2'>{actualArticleBody}</p>
+                                        <p className='text-white text-base font-serif leading-tight pt-2'>{actualArticleBody}</p>
                                     }
-                                    <p className='text-guard-posted text-xs pt-2 pb-3'>{getPostAge(article.created_at)}</p>
+                                    <div className='h-3'></div>
                                     <div className='w-1/2 border-t-[1px] border-guard-div-grey pt-2'/>
                                 </div>
                             </div>
                                 {/* picture */}
-                                <div className='col-span-2 w-[492px]  object-contain flex justify-center items-center'>
+                                <div className='col-span-2 w-full  object-cover'>
                                     {actualArticle &&
-                                        <ReactPlayer className=''url='https://www.youtube.com/watch?v=cRe1k2ZYQkw' playing='true' muted='true' config={{youtube: {playerVars: {cc_load_policy: 1, }}}} alt='/'/>  
+                                    <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  alt='/'/>
             
                                     }
                 
@@ -69,7 +72,7 @@ const BigArticleCard = ({article}) => {
                  </Link>
             </div>
         )
-    
+    }
 }
 
 export default BigArticleCard

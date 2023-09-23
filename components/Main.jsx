@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BigArticleCard from './BigArticleCard'
+import BigArticleCardLive from './BigArticleCardLive'
 import MediumArticleCard from './MediumArticleCard'
 import SmallArticleCard from './SmallArticleCard'
 import WeatherWidget from './WeatherWiget'
@@ -44,10 +45,7 @@ const Main = () => {
 
                             <div className='h-full grid grid-cols-5 px-2 pr-20 gap-x-3 row-span-1 '>
                                 <WeatherWidget/>
-                                
                                 <BigArticleCard article={headlinesArr[0]}/>
-                                
-                                
                                 <MediumArticleCard article={headlinesArr[1]}/>
                             </div>
 

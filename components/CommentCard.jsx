@@ -68,10 +68,10 @@ const CommentCard = ( {comment, article} ) => {
                         {voteCount &&
                         <p className='text-guard-posted'>{voteCount}</p>
                         }
-                        {session.user &&
+                        {session &&
                         <div className='bg-guard-topictile-red hover:bg-guard-topictile-hover-red hover:scale-105 rounded-full '><AiOutlineArrowUp size={20} color='#707070'/></div>
                         }
-                        {!session.user &&
+                        {!session &&
                         <div className='bg-guard-topictile-red rounded-full '><AiOutlineArrowUp size={20} color='#707070'/></div>
                         }
                     </div>
@@ -81,10 +81,10 @@ const CommentCard = ( {comment, article} ) => {
                         {voteCount &&
                         <p className='text-guard-posted'>{voteCount}</p>
                         }
-                        {session.user &&
+                        {session &&
                         <div className='bg-guard-topictile-red hover:bg-guard-topictile-hover-red hover:scale-105 rounded-full '><AiOutlineArrowUp size={20} color='#c70000'/></div>
                         }
-                        {!session.user &&
+                        {!session &&
                         <div className='bg-guard-topictile-red rounded-full '><AiOutlineArrowUp size={20} color='#707070'/></div>
                         }
                     </div>
@@ -98,24 +98,24 @@ const CommentCard = ( {comment, article} ) => {
                 <div className='flex flex-row pt-3 justify-between'>
                     {/* reply button */}
                     <div className='flex flex-row items-center justify-end gap-x-4'>
-                        {session.user && 
+                        {session && 
                         <IoReturnDownForwardSharp size={20} color='#707070'/>
                         }
-                        {session.user && article.topic === 'coding' &&
+                        {session && article.topic === 'coding' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                         }
-                        {session.user && article.topic === 'cooking' &&
+                        {session && article.topic === 'cooking' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                         }
-                        {session.user && article.topic === 'sky' &&
+                        {session && article.topic === 'sky' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                     }
-                        {!session.user &&
+                        {!session &&
                         <p className='text-guard-subhead text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                         }
                     </div>
                     {/* mute and report buttons */}
-                        {session.user &&
+                        {session &&
                         <div className='flex flex-row items-end justify-end'>
                             <p className='text-guard-posted text-sm tracking-tighter px-1 underline underline-offset-4'>Mute</p>
                             <p className='text-guard-posted text-sm tracking-tighter px-1 underline underline-offset-4'>Report</p>

@@ -103,19 +103,19 @@ const Comments = ({article}) => {
                     <p className='text-guard-subhead text-xl font-black font-serif tracking-tighter'>comments</p>
                     <p className='text-guard-text-grey text-xl font-black font-serif tracking-tighter'>{`(${comments.length})`}</p>
                 </div>
-                {session.user && session.user.image &&
+                {session && session.user.image &&
                 <img className='h-auto w-[60px] rounded-full pb-1 object-scale-down' src={session.user.image} alt='/'/>
                 }
-                {!session.user || !session.user.image &&
+                {!session || !session.user.image &&
                 <BiSolidUserCircle size={80} color='#b4b5b6'/>
                 }
-                {session.user &&
+                {session &&
                 <div >
                 <p className='text-guard-posted tracking-tighter '>Signed in as</p>
                 <p className='text-guard-subhead font-bold tracking-tighter '>{session.user.name}</p>
                 </div>
                 }
-                {!session.user &&
+                {!session &&
                 <div>
                 <p className='text-guard-posted text-lg tracking-tighter '>Sign in...</p>
                 </div>

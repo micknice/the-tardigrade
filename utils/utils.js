@@ -1,4 +1,4 @@
-import { getArticleByArticleId} from "@/pages/api/news/newsApi"
+import { getArticleByArticleId, getUserByUsername} from "@/pages/api/news/newsApi"
 
 const formatDate = (dateStr) => {
     const date = new Date(dateStr).toUTCString()
@@ -81,5 +81,20 @@ const sortByVotesDescending =(arr) => {
     });
   }
 
+const getUniqueCommenters = (commentsArr) => {
+    const uniqueCommenters = []
+    commentsArr.forEach(comment => {
+        if (!uniqueCommenters.includes(comment.author)) {
+            uniqueCommenters.push(comment.author)
+        }
+    })
+    const uniqueUsers = []
+    uniqueCommenters.forEach(async (commenter) => {
+        const user = await getUserByUsername(commenter)
+        uniqueUsers.push(user)
+    })
+    return uniqueUsers
+}
 
-export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo, sortByVotesDescending}
+
+export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo, sortByVotesDescending, getUniqueCommenters}

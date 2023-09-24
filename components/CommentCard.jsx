@@ -2,18 +2,20 @@ import { BiSolidUserCircle } from 'react-icons/bi'
 import {IoReturnDownForwardSharp} from 'react-icons/io5'
 import { getPostAge } from '@/utils/utils'
 import CommentVotesWidget from './CommentVotesWidget'
-import { useUser } from '@auth0/nextjs-auth0/client';
 import {AiOutlineArrowUp} from 'react-icons/ai'
 import { useEffect, useState } from 'react'
-import {patchVotesByCommentId} from '../pages/api/news/newsApi'
+import {patchVotesByCommentId, getUserByUsername} from '../pages/api/news/newsApi'
+import { useSession, signIn, signOut } from 'next-auth/react'
+
 
 
 
 const CommentCard = ( {comment, article} ) => {
-    const { user } = useUser();
+    const { data: session, status } = useSession()
 
     const [voted, setVoted] = useState(false)
     const [voteCount, setVoteCount] = useState(comment.votes)
+    const [commenter, setCommenter] = useState(null)
 
     const handleVote = async (vote) => {
         if(!voted && vote === 'up'){
@@ -27,23 +29,37 @@ const CommentCard = ( {comment, article} ) => {
         }
     }
 
+    useEffect(() => {  
+        const getCommenter = async () => {
+            const response = await getUserByUsername(comment.author)
+            console.log(response, 'response')
+            setCommenter(response)
+            
+        }
+        getCommenter()
+
+    },[comment])
+
     return (
         <div className='border-t-[1px] border-guard-div-grey w-full h-auto flex flex-row pt-1 pb-2'>
-            <div className='w-1/12 h-auto flex flex-col items-center'>
+            {!commenter &&
+                <div className='w-1/12 h-auto flex flex-col items-center'>
                 <BiSolidUserCircle size={60} color='#b4b5b6'/>
             </div>
+            }
+            {commenter &&
+                <div className='w-1/12 h-auto flex flex-col items-center '>
+                    <div className='h-[60px] w-[60px]  p-2'>
+                        <img className='h-full w-full rounded-full  pb-1 object-scale-down' src={commenter.user.avatar_url} alt='/'/>
+                    </div>
+            </div>
+            }
             <div className='w-11/12 h-auto flex flex-col'>
                 <div className='flex flex-row justify-between'>
                     <div className='flex flex-row items-center justify-end'>
-                        {article.topic === 'coding' &&
+                        
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter px-1'>{comment.author}</p>
-                        }
-                        {article.topic === 'cooking' &&
-                        <p className='text-guard-topicheadtext-orange text-lg font-bold tracking-tighter px-1'>{comment.author}</p>
-                        }
-                        {article.topic === 'sky' &&
-                        <p className='text-guard-topicheadtext-sky text-lg font-bold tracking-tighter px-1'>{comment.author}</p>
-                        }
+                        
                         <p className='text-guard-posted text-sm tracking-tighter px-1 pt-1'>{getPostAge(comment.created_at)}</p>
                     </div>
                     {/* vote button */}
@@ -52,10 +68,10 @@ const CommentCard = ( {comment, article} ) => {
                         {voteCount &&
                         <p className='text-guard-posted'>{voteCount}</p>
                         }
-                        {user &&
+                        {session.user &&
                         <div className='bg-guard-topictile-red hover:bg-guard-topictile-hover-red hover:scale-105 rounded-full '><AiOutlineArrowUp size={20} color='#707070'/></div>
                         }
-                        {!user &&
+                        {!session.user &&
                         <div className='bg-guard-topictile-red rounded-full '><AiOutlineArrowUp size={20} color='#707070'/></div>
                         }
                     </div>
@@ -65,10 +81,10 @@ const CommentCard = ( {comment, article} ) => {
                         {voteCount &&
                         <p className='text-guard-posted'>{voteCount}</p>
                         }
-                        {user &&
+                        {session.user &&
                         <div className='bg-guard-topictile-red hover:bg-guard-topictile-hover-red hover:scale-105 rounded-full '><AiOutlineArrowUp size={20} color='#c70000'/></div>
                         }
-                        {!user &&
+                        {!session.user &&
                         <div className='bg-guard-topictile-red rounded-full '><AiOutlineArrowUp size={20} color='#707070'/></div>
                         }
                     </div>
@@ -82,24 +98,24 @@ const CommentCard = ( {comment, article} ) => {
                 <div className='flex flex-row pt-3 justify-between'>
                     {/* reply button */}
                     <div className='flex flex-row items-center justify-end gap-x-4'>
-                        {user && 
+                        {session.user && 
                         <IoReturnDownForwardSharp size={20} color='#707070'/>
                         }
-                        {user && article.topic === 'coding' &&
+                        {session.user && article.topic === 'coding' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                         }
-                        {user && article.topic === 'cooking' &&
+                        {session.user && article.topic === 'cooking' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                         }
-                        {user && article.topic === 'sky' &&
+                        {session.user && article.topic === 'sky' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                     }
-                        {!user &&
+                        {!session.user &&
                         <p className='text-guard-subhead text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                         }
                     </div>
                     {/* mute and report buttons */}
-                        {user &&
+                        {session.user &&
                         <div className='flex flex-row items-end justify-end'>
                             <p className='text-guard-posted text-sm tracking-tighter px-1 underline underline-offset-4'>Mute</p>
                             <p className='text-guard-posted text-sm tracking-tighter px-1 underline underline-offset-4'>Report</p>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BiSolidUserCircle } from 'react-icons/bi'
 import CommentCard from './CommentCard'
 import { getCommentsByArticleId, postCommentByArticleId } from '../pages/api/news/newsApi'
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useSession, signIn, signOut } from 'next-auth/react'
 import { Dropdown } from 'flowbite-react';
 import { sortByVotesDescending} from '../utils/utils'
 
@@ -13,7 +13,7 @@ const Comments = ({article}) => {
         'Latest', 'Oldest', 'Votes'
       ];
 
-    const { user } = useUser();
+    const { data: session, status } = useSession()
 
     const [comments, setComments] = useState([])
     const [commentsSort, setCommentsSort] = useState([])
@@ -90,10 +90,10 @@ const Comments = ({article}) => {
     }
 
     const handleSubmitComment = async() => {
-        console.log(article.article_id, user.nickname, commentText)
-        const response = await postCommentByArticleId(article.article_id, user.nickname, commentText)
+        console.log(article.article_id, session.user.name, commentText)
+        const response = await postCommentByArticleId(article.article_id, session.user.name, commentText)
         console.log(response, 'response')
-        console.log(user, 'user')
+        console.log(session.user, 'session.user')
     }
 
     return (
@@ -103,19 +103,19 @@ const Comments = ({article}) => {
                     <p className='text-guard-subhead text-xl font-black font-serif tracking-tighter'>comments</p>
                     <p className='text-guard-text-grey text-xl font-black font-serif tracking-tighter'>{`(${comments.length})`}</p>
                 </div>
-                {user && user.picture &&
-                <img className='h-auto w-[60px] rounded-full pb-1' src={user.picture} alt='/'/>
+                {session.user && session.user.image &&
+                <img className='h-auto w-[60px] rounded-full pb-1 object-scale-down' src={session.user.image} alt='/'/>
                 }
-                {!user || !user.picture &&
+                {!session.user || !session.user.image &&
                 <BiSolidUserCircle size={80} color='#b4b5b6'/>
                 }
-                {user &&
+                {session.user &&
                 <div >
                 <p className='text-guard-posted tracking-tighter '>Signed in as</p>
-                <p className='text-guard-subhead font-bold tracking-tighter '>{user.nickname}</p>
+                <p className='text-guard-subhead font-bold tracking-tighter '>{session.user.name}</p>
                 </div>
                 }
-                {!user &&
+                {!session.user &&
                 <div>
                 <p className='text-guard-posted text-lg tracking-tighter '>Sign in...</p>
                 </div>
@@ -226,20 +226,16 @@ const Comments = ({article}) => {
                             )}
                         </div>
 
-                        
-                        
-
                             {paginatedComments.length > 0 ? paginatedComments[0].map((comment) => {
                                 return (
-                                    <CommentCard key={comment.comment_id} comment={comment} article={article}/>
+                                    <CommentCard key={comment.comment_id} comment={comment} article={article} />
                                     )
-                                }) : () => {
-                                return (
+                                }) : (
                                     <div className='h-full w-full flex flex-col justify-center items-center'>
                                         <p className='text-guard-posted text-lg tracking-tighter px-1'>Be the first to comment</p>
                                         <p className='text-guard-posted text-lg tracking-tighter px-1'>on this article</p>
                                     </div>
-                                )}
+                                )
                             }
                         
 

@@ -3,24 +3,29 @@ import Link from 'next/link'
 import { GoSearch } from 'react-icons/go'
 import {FaCircleUser} from 'react-icons/fa6'
 import { RiMoneyPoundCircleFill} from 'react-icons/ri'
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useSession, signIn, signOut } from 'next-auth/react'
 import ReactLoading from 'react-loading';
+import {getUserByUsername} from '../pages/api/news/newsApi'
 
 const Navbar = () => {
-  const { user, isLoading, error, logout } = useUser();
+  const { data: session, status } = useSession()
+  console.log(session, 'session')
   const [nav, setNav] = useState(false)
 
-  const handleLogout = async() => {
-    try{
-      await logout()
-    } catch(err) {
-      console.log(err)
-    }
-  }
+  
 
   const handleNav = () => {
     setNav(!nav)
   }
+
+  useEffect(() => {
+    if(session){
+      const getUser = async () => { 
+        const response = await getUserByUsername(session.user.name)
+        console.log(response, 'response')
+      }
+    }
+  })
   return (
     <div className={
       'flex justify-center items-center fixed w-full h-10    bg-[#041f4a]'}>
@@ -37,22 +42,26 @@ const Navbar = () => {
             <div className='  w-px bg-guard-div-blue h-3/4'/>
             <div className='flex items-center'>
               
-              {!user &&
-              <Link className='flex px-3 items-center' href='/api/auth/login' >
-                <FaCircleUser size={22} color={'#ffff'}/>
-                <p className=' pl-2 font-bold hover:border-b text-white'>Sign in</p>
-              </Link>
+              {!session &&
+              // <Link className='flex px-3 items-center' href='/api/auth/login' >
+                <div className='flex px-3 items-center' onClick={()=> {signIn()}}>
+                  <FaCircleUser size={22} color={'#ffff'}/>
+                  <p className=' pl-2 font-bold hover:border-b text-white'>Sign in</p>
+                </div>
+              // </Link>
               }
-              {user && !isLoading &&
-              <Link className='flex px-3 items-center' href='/api/auth/logout' >
-                {user.picture &&
-                <img className='h-6 rounded-full' src={user.picture} alt='/'/>
-                }
-                {!user.picture &&
-                <FaCircleUser size={22}/>
-                }
-                <p className=' pl-2 font-bold hover:border-b text-white'>{user.nickname}</p>
-              </Link>
+              {session &&
+              // <Link className='flex px-3 items-center' href='/api/auth/logout' >
+                <div className='flex px-3 items-center' onClick={()=> {signOut()}}>
+                  {session.user.image &&
+                  <img className='h-6 rounded-full' src={session.user.image} alt='/'/>
+                  }
+                  {!session.user.image &&
+                  <FaCircleUser size={22}/>
+                  }
+                  <p className=' pl-2 font-bold hover:border-b text-white'>{session.user.name}</p>
+                </div>
+              // </Link>
               }
             </div>
             <div className='  w-px bg-guard-div-blue h-3/4'/>

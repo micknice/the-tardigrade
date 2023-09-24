@@ -62,6 +62,14 @@ const getUsers = async () => {
         console.log(err, 'err')
     }
 }
+const getUserByUsername = async (username) => {
+    try {
+        const { data } = await niceNewsApi.get(`/users/${username}`);
+        return data
+    } catch (err) {
+        console.log(err, 'err')
+    }
+}
 const deleteCommentByCommentId = async (commentId) => {
     try {
         const { data } = await niceNewsApi.delete(`/comments/${commentId}`);
@@ -87,4 +95,5 @@ const patchVotesByCommentId = async (commentId, vote) => {
 
 
 
-export { getTopics, getArticles, getArticlesByTopic, getArticleByArticleId, getCommentsByArticleId, postCommentByArticleId, patchVotesByArticleId, getUsers, deleteCommentByCommentId, patchVotesByCommentId };
+export { getTopics, getArticles, getArticlesByTopic, getArticleByArticleId, getCommentsByArticleId, postCommentByArticleId, patchVotesByArticleId, 
+    getUsers, deleteCommentByCommentId, patchVotesByCommentId, getUserByUsername };

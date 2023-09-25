@@ -17,7 +17,6 @@ const WeatherWidget = () => {
     const [weather, setWeather] = useState(null)
     const [dailyWeather, setDailyWeather] = useState(null)
     const success = (pos) => {
-        console.log('pos', pos)
       const latitude = pos.coords.latitude;
       const longitude = pos.coords.longitude;
       const coordStr = `${latitude}, ${longitude}`
@@ -28,21 +27,17 @@ const WeatherWidget = () => {
     }
     useEffect(() => {
         if (navigator.geolocation) {
-            console.log('navigator.geolocation', navigator.geolocation)
             navigator.permissions
             .query({ name: "geolocation" })
             .then((result) => {
-                console.log('result permissions', result.state)
                 if(result.state === 'granted') {
                     const getLoc = () => {
                       const loc = navigator.geolocation.getCurrentPosition(success)
-                      console.log('loc', loc)
                     }
                     getLoc()
                 } else if (result.state === 'prompt') {
                     const getLoc = () => {
                       const loc = navigator.geolocation.getCurrentPosition(success)
-                      console.log('loc', loc)
                     }
                     getLoc()
                 }

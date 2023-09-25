@@ -85,16 +85,12 @@ const Comments = ({article}) => {
 
     const handleChangeComment = (e) => {
         setCommentText(e.target.value)
-        console.log(e.target.value)
-        console.log(commentText)
     }
 
     const handleSubmitComment = async() => {
         if (session) {
             const response = await postCommentByArticleId(article.article_id, session.user.name, commentText)
             const pendingComment = response.data.posted_comment
-            console.log(response, 'response comment')
-            console.log(session.user, 'session.user')
             const commentsClone = [pendingComment, ...paginatedComments[0]]
             setComments(commentsClone)
 
@@ -121,8 +117,8 @@ const Comments = ({article}) => {
                 </div>
                 }
                 {!session &&
-                <div>
-                <p className='text-guard-posted text-lg tracking-tighter '>Sign in...</p>
+                <div className='hover:bg-guard-topictile-red w-1/3 rounded-full select-none' onClick={()=> {signIn()}}>
+                <p className='text-guard-posted text-lg tracking-tighter hover:text-guard-subhead'>Sign in...</p>
                 </div>
                 }
             </div>
@@ -131,7 +127,7 @@ const Comments = ({article}) => {
                     <div className='  h-2  flex flex-row pt-2 gap-x-3' />
                     {/* comment text box */}
                         <div className='h-16  pb-3'>
-                            <textarea className='h-full w-full px-2 py-1 placeholder:text-black border-[1px] border-guard-div-grey font-bold tracking-tighter' placeholder='Join the discussion' onChange={(e)=> {handleChangeComment(e)}}/>
+                            <textarea className='h-full w-full px-2 py-1 placeholder:text-black border-[1px] border-guard-div-grey font-bold tracking-tighter ' placeholder='Join the discussion' onChange={(e)=> {handleChangeComment(e)}}/>
                         
                         </div>
                         {/* post comment button */}

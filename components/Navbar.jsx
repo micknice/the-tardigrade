@@ -39,12 +39,12 @@ const Navbar = () => {
         
         <div className='hidden md:flex  justify-end  items-center'>
 
-            <div className='flex items-center'>
+            {/* <div className='flex items-center'>
               <Link className='flex px-3 items-center' href='/' >
                 <RiMoneyPoundCircleFill color='#ffe500' size={25}/>
                 <p className=' pl-2 font-bold text-guard-yellow hover:border-b'>Print subscriptions</p>
               </Link>
-            </div>
+            </div> */}
             <div className='  w-px bg-guard-div-blue h-3/4'/>
             <div className='flex items-center'>
               

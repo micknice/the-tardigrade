@@ -35,7 +35,6 @@ const CommentCard = ( {comment, article} ) => {
     useEffect(() => {  
         const getCommenter = async () => {
             const response = await getUserByUsername(comment.author)
-            console.log(response, 'response')
             setCommenter(response)
             
         }

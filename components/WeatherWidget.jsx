@@ -39,6 +39,12 @@ const WeatherWidget = () => {
                       console.log('loc', loc)
                     }
                     getLoc()
+                } else if (result.state === 'prompt') {
+                    const getLoc = () => {
+                      const loc = navigator.geolocation.getCurrentPosition(success)
+                      console.log('loc', loc)
+                    }
+                    getLoc()
                 }
             });
         } else {
@@ -86,11 +92,8 @@ const WeatherWidget = () => {
                     
                 }
                     <div className='grid grid-rows-3'>
-                        {position &&
-
-                            <p className='text-guard-subhead text-xs row-span-1 pt-2'>{position}</p>
-                        }
-                        {/* <p className='text-guard-subhead text-xs row-span-1 pt-2'>Now</p> */}
+                        
+                        <p className='text-guard-subhead text-xs row-span-1 pt-2'>Now</p>
                         {weather &&
                             <p className='text-guard-subhead text-2xl font-semibold row-span-2'>{`${weather.current.temp_c}°C`}</p>
                         }

@@ -1,0 +1,4 @@
+const thePrimagen = {channelName: 'ThePrimagen',channelId: 'UC8ENHE5xdFSwx71u3fDH5Xw', Strap: 'Vim-Rust-TypeScript'}
+const modular = {channelName: 'Modular',channelId: 'UCskFYtYRBUnPbDiLa6r3zRQ', strap: 'The future of AI development starts here.'}
+const theoT3 = {channelName: 'TheoT3',channelId: 'UCbRP3c757lWg9M-U7TyEkXA', strap: 'CEO of Ping.gg - t3.gg - Ex-Twitch Engineer - Creator Obsessed - Inventor of the T3 Stack - Building cool stuff :)'}
+const nasa = {channelName: 'NASA',channelId: 'UCLA_DiR1FfKNvjuUpBHmylQ', strap: 'NASA\'s mission is to pioneer the future in space exploration, scientific discovery, and aeronautics research.'}

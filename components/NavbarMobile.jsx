@@ -7,7 +7,7 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 import ReactLoading from 'react-loading';
 import {getUserByUsername, postNewUser} from '../pages/api/news/newsApi'
 
-const Navbar = () => {
+const NavbarMobile = () => {
   const { data: session, status } = useSession()
   console.log(session, 'session')
   const [nav, setNav] = useState(false)
@@ -33,21 +33,8 @@ const Navbar = () => {
   },[session])
 
   return (
-    <div className={'flex justify-center items-center fixed w-full h-24 xl:h-10    bg-[#041f4a]'}>
-      
-      <div className ='flex   justify-end   w-2/3 h-full px-2 xl:px-16 sm:ml-3 '>
-        
-        <div className='hidden md:flex  justify-end  items-center'>
-
-            {/* <div className='flex items-center'>
-              <Link className='flex px-3 items-center' href='/' >
-                <RiMoneyPoundCircleFill color='#ffe500' size={25}/>
-                <p className=' pl-2 font-bold text-guard-yellow hover:border-b'>Print subscriptions</p>
-              </Link>
-            </div> */}
-            <div className='  w-px bg-guard-div-blue h-3/4'/>
-            <div className='flex items-center'>
-              
+    <div className={'flex justify-start items-center fixed w-full h-7    bg-[#041f4a]  '}>
+            <div className='flex items-center justify-start'>
               {!session &&
               // <Link className='flex px-3 items-center' href='/api/auth/login' >
                 <div className='flex px-3 items-center' onClick={()=> {signIn()}}>
@@ -67,18 +54,11 @@ const Navbar = () => {
                   }
                   <p className=' pl-2 font-bold hover:border-b text-white'>{session.user.name}</p>
                 </div>
-              // </Link>
               }
             </div>
-            <div className='  w-px bg-guard-div-blue h-3/4'/>
-            <Link className='flex px-3 items-center' href='/#search' >
-              <GoSearch color={'#fff'}size={25}/>
-              <p className=' pl-2 font-bold hover:border-b text-white'>Search</p>
-            </Link>
-        </div>
-      </div>
+            
     </div>
   )
 }
 
-export default Navbar
+export default NavbarMobile

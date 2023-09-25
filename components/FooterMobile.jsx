@@ -1,19 +1,16 @@
-import { useRouter } from 'next/router';
-import React, {useEffect, useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
 import {HiChevronDown} from 'react-icons/hi2'
-import GuardLogo from '../public/assets/tard.png'
-import Image from 'next/image'
 import SupportButton from './SupportButton'
+import { useRouter } from 'next/router';
 
-const Header = () => {
+
+const FooterMobile = () => {
 
     const router = useRouter();
     const { topic } = router.query;
 
     const [tabTopic, setTabTopic] = useState(null)
-
-
     const handleTabClick = (topic) => {
         setTabTopic(topic)
     }
@@ -26,36 +23,12 @@ const Header = () => {
         }
     },[topic])
 
-
-    
-
     return (
-        <div className='w-auto h-auto bg-white pt-10 outline '>
-            <div className='w-full xl:h-48 bg-guard-blue-mid xl:px-40 flex items-center justify-center outline-red-500 outline'>
+        <div className='w-full  bg-white '>
+            <div className='w-full  bg-guard-blue-mid px-40 flex items-center justify-center'>
                 <div className=' w-5/6 h-full grid grid-rows-5'>
-                    {/* header */}
-                    <div className='row-span-4 h-[20rem]  grid grid-cols-3'>
-                        {/* left header */}
-                        <div className='col-span-2 h-full w-full items-center px-8'>
-                            
-                            <p className='text-[32px] font-serif font-bold text-guard-yellow'>Support the Tardigrade</p>
-                            <p className='text-[16px] font-bold font-sans text-white '>Fund independent journalism with £5 per month</p>
-                            <div className='h-3'></div>
-
-                            
-                            <SupportButton/>
-                        </div>
-                        {/* <div></div> */}
-                        {/* right header */}
-                        <div className=' col-span-1 h-2/3 w-full flex items-center justify-center flex-col pr-20 pb-20'>
-                            {/* <Image height={96} src={GuardLogo} /> */}
-                            <Image height={120} src={GuardLogo} alt='/'/>
-                            {/* <p className='text-base font-semibold  text-guard-yellow font-sans'>A newspaper of all time</p> */}
-                        </div>
-
-                    </div>
                     {/* topic tabs */}
-                    <div className='flex h-full border-l-[1px] border-t-[1px] border-r-[1px] border-guard-div-blue'>
+                    <div className='flex  h-2/3 border-l-[1px] border-b-[1px] border-r-[1px] border-guard-div-blue'>
                         {tabTopic && tabTopic === 'coding' &&
                             <div className='flex items-center border-t-4 border-guard-topic-red' onClick={() => handleTabClick('coding')}>
                                 <Link className='flex pl-2 pr-20 items-center ' href={`/topic/coding`} >
@@ -75,7 +48,7 @@ const Header = () => {
                         {tabTopic && tabTopic === 'cooking' &&
                             <div className='flex items-center border-t-4 border-guard-topic-orange' onClick={() => handleTabClick('cooking')}>
                                 <Link className='flex pl-2 pr-20 items-center' href='/topic/cooking' >
-                                    <p className='text-2xl font-serif pl-2 font-bold text-white '>Cooking</p>
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Cooking</p>
                                 </Link>
                             </div>
                         }
@@ -107,20 +80,39 @@ const Header = () => {
                         <div className='w-px bg-guard-div-blue h-2/3'/>
 
                         <div className='flex items-center hover:border-t-4 border-guard-topic-pink'>
-                            <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
-                                <p className='text-2xl font-serif pl-2 font-bold text-white'>Projects</p>
+                            <Link className='flex pl-2 pr-20 items-center' href='/#gaming' >
+                                <p className='text-2xl font-serif pl-2 font-bold text-white'>Gaming</p>
                             </Link>
                         </div>
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
 
                         <div className='flex items-center'>
-                            <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
-                                <p className='text-2xl font-serif pl-2 text-white hover:text-guard-yellow'>More</p>
-                            <HiChevronDown className='pl-2 ' color={'#ffff'} size={20}/>
+                            <Link className='flex pl-2 pr-20 items-center' href='/#skills' >
+                                <p className='text-2xl font-serif pl-2  hover:text-guard-yellow text-white'>More</p>
+                            <HiChevronDown className='pl-2 ' size={20} color={'#ffff'}/>
                             </Link>
                         </div>
 
+
+                    </div>
+                    
+                    {/* header */}
+                    <div className='row-span-4 h-[20rem]  grid grid-cols-3 pt-5'>
+                        {/* left header */}
+                        <div className='col-span-2 h-full w-full items-center px-8'>
+                            
+                        </div>
+                        {/* <div></div> */}
+                        {/* right header */}
+                        <div className='h-full '>
+                            <div className=' col-span-1 h-2/3 w-full flex items-center justify-center flex-col pr-20 pb-20 row-span-1'>
+                                <p className='text-[32px] font-serif font-bold text-guard-yellow'>Support the Tardigrade</p>
+                                <p className='text-[16px] font-bold font-sans  text-white'>Fund independent journalism with £5 per month</p>
+                                <div className='h-3'></div>
+                                <SupportButton/>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -134,4 +126,4 @@ const Header = () => {
 }
 
 
-export default Header
+export default FooterMobile

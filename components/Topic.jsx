@@ -5,7 +5,7 @@ import SmallArticleCard from './SmallArticleCard'
 import WeatherWidget from './WeatherWidget'
 import { getArticlesByTopic } from '../pages/api/news/newsApi'
 
-const Main = ( {topic} ) => {
+const Topic = ( {topic} ) => {
 
     const [headlinesArr, setHeadlinesArr] = useState([])
 
@@ -75,4 +75,4 @@ const Main = ( {topic} ) => {
 }
 
 
-export default Main
+export default Topic

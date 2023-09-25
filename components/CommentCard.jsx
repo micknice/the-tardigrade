@@ -4,7 +4,7 @@ import { getPostAge } from '@/utils/utils'
 import CommentVotesWidget from './CommentVotesWidget'
 import {AiOutlineArrowUp, AiOutlineDelete} from 'react-icons/ai'
 import { useEffect, useState } from 'react'
-import {patchVotesByCommentId, getUserByUsername} from '../pages/api/news/newsApi'
+import {patchVotesByCommentId, getUserByUsername, deleteCommentByCommentId} from '../pages/api/news/newsApi'
 import { useSession, signIn, signOut } from 'next-auth/react'
 
 
@@ -29,7 +29,8 @@ const CommentCard = ( {comment, article} ) => {
         }
     }
     const handleDeleteComment = () => {
-        console.log('delete comment')
+        console.log('delete comment', comment)
+        deleteCommentByCommentId(comment.comment_id)
     }
 
     useEffect(() => {  

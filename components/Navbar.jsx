@@ -5,7 +5,7 @@ import {FaCircleUser} from 'react-icons/fa6'
 import { RiMoneyPoundCircleFill} from 'react-icons/ri'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import ReactLoading from 'react-loading';
-import {getUserByUsername} from '../pages/api/news/newsApi'
+import {getUserByUsername, postNewUser} from '../pages/api/news/newsApi'
 
 const Navbar = () => {
   const { data: session, status } = useSession()
@@ -19,13 +19,19 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    if(session){
+    if(status === 'authenticated'){
       const getUser = async () => { 
+        console.log(session.user.name, 'session.user.name')
         const response = await getUserByUsername(session.user.name)
-        console.log(response, 'response')
+        if(!response){
+          const postResponse = await postNewUser(session.user.name, session.user.email, session.user.image)
+          console.log(postResponse, 'postResponse')
+        }
       }
+      getUser()
     }
-  })
+  },[session])
+
   return (
     <div className={
       'flex justify-center items-center fixed w-full h-10    bg-[#041f4a]'}>

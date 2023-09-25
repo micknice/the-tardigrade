@@ -90,10 +90,15 @@ const Comments = ({article}) => {
     }
 
     const handleSubmitComment = async() => {
-        console.log(article.article_id, session.user.name, commentText)
-        const response = await postCommentByArticleId(article.article_id, session.user.name, commentText)
-        console.log(response, 'response')
-        console.log(session.user, 'session.user')
+        if (session) {
+            const response = await postCommentByArticleId(article.article_id, session.user.name, commentText)
+            const pendingComment = response.data.posted_comment
+            console.log(response, 'response comment')
+            console.log(session.user, 'session.user')
+            const commentsClone = [pendingComment, ...paginatedComments[0]]
+            setComments(commentsClone)
+
+        }
     }
 
     return (

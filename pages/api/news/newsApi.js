@@ -1,4 +1,5 @@
 import axios from 'axios';
+import FormData from 'form-data';
 
 const niceNewsApi = axios.create({
     baseURL: process.env.NEXT_PUBLIC_NCNEWS_API_URL,
@@ -65,7 +66,29 @@ const getUsers = async () => {
 const getUserByUsername = async (username) => {
     try {
         const { data } = await niceNewsApi.get(`/users/${username}`);
+        console.log(data, 'data')
         return data
+    } catch (err) {
+        console.log(err, 'err')
+    }
+}
+const postNewUser = async (name, email, image) => {
+    console.log('postNewUser invoked with', name, 'name', email, 'email', image, 'image')
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('image', image);
+    console.log(formData, 'formData')
+   
+
+    try {
+        const { data } = await niceNewsApi.post('/users', formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data'
+            }
+    });
+    console.log(data.user, 'data.user @ api')
+        return data.user;
     } catch (err) {
         console.log(err, 'err')
     }
@@ -96,4 +119,4 @@ const patchVotesByCommentId = async (commentId, vote) => {
 
 
 export { getTopics, getArticles, getArticlesByTopic, getArticleByArticleId, getCommentsByArticleId, postCommentByArticleId, patchVotesByArticleId, 
-    getUsers, deleteCommentByCommentId, patchVotesByCommentId, getUserByUsername };
+    getUsers, deleteCommentByCommentId, patchVotesByCommentId, getUserByUsername, postNewUser };

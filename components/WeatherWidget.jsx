@@ -32,6 +32,7 @@ const WeatherWidget = () => {
             navigator.permissions
             .query({ name: "geolocation" })
             .then((result) => {
+                console.log('result permissions', result.state)
                 if(result.state === 'granted') {
                     const getLoc = () => {
                       const loc = navigator.geolocation.getCurrentPosition(success)

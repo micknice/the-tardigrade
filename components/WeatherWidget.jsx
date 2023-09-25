@@ -84,7 +84,11 @@ const WeatherWidget = () => {
                     
                 }
                     <div className='grid grid-rows-3'>
-                        <p className='text-guard-subhead text-xs row-span-1 pt-2'>Now</p>
+                        {position &&
+
+                            <p className='text-guard-subhead text-xs row-span-1 pt-2'>{position}</p>
+                        }
+                        {/* <p className='text-guard-subhead text-xs row-span-1 pt-2'>Now</p> */}
                         {weather &&
                             <p className='text-guard-subhead text-2xl font-semibold row-span-2'>{`${weather.current.temp_c}°C`}</p>
                         }
@@ -142,8 +146,8 @@ const WeatherWidget = () => {
                     </div>
                 </div>
                 <div className=' border-guard-div-grey pt-3 flex flex-row '>
-                    <p className='text-guard-subhead text-md  font-sans pt-4 '>View full forecast</p>
-                    <HiChevronDown className='pl-2 self-center pb-2' size={20}/>
+                    {/* <p className='text-guard-subhead text-md  font-sans pt-4 '>View full forecast</p>
+                    <HiChevronDown className='pl-2 self-center pb-2' size={20}/> */}
                 </div>
 
             </div>

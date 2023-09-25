@@ -2,7 +2,7 @@ import { BiSolidUserCircle } from 'react-icons/bi'
 import {IoReturnDownForwardSharp} from 'react-icons/io5'
 import { getPostAge } from '@/utils/utils'
 import CommentVotesWidget from './CommentVotesWidget'
-import {AiOutlineArrowUp} from 'react-icons/ai'
+import {AiOutlineArrowUp, AiOutlineDelete} from 'react-icons/ai'
 import { useEffect, useState } from 'react'
 import {patchVotesByCommentId, getUserByUsername} from '../pages/api/news/newsApi'
 import { useSession, signIn, signOut } from 'next-auth/react'
@@ -27,6 +27,9 @@ const CommentCard = ( {comment, article} ) => {
             setVoteCount(voteCount - 1)
             const response = await patchVotesByCommentId(comment.comment_id, vote)
         }
+    }
+    const handleDeleteComment = () => {
+        console.log('delete comment')
     }
 
     useEffect(() => {  
@@ -96,12 +99,10 @@ const CommentCard = ( {comment, article} ) => {
                     <p className='text-guard-subhead text-lg tracking-tighter px-1'>{comment.body}</p>
                 </div>
                 <div className='flex flex-row pt-3 justify-between'>
-                    {/* reply button */}
+                    {/* delete button */}
                     <div className='flex flex-row items-center justify-end gap-x-4'>
-                        {session && 
-                        <IoReturnDownForwardSharp size={20} color='#707070'/>
-                        }
-                        {session && article.topic === 'coding' &&
+                        
+                        {/* {session && article.topic === 'coding' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
                         }
                         {session && article.topic === 'cooking' &&
@@ -109,18 +110,17 @@ const CommentCard = ( {comment, article} ) => {
                         }
                         {session && article.topic === 'sky' &&
                         <p className='text-guard-topicheadtext-red text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
-                    }
+                        }
                         {!session &&
                         <p className='text-guard-subhead text-lg font-bold tracking-tighter underline underline-offset-4'>Reply</p>
-                        }
+                        } */}
                     </div>
                     {/* mute and report buttons */}
-                        {session &&
-                        <div className='flex flex-row items-end justify-end'>
-                            <p className='text-guard-posted text-sm tracking-tighter px-1 underline underline-offset-4'>Mute</p>
-                            <p className='text-guard-posted text-sm tracking-tighter px-1 underline underline-offset-4'>Report</p>
+                    {session && session.user.name === comment.author &&
+                        <div className='flex flex-row rounded-full  hover:bg-guard-topictile-hover-red select-none' onClick={handleDeleteComment}>
+                            <p className='text-guard-posted text-sm tracking-tighter px-1 underline underline-offset-4'>Delete comment</p>
                         </div>
-                        }
+                    }
                 </div>
             </div>
         </div>

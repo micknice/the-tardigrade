@@ -28,6 +28,7 @@ const WeatherWidget = () => {
     }
     useEffect(() => {
         if (navigator.geolocation) {
+            console.log('navigator.geolocation', navigator.geolocation)
             navigator.permissions
             .query({ name: "geolocation" })
             .then((result) => {

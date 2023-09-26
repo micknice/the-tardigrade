@@ -26,9 +26,6 @@ const FooterMobile = () => {
         }
     },[topic])
 
-
-    
-
     return (
         <div className='w-auto  h-34 bg-guard-blue-mid  '>
             <div className='w-full bg-guard-blue-mid'>
@@ -96,20 +93,7 @@ const FooterMobile = () => {
                                 </Link>
                             </div>
                         }
-
-                        {/* <div className='flex items-end hover:border-t-4 border-guard-topic-pink pl-1 pr-2'>
-                            <Link className='flex  items-end' href='/topic/football' >
-                                <p className='text-lg font-serif font-bold text-white tracking-tighter'>Projects</p>
-                            </Link>
-                        </div> */}
-
-                        
-
-
                     </div>
-                    
-
-
 
                     </div>
                     
@@ -126,15 +110,6 @@ const FooterMobile = () => {
                     </div>
                     <div className='h-3'></div>
                 </div>
-                        
-                                
-                        
-
-
-                    
-
-                    
-
             </div>
 
         </div>

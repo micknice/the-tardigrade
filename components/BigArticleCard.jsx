@@ -38,7 +38,7 @@ const BigArticleCard = ({article}) => {
         
             <div className='col-span-3  pt-3 h-38 max-h-38 min-h-38'>
                 <Link href={`/article/${article.article_id}`}>
-                        <div className=' h-full w-full grid grid-cols-3 pr-3 bg-guard-topictile-red hover:bg-guard-topictile-hover-red'>
+                        <div className=' h-full w-full grid grid-cols-3  bg-guard-topictile-red hover:bg-guard-topictile-hover-red '>
                             <div className=' col-span-1 h-full border-t-[1px] border-guard-topictext-red hover:bg-guard-topictile-hover-red px-2'>
                                 {/* text */}
                                 <div className=' h-full border-t-[1px] '>
@@ -56,7 +56,7 @@ const BigArticleCard = ({article}) => {
                                 </div>
                             </div>
                                 {/* picture */}
-                                <div className='col-span-2 w-[492px]  object-cover'>
+                                <div className='col-span-2   object-cover '>
                                     {actualArticle &&
                                     <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  alt='/'/>
             
@@ -71,7 +71,7 @@ const BigArticleCard = ({article}) => {
         return (
             <div className='col-span-3  pt-3 h-38 max-h-38 min-h-38'>
                 <Link href={`/article/${article.article_id}`}>
-                    <div className='  h-full w-full grid grid-cols-3 pr-3 bg-guard-topictile-orange hover:bg-guard-topictile-hover-orange'>
+                    <div className='  h-full w-full grid grid-cols-3  bg-guard-topictile-orange hover:bg-guard-topictile-hover-orange'>
                         <div className=' col-span-1 h-full border-t-[1px] border-guard-topictext-orange'>
                             {/* text */}
                             <div className='h-full px-2'>
@@ -89,7 +89,7 @@ const BigArticleCard = ({article}) => {
                             </div>
                         </div>
                             {/* picture */}
-                            <div className='col-span-2 w-[492px] h-full  object-cover'>
+                            <div className='col-span-2  h-full  object-cover'>
                                 {actualArticle &&
                                 <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  alt='/'/>
         
@@ -124,7 +124,7 @@ const BigArticleCard = ({article}) => {
                                 </div>
                             </div>
                                 {/* picture */}
-                                <div className='col-span-2 w-full'>
+                                <div className='col-span-2 h-full'>
                                     {actualArticle &&
                                     <img className='object-contain w-full h-auto' src={actualArticle.article_img_url} alt='/' />
             

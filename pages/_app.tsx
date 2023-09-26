@@ -21,7 +21,7 @@ export default function App({ Component, pageProps, session }: any) {
             <NavbarMobile />
             <HeaderMobile />
             <Component {...pageProps} />
-            {/* <FooterMobile /> */}
+            <FooterMobile />
           </div>
         ) : (
           <div>

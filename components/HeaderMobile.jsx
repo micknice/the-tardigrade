@@ -33,12 +33,12 @@ const HeaderMobile = () => {
         <div className='w-auto  h-34 bg-guard-blue-mid  '>
             <div className='w-full bg-guard-blue-mid'>
                 <div className=' w-full h-full pt-9 grid grid-rows-3 '>
-                    <div className='row-span-2 grid grid-cols-3 px-2 mb-2 '>
+                    <div className='row-span-2 grid grid-cols-3 px-2 mb-2  items-center'>
                         <div className='col-span-1 grid grid-rows-2'>
                             <div></div>
                             <SupportButtonMobile/>
                         </div>
-                        <div className='col-span-2'>
+                        <div className='col-span-2 pl-4'>
                             <div className='h-full w-full  flex  items-end justify-center'>
                                 <Image height={50} src={GuardLogo} alt='/'/>
                             </div>
@@ -94,14 +94,14 @@ const HeaderMobile = () => {
                         <div className='w-px bg-guard-div-blue h-full'/>
                         {tabTopic && tabTopic === 'projects' &&
                             <div className='flex items-end border-t-4 border-guard-topic-pink pl-1 pr-2' onClick={() => handleTabClick('projects')}>
-                                <Link className='flex  items-end' href='/topic/projects' >
+                                <Link className='flex  items-end' href='/' >
                                     <p className='text-lg font-serif font-bold text-white tracking-tighter'>Projects</p>
                                 </Link>
                             </div>
                         }
                         {tabTopic !== 'projects' &&
                             <div className='flex items-end hover:border-t-4 border-guard-topic-pink pl-1 pr-2' onClick={() => handleTabClick('projects')}>
-                                <Link className='flex  items-end' href='/topic/projects' >
+                                <Link className='flex  items-end' href='/' >
                                     <p className='text-lg font-serif font-bold text-white tracking-tighter'>Projects</p>
                                 </Link>
                             </div>

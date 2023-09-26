@@ -30,27 +30,21 @@ const Header = () => {
     
 
     return (
-        <div className='w-auto h-auto bg-white pt-10 outline '>
-            <div className='w-full xl:h-48 bg-guard-blue-mid xl:px-40 flex items-center justify-center outline-red-500 outline'>
+        <div className='w-auto h-auto bg-white pt-10  '>
+            <div className='w-full xl:h-48 bg-guard-blue-mid xl:px-40 flex items-center justify-center '>
                 <div className=' w-5/6 h-full grid grid-rows-5'>
                     {/* header */}
                     <div className='row-span-4 h-[20rem]  grid grid-cols-3'>
                         {/* left header */}
                         <div className='col-span-2 h-full w-full items-center px-8'>
-                            
                             <p className='text-[32px] font-serif font-bold text-guard-yellow'>Support the Tardigrade</p>
                             <p className='text-[16px] font-bold font-sans text-white '>Fund independent journalism with £5 per month</p>
                             <div className='h-3'></div>
-
-                            
                             <SupportButton/>
                         </div>
-                        {/* <div></div> */}
                         {/* right header */}
                         <div className=' col-span-1 h-2/3 w-full flex items-center justify-center flex-col pr-20 pb-20'>
-                            {/* <Image height={96} src={GuardLogo} /> */}
                             <Image height={120} src={GuardLogo} alt='/'/>
-                            {/* <p className='text-base font-semibold  text-guard-yellow font-sans'>A newspaper of all time</p> */}
                         </div>
 
                     </div>
@@ -72,6 +66,7 @@ const Header = () => {
                         }
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
+
                         {tabTopic && tabTopic === 'cooking' &&
                             <div className='flex items-center border-t-4 border-guard-topic-orange' onClick={() => handleTabClick('cooking')}>
                                 <Link className='flex pl-2 pr-20 items-center' href='/topic/cooking' >
@@ -88,6 +83,7 @@ const Header = () => {
                         }
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
+                        
                         {tabTopic && tabTopic === 'football' &&
                             <div className='flex items-center border-t-4 border-guard-topic-sky' onClick={() => handleTabClick('football')}>
                                 <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
@@ -102,7 +98,6 @@ const Header = () => {
                                 </Link>
                             </div>
                         }
-
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
 
@@ -120,15 +115,9 @@ const Header = () => {
                             <HiChevronDown className='pl-2 ' color={'#ffff'} size={20}/>
                             </Link>
                         </div>
-
-
                     </div>
-
-                    
-
                 </div>
             </div>
-
         </div>
     )
 }

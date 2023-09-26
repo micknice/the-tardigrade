@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { getArticles } from '../pages/api/news/newsApi'
-import ArticleInfo from './ArticleInfo'
+import ArticleInfoMobile from './ArticleInfoMobile'
 import MostViewed from './MostViewed'
-import ArticleBody from './ArticleBody'
+import ArticleBodyMobile from './ArticleBodyMobile'
 import dynamic from 'next/dynamic'
-// import Comments from './Comments'
 
-const Comments = dynamic(() => import("./Comments"), { ssr: false });
+const CommentsMobile = dynamic(() => import("./CommentsMobile"), { ssr: false });
 
 
 const ArticleMobile = ({article}) => {
@@ -30,24 +29,17 @@ const ArticleMobile = ({article}) => {
     return (
         <div className=' w-full bg-white flex  justify-center items-center '>
             <div className='h-full w-full flex items-center justify-center '>
-                <div className='w-full h-full border-l-[1px] border-t-[1px] border-r-[1px] border-guard-div-grey '>
+                <div className='w-full h-full  border-t-[1px]  border-guard-div-grey '>
                     <div className=' border-b-[1px] h-9 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className='h-full w-full justify-center items-center '> 
+                                    <ArticleBodyMobile article={article}/>
                         
 
-                            <div className='h-full  px-2   '>
-                                <ArticleInfo article={article}/>
-                                <div className=' col-span-4 grid grid-cols-3 gap-x-6 pr- '>
-                                    {/* <ArticleBody article={article}/> */}
-                                    <div className=''>
-                                        {/* <MostViewed article={article}/> */}
-                                    </div>
-                                </div>
-                            </div>
-                            {/* <Comments article={article}/> */}
+                            
+                            <CommentsMobile article={article}/>
                     </div> 
 
                             

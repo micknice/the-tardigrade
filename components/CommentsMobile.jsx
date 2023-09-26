@@ -235,7 +235,7 @@ const CommentsMobile = ({article}) => {
 
                             {paginatedComments.length > 0 ? paginatedComments[0].map((comment) => {
                                 return (
-                                    <div className='px-2'>
+                                    <div key={`${comment.comment_id}_div`}className='px-2'>
                                         <CommentCardMobile key={comment.comment_id} comment={comment} article={article} />
                                     </div>
                                     )

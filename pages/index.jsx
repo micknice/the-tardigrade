@@ -69,11 +69,17 @@ export default function Home() {
 
 export const getServerSideProps = async () => {
   
+  let photo = null;
+  await fetch('https://thetardigrade.co.uk')
+    .then((response) => response.json())
+    .then((json) =>{
+      photo=json
+    })
   
 
   return {
     props: {
-      Tardigrade,
+      photo,
     },
   };
 };

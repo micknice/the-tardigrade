@@ -8,26 +8,29 @@ import { useMediaQuery } from '@mui/material'
 
 const ArticlePage = () => {
   const router = useRouter();
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 1260px)');
+  // const isMobile = useMediaQuery('(max-width: 1380px)');
 
   const { article_id } = router.query;
   
   const [article, setArticle] = useState(null);
     
   
-    useEffect(() => {
-      const checkIsMobile = () => {
-        setIsMobile(window.innerWidth < 768);
-      };
+    // useEffect(() => {
+    //   const checkIsMobile = () => {
+    //     // setIsMobile(window.innerWidth < 768);
+    //     setIsMobile(window.innerWidth < );
+    //   };
   
-      window.addEventListener('resize', checkIsMobile);
+    //   window.addEventListener('resize', checkIsMobile);
   
-      checkIsMobile();
+    //   checkIsMobile();
   
-      return () => {
-        window.removeEventListener('resize', checkIsMobile);
-      };
-    }, []);
+    //   return () => {
+    //     window.removeEventListener('resize', checkIsMobile);
+    //   };
+    // }, []);
   
   useEffect(() => {
     if (article_id) {

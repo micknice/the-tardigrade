@@ -5,8 +5,10 @@ import {HiChevronDown} from 'react-icons/hi2'
 import GuardLogo from '../public/assets/tard.png'
 import Image from 'next/image'
 import SupportButton from './SupportButton'
+import { useMediaQuery } from '@mui/material'
 
 const Header = () => {
+    const isCondensed = useMediaQuery('(max-width: 1470px)');
 
     const router = useRouter();
     const { topic } = router.query;
@@ -31,7 +33,7 @@ const Header = () => {
 
     return (
         <div className='w-auto h-auto bg-white pt-10  '>
-            <div className='w-full xl:h-48 bg-guard-blue-mid xl:px-40 flex items-center justify-center '>
+            <div className='w-full h-48 bg-guard-blue-mid px-40 flex items-center justify-center '>
                 <div className=' w-5/6 h-full grid grid-rows-5'>
                     {/* header */}
                     <div className='row-span-4 h-[20rem]  grid grid-cols-3'>
@@ -106,8 +108,11 @@ const Header = () => {
                                 <p className='text-2xl font-serif pl-2 font-bold text-white'>Projects</p>
                             </Link>
                         </div>
+                        {!isCondensed &&
 
-                        <div className='w-px bg-guard-div-blue h-2/3'/>
+                            <div className='w-px bg-guard-div-blue h-2/3'/>
+                        }
+                        {!isCondensed &&
 
                         <div className='flex items-center'>
                             <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
@@ -115,6 +120,7 @@ const Header = () => {
                             <HiChevronDown className='pl-2 ' color={'#ffff'} size={20}/>
                             </Link>
                         </div>
+                        }
                     </div>
                 </div>
             </div>

@@ -11,7 +11,8 @@ import { useMediaQuery } from '@mui/material'
 
 export default function App({ Component, pageProps, session }: any) {
   // Use the useMediaQuery hook to determine if it's a mobile screen
-  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isMobile = useMediaQuery('(max-width: 1260px)');
+  // const isMobile = useMediaQuery('(max-width: 1380px)');
 
   return (
     <SessionProvider session={session}>

@@ -22,7 +22,7 @@ const MediumArticleCard = ({article}) => {
 
     if(article && article.topic === 'coding') {
         return (
-            <div className=' col-span-1  pt-3  w-full '>
+            <div className=' col-span-1  pt-3  w-full h-full'>
                 <Link href={`/article/${article.article_id}`}>
                     <div className='h-full w-full  bg-guard-topictile-red hover:bg-guard-topictile-hover-red'>
                     {actualArticle &&

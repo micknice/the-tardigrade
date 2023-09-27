@@ -33,7 +33,7 @@ const Navbar = () => {
   },[session])
 
   return (
-    <div className={'flex justify-center items-center fixed w-full h-24 xl:h-10    bg-[#041f4a]'}>
+    <div className={'flex justify-center items-center fixed w-full h-10    bg-[#041f4a]'}>
       
       <div className ='flex   justify-end   w-2/3 h-full px-2 xl:px-16 sm:ml-3 '>
         

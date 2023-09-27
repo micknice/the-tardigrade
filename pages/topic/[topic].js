@@ -10,7 +10,8 @@ import { useMediaQuery } from '@mui/material'
 
 const ArticlePage = () => {
   const router = useRouter();
-  const isMobile = useMediaQuery('(max-width: 767px)');
+  const isMobile = useMediaQuery('(max-width: 1260px)');
+  // const isMobile = useMediaQuery('(max-width: 1380px)');
   const { topic } = router.query;
   
   const [articles, setArticles] = useState(null);

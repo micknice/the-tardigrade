@@ -75,12 +75,12 @@ const WeatherWidget = () => {
                 </div>
                 
                 <div className='col-span-1'>
-                    <div className=' border-guard-div-grey pt-2 flex flex-row h-12 items-center justify-end'>
+                    <div className=' border-guard-div-grey  flex flex-row h-12 items-center justify-end'>
                         {!weather &&
                             <ReactLoading type={'bars'} color={'#dcdcdc'}/>
                         }
                         {weather &&
-                        <img className='pb-2 pt-1 h-14' src={weather.current.condition.icon} alt='/'></img>
+                        <img className='pb-3 h-12' src={weather.current.condition.icon} alt='/'></img>
                         
                         }
                         <div className='grid grid-rows-3 h-10'>

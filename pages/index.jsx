@@ -11,13 +11,13 @@ import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from '@mui/material'
 import { getArticles } from './api/news/newsApi'
 import { checkIfLive } from '@/utils/utils' 
+import Tardigrade from '../public/assets/tard.png'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
   const isMobile = useMediaQuery('(max-width: 1260px)');
-  // const isMobile = useMediaQuery('(max-width: 1380px)');
   const [headlinesArr, setHeadlinesArr] = useState(null)
   const [live, setLive] = useState(false)
 
@@ -44,6 +44,7 @@ export default function Home() {
       <Head>
         <title>The Tardigrade</title>
         <meta name="description" content="Its a marathon not a sprint"/>
+        <meta property='og:image' content={Tardigrade}/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

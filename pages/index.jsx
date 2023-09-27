@@ -44,6 +44,13 @@ export default function Home() {
       <Head>
         <title>The Tardigrade</title>
         <meta name="description" content="Its a marathon not a sprint"/>
+        <meta property='og:title' content='The Tardigrade'/>
+        <meta property='og:description' content='Its a marathon not a sprint'/>
+        <meta property='og:url' content='https://thetardigrade.co.uk'/>
+        <meta property='og:type' content='website'/>
+        <meta property='og:twitter:card' content='summary'/>
+      
+
         <meta property='og:image' content={Tardigrade}/>
         <link rel="icon" href="/favicon.ico" />
       </Head>

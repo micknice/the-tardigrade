@@ -79,10 +79,10 @@ const WeatherWidget = () => {
                         {!weather &&
                             <ReactLoading type={'bars'} color={'#dcdcdc'}/>
                         }
-                        {/* {weather &&
+                        {weather && weather.current.condition.icon &&
                         <img className='pb-3 h-12' src={weather.current.condition.icon} alt='/'></img>
                         
-                        } */}
+                        }
                         <div className='grid grid-rows-3 h-10'>
                             {weather &&
                                 <p className='text-guard-subhead text-lg font-semibold row-span-2'>{`${weather.current.temp_c}°C`}</p>

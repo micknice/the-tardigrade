@@ -54,8 +54,8 @@ const ArticleBodyMobile = ({article}) => {
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
             <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
-            <p className='text-guard-subhead text-xs'>Explore more on these topics</p>
-            <div className='flex flex-row pt-2 gap-x-1'>
+            <p className='text-guard-subhead text-xs pl-2'>Explore more on these topics</p>
+            <div className='flex flex-row pt-2 gap-x-1 pl-2'>
                 <div className='flex border-guard-topicheadtext-red hover:bg-guard-topicheadtext-red border-[1px] hover: rounded-full' >
                     <Link href='/topic/coding'><p className='text-guard-topicheadtext-red text-sm   hover:text-white font-sans px-2'>Coding</p></Link>
                 </div>
@@ -67,7 +67,7 @@ const ArticleBodyMobile = ({article}) => {
                 </div>
             </div>
             <div className=' border-b-[1px] h-3 border-guard-div-grey'></div>
-            <div className='flex flex-row gap-x-1 pt-2'>
+            <div className='flex flex-row gap-x-1 pt-2 pl-2'>
                 <ButtonFb topic={'coding'}/>
                 <ButtonX topic={'coding'}/>
                 <ButtonMail topic={'coding'}/>

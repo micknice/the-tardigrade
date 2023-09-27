@@ -141,7 +141,7 @@ const CommentsMobile = ({article}) => {
                             </div>
                         </div>
                         <div className='h-5'/>
-                        <div className='flex flex-row h-auto gap-x-3 pb-3 border-t-[1px]'>
+                        <div className='flex flex-row h-auto gap-x-3 pb-3 border-t-[1px] pl-2'>
 
                             <div className=''>
                             <p className='text-guard-posted font-semibold font-sans  tracking-tighter'>Sort by</p>
@@ -222,7 +222,7 @@ const CommentsMobile = ({article}) => {
                         <div className=' border-t-[1px]  border-guard-div-grey flex flex-row py-1 gap-x-3 items-center ' >
                             {paginatedComments.length > 0 &&
                             paginatedComments.map((page, index) => 
-                                <div key={index} className='h-5 w-5  rounded-full  hover:bg-guard-topictile-hover-red flex items-center justify-center pr-1 pb-1' onClick={()=>{handleChangePage(index + 1)}}>
+                                <div key={index} className='h-5 w-5  rounded-full  hover:bg-guard-topictile-hover-red flex items-center justify-center pr-1 pb-1 pl-2' onClick={()=>{handleChangePage(index + 1)}}>
                                     {commentPage === index + 1 &&
                                     <p className='text-guard-topicheadtext-red font-semibold font-sans tracking-tighter '>{index+1}</p>
                                     }

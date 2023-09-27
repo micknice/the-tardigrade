@@ -11,7 +11,7 @@ import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from '@mui/material'
 import { getArticles } from './api/news/newsApi'
 import { checkIfLive } from '@/utils/utils' 
-import Tardigrade from '../public/assets/TheTardigrade.png'
+import Tardigrade from '../public/assets/tard.png'
 
 const inter = Inter({ subsets: ['latin'] })
 

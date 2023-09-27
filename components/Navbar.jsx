@@ -71,10 +71,10 @@ const Navbar = () => {
               }
             </div>
             <div className='  w-px bg-guard-div-blue h-3/4'/>
-            <Link className='flex px-3 items-center' href='/#search' >
+            {/* <Link className='flex px-3 items-center' href='/#search' >
               <GoSearch color={'#fff'}size={25}/>
               <p className=' pl-2 font-bold hover:border-b text-white'>Search</p>
-            </Link>
+            </Link> */}
         </div>
       </div>
     </div>

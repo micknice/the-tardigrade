@@ -15,7 +15,7 @@ import Tardigrade from '../public/assets/TheTardigrade.png'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({photo}) {
 
   const isMobile = useMediaQuery('(max-width: 1260px)');
   const [headlinesArr, setHeadlinesArr] = useState(null)
@@ -51,7 +51,7 @@ export default function Home() {
         <meta property='og:twitter:card' content='summary'/>
       
 
-        <meta property='og:image' content={Tardigrade}/>
+        <meta property='og:image' content={photo?.url}/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

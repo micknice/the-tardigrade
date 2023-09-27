@@ -15,7 +15,7 @@ import Tardigrade from '../public/assets/TheTardigrade.png'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({photo}) {
+export default function Home() {
 
   const isMobile = useMediaQuery('(max-width: 1260px)');
   const [headlinesArr, setHeadlinesArr] = useState(null)
@@ -51,7 +51,7 @@ export default function Home({photo}) {
         <meta property='og:twitter:card' content='summary'/>
       
 
-        <meta property='og:image' content={photo?.url}/>
+        <meta property='og:image' content={Tardigrade}/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -67,21 +67,6 @@ export default function Home({photo}) {
   )
 }
 
-export const getServerSideProps = async () => {
-  
-  let photo = null;
-  await fetch('https://thetardigrade.co.uk')
-    .then((response) => response.json())
-    .then((json) =>{
-      photo=json
-    })
-  
 
-  return {
-    props: {
-      photo,
-    },
-  };
-};
 
 

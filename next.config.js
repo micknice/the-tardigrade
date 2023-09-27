@@ -7,7 +7,7 @@ const nextConfig = {
             // matching all API routes
             source: "/api/:path*",
             headers: [
-                { key: 'og:image', value: 'https://www.thetardigrade.co.uk/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftard.650980d9.png&w=640&q=75'},
+                // { key: 'og:image', value: 'https://www.thetardigrade.co.uk/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftard.650980d9.png&w=640&q=75'},
                 { key: "Access-Control-Allow-Credentials", value: "true" },
                 { key: "Access-Control-Allow-Origin", value: "*" }, // replace this your actual origin
                 { key: "Access-Control-Allow-Methods", value: "GET,DELETE,PATCH,POST,PUT" },

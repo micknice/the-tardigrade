@@ -54,6 +54,7 @@ const WeatherWidget = () => {
             const fetchReport = async() => {
                     const report = await getCurrentWeatherReport(position)
                     setWeather(report)
+                    console.log(report)
             } 
             const fetchDaily = async() => {
                 const dailyReport = await getDailyForecastWeatherReport(position)
@@ -82,10 +83,10 @@ const WeatherWidget = () => {
                     {!weather &&
                         <ReactLoading type={'bars'} color={'#dcdcdc'}/>
                     }
-                    {weather &&
+                    {/* {weather  &&
                     <img className='pb-2' src={weather.current.condition.icon} alt='/'></img>
                     
-                }
+                } */}
                     <div className='grid grid-rows-3'>
                         
                         <p className='text-guard-subhead text-xs row-span-1 pt-2'>Now</p>

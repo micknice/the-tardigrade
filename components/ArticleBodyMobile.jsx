@@ -5,31 +5,48 @@ import ButtonMail from './ButtonMail'
 import { PiCameraFill } from 'react-icons/pi'
 import Link from 'next/link'
 import ArticleInfoMobile from './ArticleInfoMobile'
+import ArticleInfo from './ArticleInfo'
+import { useMediaQuery } from '@mui/material'
 
 
 const ArticleBodyMobile = ({article}) => {
+    const isCondensed = useMediaQuery('(max-width: 887px)');
+   
     return (
         <div className='w-full '>
             {article &&
-            <div>
-                <img src={article.article_img_url} alt='/'></img>
+            <div className='flex flex-row'>
+                {!isCondensed &&
+                <ArticleInfo article={article}/>
+                }
+                
+                <div className='flex flex-col'>
+                    <img src={article.article_img_url} alt='/'></img>
+                    {article &&
+                    <p className='text-guard-subhead text-3xl font-semibold font-serif leading-tighter tracking-tight px-2 py-1'>
+                        {article.title}
+                    </p>
+                    }
+                </div>
             </div>
             }
-            {article &&
-            <p className='text-guard-subhead text-3xl font-semibold font-serif leading-tighter tracking-tight px-2 py-1'>
-                {article.title}
-            </p>
+            {article && !isCondensed &&
+            <div>
+                <div className='border-b-[1px] border-guard-div-grey pt-2 '/>
+                <div className='border-b-[1px] border-guard-div-grey pt-[3px] '/>
+                <div className='border-b-[1px] border-guard-div-grey pt-[3px] '/>
+                <div className='border-b-[1px] border-guard-div-grey pt-[3px] '/>
+            </div>
+            
+
             }
-            {article &&
+            {article && isCondensed &&
             <ArticleInfoMobile article={article}/>
             }
             {/* <div className='w-full h-8'/> */}
             
             <div className='w-full h-2'/>
-            {/* <div className='pt-2 flex gap-x-1 '>
-                <PiCameraFill size={20} color='#707070'/>
-                <p className='text-guard-posted text-sm text-sans pb-4'></p>
-            </div> */}
+            
             {article &&
             <p className='text-guard-subhead text-lg  font-serif px-2'>{article.body}</p>
             }

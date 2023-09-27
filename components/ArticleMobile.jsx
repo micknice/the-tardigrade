@@ -4,11 +4,14 @@ import ArticleInfoMobile from './ArticleInfoMobile'
 import MostViewed from './MostViewed'
 import ArticleBodyMobile from './ArticleBodyMobile'
 import dynamic from 'next/dynamic'
+import { useMediaQuery } from '@mui/material'
 
 const CommentsMobile = dynamic(() => import("./CommentsMobile"), { ssr: false });
 
 
 const ArticleMobile = ({article}) => {
+    const isCondensed = useMediaQuery('(max-width: 1470px)');
+   
     
     const [headlinesArr, setHeadlinesArr] = useState([])
 

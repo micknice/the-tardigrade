@@ -55,8 +55,7 @@ const Main = ({headlinesArr}) => {
                                     <SmallArticleCard article={headlinesArr[9]}/>
                                 </div>
                                 
-                                <div className='col-span-1 '></div>
-                                <div className='col-span-1 '></div>
+                            <div className='col-span-1 h-2'></div>
                             </div>
                         </div>
                         }

@@ -66,7 +66,7 @@ const CommentCard = ( {comment, article} ) => {
                         <p className='text-guard-posted text-sm tracking-tighter px-1 pt-1'>{getPostAge(comment.created_at)}</p>
                     </div>
                     {/* vote button */}
-                    {!voted &&
+                    {!voted && session &&
                     <div className='flex flex-row items-end justify-end' onClick={()=>{handleVote('up')}}>
                         {voteCount &&
                         <p className='text-guard-posted'>{voteCount}</p>
@@ -79,7 +79,15 @@ const CommentCard = ( {comment, article} ) => {
                         }
                     </div>
                     }
-                    {voted &&
+                    {!session &&
+                    <div className='flex flex-row items-end justify-end' >
+                        {voteCount &&
+                        <p className='text-guard-posted'>{voteCount}</p>
+                        }
+                        <div className='bg-guard-topictile-red rounded-full '><AiOutlineArrowUp size={20} color='#707070'/></div>
+                    </div>
+                    }
+                    {voted && session &&
                     <div className='flex flex-row items-end justify-end' onClick={()=>{handleVote('down')}}>
                         {voteCount &&
                         <p className='text-guard-posted'>{voteCount}</p>

@@ -31,10 +31,10 @@ export default function Home() {
             }
             setHeadlinesArr(headlines)
         }
-        // const fetchLive = async() => { 
-        //     const live = await checkIfLive('UCeY0bbntWzzVIaj2z3QigXg')
-        //     setLive(live)
-        //  }
+        const fetchLive = async() => { 
+            const live = await checkIfLive('UCeY0bbntWzzVIaj2z3QigXg')
+            setLive(live)
+         }
         fetchArticles()
 
     }, [])

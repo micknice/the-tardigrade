@@ -26,13 +26,14 @@ const TopicMobile = ( {topic} ) => {
         <div className='h-full w-full bg-white flex  justify-center items-center '>
             <div className='h-full w-full flex items-center justify-center '>
                 <div className='w-full h-full border-l-[1px] border-t-[1px] border-r-[1px] border-guard-div-grey '>
-                    <div className=' border-b-[1px] h-9 border-guard-div-grey'></div>
+                    <div className=' border-b-[1px] h-10 border-guard-div-grey'>
+                            <WeatherWidgetMobile/>
+                    </div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className='h-full w-full justify-center items-center '>
                         <div className='h-1 '/>
-                            <WeatherWidgetMobile/>
                             <BigArticleCardMobile article={headlinesArr[0]}/>
                             <MediumArticleCardMobile article={headlinesArr[1]}/>
                             <MediumArticleCardMobile article={headlinesArr[2]}/>

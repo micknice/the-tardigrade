@@ -1,4 +1,5 @@
 import { getArticleByArticleId, getUserByUsername} from "@/pages/api/news/newsApi"
+import channelArr from '../utils/ytChannels'
 
 const formatDate = (dateStr) => {
     const date = new Date(dateStr).toUTCString()
@@ -63,9 +64,10 @@ const getSimilarArticles = async(article) => {
 const checkIfLive = async(channelId) => {
     const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`) 
     const data = await res.json()    
+    console.log(data, 'dataYT')
     
 
-    return data.items.length > 0
+    // return data.items.length > 0
 } 
 
 // query the youtube api to get url  and description
@@ -74,6 +76,20 @@ const getVideoInfo = async(videoId) => {
     const data = await res.json()
     return data.items[0]
 }   
+
+const getAllLiveChannelInfo = async() => {
+    const liveChannelArr = []
+    const promises = channelArr.map(async (channel) => {
+        const isLive = await checkIfLive(channel.channelId)
+        console.log(isLive, 'islive')
+        if (isLive) {
+            const videoInfo = await getVideoInfo(channel.channelId)
+            liveChannelArr.push({channel, videoInfo})
+        }
+    })
+    await Promise.all(promises)
+    return liveChannelArr
+}
 
 const sortByVotesDescending =(arr) => {
     arr.sort(function(a, b) {
@@ -97,4 +113,4 @@ const getUniqueCommenters = (commentsArr) => {
 }
 
 
-export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo, sortByVotesDescending, getUniqueCommenters}
+export {getPostAge, getShortenedTitle, capitalizeAuthor, formatDate, getSimilarArticles, checkIfLive, getVideoInfo, sortByVotesDescending, getUniqueCommenters, getAllLiveChannelInfo}

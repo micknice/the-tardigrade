@@ -1,17 +1,13 @@
-import Image from 'next/image'
-import Navbar from '../components/Navbar'
 import Main from '../components/Main'
 import MainMobile from '../components/MainMobile'
 import { Inter } from 'next/font/google'
 import Head from 'next/head'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import Article from '../components/Article'
 import React, { useEffect, useState } from 'react'
 import { useMediaQuery } from '@mui/material'
 import { getArticles } from './api/news/newsApi'
-import { checkIfLive } from '@/utils/utils' 
+import { checkIfLive, getAllLiveChannelInfo } from '@/utils/utils' 
 import Tardigrade from '../public/assets/tard.png'
+import channelArr from '../utils/ytChannels'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,6 +19,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchArticles = async() => {
+          console.log('fetching articles')
             const articlesArr = await getArticles()
             const headlines = []
             for(let i = 0; i < 10; i++) {
@@ -32,10 +29,12 @@ export default function Home() {
             setHeadlinesArr(headlines)
         }
         const fetchLive = async() => { 
-            const live = await checkIfLive('UCeY0bbntWzzVIaj2z3QigXg')
-            setLive(live)
+            console.log('fetching live')
+            const liveChannels = await getAllLiveChannelInfo()
+            console.log(liveChannels, 'LIVE CHANNELS!!!!')
          }
         fetchArticles()
+        // fetchLive()
 
     }, [])
 

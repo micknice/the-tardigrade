@@ -6,3 +6,11 @@ const nasaSpaceFlight = {channelName: 'NASASpaceflight',channelId: 'UCSUu1lih2Ri
 const platChatValorant = {channelName: 'Plat Chat VALORANT',channelId: 'UCQxeg_-Vt94mF0fA3bNmQlA', strap: 'Esports podcast specializing in instalocking Jett and VALORANT'}
 const platChat = {channelName: 'Plat Chat',channelId: 'UCvqRdlKsE5Q8mf8YXbdIJLw', strap: 'Esports podcast specializing in feeding and Overwatch'}
 const lofiGirl = {channelName: 'Lofi Girl',channelId: 'UCSJ4gkVC6NrvII8umztf0Ow', strap: 'That girl studying by the window non-stop'}
+
+
+const channelArr = [thePrimagen, modular, theoT3, nasa, nasaSpaceFlight, platChatValorant, platChat, lofiGirl]
+
+
+
+
+export default channelArr

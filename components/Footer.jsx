@@ -83,7 +83,7 @@ const Footer = () => {
 
                         <div className='flex items-center hover:border-t-4 border-guard-topic-pink'>
                             <Link className='flex pl-2 pr-20 items-center' href='/#gaming' >
-                                <p className='text-2xl font-serif pl-2 font-bold text-white'>Gaming</p>
+                                <p className='text-2xl font-serif pl-2 font-bold text-white'>Projects</p>
                             </Link>
                         </div>
                         {!isCondensed &&

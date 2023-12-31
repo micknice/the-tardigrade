@@ -21,8 +21,10 @@ const ArticlePage = () => {
   
   useEffect(() => {
     if (topic) {
+      console.log('!!!!!!!!!!!!!!!!!!!!', topic)
       const fetchArticle = async () => {
         const articlesData = await getArticlesByTopic(topic);
+        
         setArticles(articlesData);
       };
       fetchArticle();

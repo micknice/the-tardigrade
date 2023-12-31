@@ -4,10 +4,8 @@ import ArticleInfo from './ArticleInfo'
 import MostViewed from './MostViewed'
 import ArticleBody from './ArticleBody'
 import dynamic from 'next/dynamic'
-// import Comments from './Comments'
 
 const Comments = dynamic(() => import("./Comments"), { ssr: false });
-
 
 const Article = ({article}) => {
     
@@ -24,7 +22,6 @@ const Article = ({article}) => {
             setHeadlinesArr(headlines)
         }
         fetchArticles()
-
     }, [])
 
     return (
@@ -36,24 +33,19 @@ const Article = ({article}) => {
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className='h-full w-full justify-center items-center '>
-                        
-
-                            <div className='h-full grid grid-cols-5 px-2 pr-8  row-span-1 '>
-                                <ArticleInfo article={article}/>
-                                <div className=' col-span-4 grid grid-cols-3 gap-x-6 pr- '>
-                                    <ArticleBody article={article}/>
-                                    <div className=''>
-                                        <MostViewed article={article}/>
-                                    </div>
+                        <div className='h-full grid grid-cols-5 px-2 pr-8  row-span-1 '>
+                            <ArticleInfo article={article}/>
+                            <div className=' col-span-4 grid grid-cols-3 gap-x-6 pr- '>
+                                <ArticleBody article={article}/>
+                                <div className=''>
+                                    <MostViewed article={article}/>
                                 </div>
                             </div>
-                            <Comments article={article}/>
+                        </div>
+                        <Comments article={article}/>
                     </div>
-
-                            
                 </div>
             </div>
-
         </div>
     )
 }

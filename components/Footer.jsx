@@ -80,12 +80,26 @@ const Footer = () => {
 
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
+                        {tabTopic && tabTopic === 'science' &&
+                            <div className='flex items-center border-t-4 border-guard-topic-pink' onClick={() => handleTabClick('science')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Science</p>
+                                </Link>
+                            </div>
+                        }
+                        {tabTopic !== 'science' &&
+                            <div className='flex items-center hover:border-t-4 border-guard-topic-pink' onClick={() => handleTabClick('science')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Science</p>
+                                </Link>
+                            </div>
+                        }
 
-                        <div className='flex items-center hover:border-t-4 border-guard-topic-pink'>
+                        {/* <div className='flex items-center hover:border-t-4 border-guard-topic-pink'>
                             <Link className='flex pl-2 pr-20 items-center' href='/#gaming' >
-                                <p className='text-2xl font-serif pl-2 font-bold text-white'>Projects</p>
+                                <p className='text-2xl font-serif pl-2 font-bold text-white'>Science</p>
                             </Link>
-                        </div>
+                        </div> */}
                         {!isCondensed &&
                             <div className='w-px bg-guard-div-blue h-2/3'/>
                         }

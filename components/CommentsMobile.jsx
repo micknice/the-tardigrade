@@ -132,7 +132,6 @@ const CommentsMobile = ({article}) => {
                     {/* comment text box */}
                         <div className='h-16  pb-3 px-2'>
                             <textarea className='h-full w-full px-2 py-1 placeholder:text-black border-[1px] border-guard-div-grey font-bold tracking-tighter ' placeholder='Join the discussion' onChange={(e)=> {handleChangeComment(e)}}/>
-                        
                         </div>
                         {/* post comment button */}
                         <div className='pl-2'>

@@ -17,7 +17,6 @@ const MainMobile = ({headlinesArr}) => {
                 <div className='w-full h-full border-l-[1px] border-t-[1px] border-r-[1px] border-guard-div-grey '>
                     <div className=' border-b-[1px] h-10 border-guard-div-grey'>
                             <WeatherWidgetMobile/>
-
                     </div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>

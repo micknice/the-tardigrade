@@ -8,10 +8,8 @@ import { useMediaQuery } from '@mui/material'
 
 const CommentsMobile = dynamic(() => import("./CommentsMobile"), { ssr: false });
 
-
 const ArticleMobile = ({article}) => {
     const isCondensed = useMediaQuery('(max-width: 1470px)');
-   
     
     const [headlinesArr, setHeadlinesArr] = useState([])
 
@@ -38,17 +36,11 @@ const ArticleMobile = ({article}) => {
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className='h-full w-full justify-center items-center '> 
-                                    <ArticleBodyMobile article={article}/>
-                        
-
-                            
-                            <CommentsMobile article={article}/>
+                        <ArticleBodyMobile article={article}/>
+                        <CommentsMobile article={article}/>
                     </div> 
-
-                            
                 </div>
             </div>
-
         </div>
     )
 }

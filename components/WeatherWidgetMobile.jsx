@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import getCurrentWeatherReport  from '../pages/api/weather/currentWeather'
 import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWeather'
 import ReactLoading from 'react-loading';
-import {HiChevronDown} from 'react-icons/hi2'
 
 
 const WeatherWidget = () => {
@@ -22,9 +21,9 @@ const WeatherWidget = () => {
       const coordStr = `${latitude}, ${longitude}`
       if(pos.coords.latitude && pos.coords.longitude) {
         setPosition(coordStr)
-
       }
     }
+
     useEffect(() => {
         if (navigator.geolocation) {
             navigator.permissions
@@ -45,7 +44,6 @@ const WeatherWidget = () => {
         } else {
             console.log("Geolocation is not supported by this browser.");
         }
-
     },[])
 
 
@@ -61,9 +59,7 @@ const WeatherWidget = () => {
             }
             fetchReport() 
             fetchDaily()
-                
         }
-
     }, [position])
 
     return (
@@ -71,9 +67,7 @@ const WeatherWidget = () => {
             <div className=' bg-gray  grid grid-cols-2  '>
                 <div className='col-span-1'>
                     <p className='text-black text-2xl font-black font-serif tracking-tighter'>Headlines</p>
-                
                 </div>
-                
                 <div className='col-span-1'>
                     <div className=' border-guard-div-grey  flex flex-row h-12 items-center justify-end'>
                         {!weather &&

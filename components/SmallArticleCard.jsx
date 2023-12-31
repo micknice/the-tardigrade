@@ -76,6 +76,25 @@ const SmallArticleCard = ({article}) => {
 
             </div>
         )
+    } else if (article && article.topic === 'science') {
+        return (
+            <div className=' pt-1 h-full w-full '>
+                <Link href={`/article/${article.article_id}`}>
+                    <div className='col-span-1 border-t-[1px] border-guard-topictext-pink h-full  bg-guard-topictile-pink hover:bg-guard-topictile-hover-pink grid grid-rows-4'>
+                        {article &&
+                            <p className='text-guard-topictext-sky  text-lg font-black font-serif px-2 row-span-1 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                        }
+                            {article &&
+                                <p className='text-guard-subhead  text-lg font-medium font-serif leading-5 px-2 row-span-2'>{getShortenedTitle(article.title)}</p>
+                            }
+                            {article &&
+                                <p className='text-guard-posted text-xs pt-2 px-2 row-span-1'>{getPostAge(article.created_at)}</p>
+                            }
+                    </div>
+                </Link>
+
+            </div>
+        )
     }
 }
 

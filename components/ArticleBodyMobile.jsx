@@ -2,7 +2,6 @@ import React from 'react'
 import ButtonFb from './ButtonFb'
 import ButtonX from './ButtonX'
 import ButtonMail from './ButtonMail'
-import { PiCameraFill } from 'react-icons/pi'
 import Link from 'next/link'
 import ArticleInfoMobile from './ArticleInfoMobile'
 import ArticleInfo from './ArticleInfo'
@@ -19,7 +18,6 @@ const ArticleBodyMobile = ({article}) => {
                 {!isCondensed &&
                 <ArticleInfo article={article}/>
                 }
-                
                 <div className='flex flex-col'>
                     <img src={article.article_img_url} alt='/'></img>
                     {article &&
@@ -37,14 +35,10 @@ const ArticleBodyMobile = ({article}) => {
                 <div className='border-b-[1px] border-guard-div-grey pt-[3px] '/>
                 <div className='border-b-[1px] border-guard-div-grey pt-[3px] '/>
             </div>
-            
-
             }
             {article && isCondensed &&
             <ArticleInfoMobile article={article}/>
             }
-            {/* <div className='w-full h-8'/> */}
-            
             <div className='w-full h-2'/>
             
             {article &&
@@ -73,7 +67,6 @@ const ArticleBodyMobile = ({article}) => {
                 <ButtonMail topic={'coding'}/>
             </div>
             <div className=' h-10 border-guard-div-grey'></div>
-
         </div>
     )
 }

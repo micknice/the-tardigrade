@@ -31,18 +31,14 @@ const Main = ({headlinesArr}) => {
                         <div className='flex flex-col h-42'>
                             <div className='h-full grid grid-cols-5 px-2 pr-20 gap-x-3 row-span-1 '>
                                 <WeatherWidget/>
-                                
                                 <BigArticleCard article={headlinesArr[0]}/>
                                 <MediumArticleCard article={headlinesArr[1]}/>
                             </div>
 
                             <div className='h-full grid grid-cols-5 px-2 pr-20 gap-x-3 row-span-1 '>
-
                                 <div></div>
-
                                 <MediumArticleCard article={headlinesArr[2]}/>
                                 <MediumArticleCard article={headlinesArr[3]}/>
-
                                 <div className=' h-full grid grid-rows-3 pt-2'>
                                     <SmallArticleCard article={headlinesArr[4]}/>
                                     <SmallArticleCard article={headlinesArr[5]}/>
@@ -61,18 +57,14 @@ const Main = ({headlinesArr}) => {
                         }
                         {isCondensed &&
                         <div className='grid grid-rows-2 gap-y-2'>
-                            
                             <div className=' grid grid-cols-4 px-2  gap-x-3 row-span-1 h-24 '>
                                 <div className='col-span-2'><MediumArticleCard article={headlinesArr[0]}/></div>
                                 <div className='col-span-2'><MediumArticleCard article={headlinesArr[1]}/></div>
                             </div>
 
                             <div className='h-full grid grid-cols-4 px-2  gap-x-3 row-span-1 '>
-
-
                                 <MediumArticleCard article={headlinesArr[2]}/>
                                 <MediumArticleCard article={headlinesArr[3]}/>
-
                                 <div className=' h-full grid grid-rows-3 pt-2'>
                                     <SmallArticleCard article={headlinesArr[4]}/>
                                     <SmallArticleCard article={headlinesArr[5]}/>
@@ -86,14 +78,12 @@ const Main = ({headlinesArr}) => {
                                 </div>
                                 
                             </div>
-                                <div className='col-span-1 h-1'></div>
+                            <div className='col-span-1 h-1'></div>
                         </div>
                         }
                     </div>
-    
                 </div>
             </div>
-
         </div>
     )
 }

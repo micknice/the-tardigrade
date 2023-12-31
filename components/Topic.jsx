@@ -16,7 +16,9 @@ const Topic = ( {topic} ) => {
         const fetchArticles = async() => {
             if (topic) {
 
+
                 const articlesArr = await getArticlesByTopic(topic)
+                console.log('???????', articlesArr[0])
                 
                 setHeadlinesArr(articlesArr)
             }
@@ -38,6 +40,7 @@ const Topic = ( {topic} ) => {
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className='h-full w-full justify-center items-center '>
+                        
                         {!isCondensed &&
                         <div className='flex flex-col h-42'>
                             <div className='h-full grid grid-cols-5 px-2 pr-20 gap-x-3 row-span-1 '>
@@ -71,6 +74,7 @@ const Topic = ( {topic} ) => {
                             </div>
                         </div>
                         }
+
                         {isCondensed &&
                         <div className='grid grid-rows-2 gap-y-2'>
                             
@@ -80,11 +84,8 @@ const Topic = ( {topic} ) => {
                             </div>
 
                             <div className='h-full grid grid-cols-4 px-2  gap-x-3 row-span-1 '>
-
-
                                 <MediumArticleCard article={headlinesArr[2]}/>
                                 <MediumArticleCard article={headlinesArr[3]}/>
-
                                 <div className=' h-full grid grid-rows-3 pt-2'>
                                     <SmallArticleCard article={headlinesArr[4]}/>
                                     <SmallArticleCard article={headlinesArr[5]}/>
@@ -96,16 +97,14 @@ const Topic = ( {topic} ) => {
                                     <SmallArticleCard article={headlinesArr[8]}/>
                                     <SmallArticleCard article={headlinesArr[9]}/>
                                 </div>
-                                
                             </div>
                                 <div className='col-span-1 h-1'></div>
                         </div>
                         }
+
                     </div>
-    
                 </div>
             </div>
-
         </div>
     )
 

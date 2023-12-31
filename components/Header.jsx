@@ -28,9 +28,6 @@ const Header = () => {
         }
     },[topic])
 
-
-    
-
     return (
         <div className='w-auto h-auto bg-white pt-10  '>
             <div className='w-full h-48 bg-guard-blue-mid px-40 flex items-center justify-center '>
@@ -103,11 +100,26 @@ const Header = () => {
 
                         <div className='w-px bg-guard-div-blue h-2/3'/>
 
-                        <div className='flex items-center hover:border-t-4 border-guard-topic-pink'>
+                        {tabTopic && tabTopic === 'science' &&
+                            <div className='flex items-center border-t-4 border-guard-topic-pink' onClick={() => handleTabClick('science')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/science' >
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Science</p>
+                                </Link>
+                            </div>
+                        }
+                        {tabTopic !== 'science' &&
+                            <div className='flex items-center hover:border-t-4 border-guard-topic-pink' onClick={() => handleTabClick('science')}>
+                                <Link className='flex pl-2 pr-20 items-center' href='/topic/science' >
+                                    <p className='text-2xl font-serif pl-2 font-bold text-white'>Science</p>
+                                </Link>
+                            </div>
+                        }
+
+                        {/* <div className='flex items-center hover:border-t-4 border-guard-topic-pink'>
                             <Link className='flex pl-2 pr-20 items-center' href='/topic/football' >
                                 <p className='text-2xl font-serif pl-2 font-bold text-white'>Projects</p>
                             </Link>
-                        </div>
+                        </div> */}
                         {!isCondensed &&
 
                             <div className='w-px bg-guard-div-blue h-2/3'/>

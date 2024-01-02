@@ -11,7 +11,6 @@ const getTopics = async () => {
 }
 const getArticles = async () => {
     const { data } = await niceNewsApi.get('/articles');
-    console.log("data", data.articles)
     return data.articles;
 }
 const getArticlesByTopic = async (topic) => {
@@ -33,13 +32,15 @@ const getCommentsByArticleId = async (articleId) => {
         return data.comments;
     } catch (err) {
         console.log(err, 'err')
+        if (err.response.data.msg === "no comments matching that id") {
+            return [];
+        }
     }
 }
 const postCommentByArticleId = async (articleId, username, body) => {
     const reqBody = {username: username, body: body}
     try {
         const  data  = await niceNewsApi.post(`/articles/${articleId}/comments`, reqBody);
-        console.log(data, 'data')
         return data;
     } catch (err) { 
         console.log(err, 'err')

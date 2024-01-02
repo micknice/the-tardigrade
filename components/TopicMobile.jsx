@@ -12,9 +12,7 @@ const TopicMobile = ( {topic} ) => {
     useEffect(() => {
         const fetchArticles = async() => {
             if (topic) {
-
                 const articlesArr = await getArticlesByTopic(topic)
-                
                 setHeadlinesArr(articlesArr)
             }
         }

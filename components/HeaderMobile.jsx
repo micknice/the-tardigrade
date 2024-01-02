@@ -7,12 +7,10 @@ import Image from 'next/image'
 import SupportButtonMobile from './SupportButtonMobile'
 
 const HeaderMobile = () => {
-
     const router = useRouter();
     const { topic } = router.query;
 
     const [tabTopic, setTabTopic] = useState(null)
-
 
     const handleTabClick = (topic) => {
         setTabTopic(topic)

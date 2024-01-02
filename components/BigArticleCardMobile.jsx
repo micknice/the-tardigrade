@@ -11,7 +11,6 @@ const BigArticleCard = ({article}) => {
 
     const [actualArticle, setActualArticle] = useState(null)
     const [actualArticleBody, setActualArticleBody] = useState(null)
-    
 
     useEffect(() => {
         if(article) {

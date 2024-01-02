@@ -27,9 +27,11 @@ const Comments = ({article}) => {
         if (article) {
             const fetchComments = async() => {
                 const commentsArr = await getCommentsByArticleId(article.article_id)
-                const commentsClone = [...commentsArr]
-                setComments(commentsClone)
-                setCommentsSort(commentsClone)
+                if (commentsArr.length > 0) {
+                    const commentsClone = [...commentsArr]
+                    setComments(commentsClone)
+                    setCommentsSort(commentsClone)
+                }
             }
             fetchComments()
         }

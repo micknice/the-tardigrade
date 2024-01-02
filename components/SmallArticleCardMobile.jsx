@@ -12,7 +12,6 @@ const SmallArticleCardMobile = ({article}) => {
             const fetchArticle = async() => {
                 const articleActual = await getArticleByArticleId(article.article_id)
                 setActualArticle(articleActual)
-                
             }
             fetchArticle()
         }

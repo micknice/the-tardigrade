@@ -11,19 +11,6 @@ const Article = ({article}) => {
     
     const [headlinesArr, setHeadlinesArr] = useState([])
 
-    useEffect(() => {
-        const fetchArticles = async() => {
-            const articlesArr = await getArticles()
-            const headlines = []
-            for(let i = 0; i < 10; i++) {
-                const randomIndex = Math.floor(Math.random() * (articlesArr.length))
-                headlines.push(articlesArr[randomIndex])
-            }
-            setHeadlinesArr(headlines)
-        }
-        fetchArticles()
-    }, [])
-
     return (
         <div className=' w-full bg-white flex  justify-center items-center px-40'>
             <div className='h-full w-5/6 flex items-center justify-center '>

@@ -9,10 +9,7 @@ import {getUserByUsername, postNewUser} from '../pages/api/news/newsApi'
 
 const NavbarMobile = () => {
   const { data: session, status } = useSession()
-  console.log(session, 'session')
   const [nav, setNav] = useState(false)
-
-  
 
   const handleNav = () => {
     setNav(!nav)
@@ -22,10 +19,10 @@ const NavbarMobile = () => {
     if(status === 'authenticated'){
       const getUser = async () => { 
         console.log(session.user.name, 'session.user.name')
-        const response = await getUserByUsername(session.user.name)
+        // const response = await getUserByUsername(session.user.name)
         if(!response){
           const postResponse = await postNewUser(session.user.name, session.user.email, session.user.image)
-          console.log(postResponse, 'postResponse')
+          // console.log(postResponse, 'postResponse')
         }
       }
       getUser()

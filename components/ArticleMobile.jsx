@@ -13,20 +13,6 @@ const ArticleMobile = ({article}) => {
     
     const [headlinesArr, setHeadlinesArr] = useState([])
 
-    useEffect(() => {
-        const fetchArticles = async() => {
-            const articlesArr = await getArticles()
-            const headlines = []
-            for(let i = 0; i < 10; i++) {
-                const randomIndex = Math.floor(Math.random() * (articlesArr.length))
-                headlines.push(articlesArr[randomIndex])
-            }
-            setHeadlinesArr(headlines)
-        }
-        fetchArticles()
-
-    }, [])
-
     return (
         <div className=' w-full bg-white flex  justify-center items-center '>
             <div className='h-full w-full flex items-center justify-center '>

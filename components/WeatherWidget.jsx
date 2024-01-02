@@ -52,7 +52,6 @@ const WeatherWidget = () => {
             const fetchReport = async() => {
                     const report = await getCurrentWeatherReport(position)
                     setWeather(report)
-                    console.log(report)
             } 
             const fetchDaily = async() => {
                 const dailyReport = await getDailyForecastWeatherReport(position)

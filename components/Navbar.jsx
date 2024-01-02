@@ -9,10 +9,7 @@ import {getUserByUsername, postNewUser} from '../pages/api/news/newsApi'
 
 const Navbar = () => {
   const { data: session, status } = useSession()
-  console.log(session, 'session')
   const [nav, setNav] = useState(false)
-
-  
 
   const handleNav = () => {
     setNav(!nav)
@@ -21,11 +18,11 @@ const Navbar = () => {
   useEffect(() => {
     if(status === 'authenticated'){
       const getUser = async () => { 
-        console.log(session.user.name, 'session.user.name')
+        // console.log(session.user.name, 'session.user.name')
         const response = await getUserByUsername(session.user.name)
         if(!response){
           const postResponse = await postNewUser(session.user.name, session.user.email, session.user.image)
-          console.log(postResponse, 'postResponse')
+          // console.log(postResponse, 'postResponse')
         }
       }
       getUser()
@@ -49,15 +46,12 @@ const Navbar = () => {
             <div className='flex items-center'>
               
               {!session &&
-              // <Link className='flex px-3 items-center' href='/api/auth/login' >
                 <div className='flex px-3 items-center' onClick={()=> {signIn()}}>
                   <FaCircleUser size={22} color={'#ffff'}/>
                   <p className=' pl-2 font-bold hover:border-b text-white'>Sign in</p>
                 </div>
-              // </Link>
               }
               {session &&
-              // <Link className='flex px-3 items-center' href='/api/auth/logout' >
                 <div className='flex px-3 items-center' onClick={()=> {signOut()}}>
                   {session.user.image &&
                   <img className='h-6 rounded-full' src={session.user.image} alt='/'/>
@@ -67,7 +61,6 @@ const Navbar = () => {
                   }
                   <p className=' pl-2 font-bold hover:border-b text-white'>{session.user.name}</p>
                 </div>
-              // </Link>
               }
             </div>
             <div className='  w-px bg-guard-div-blue h-3/4'/>

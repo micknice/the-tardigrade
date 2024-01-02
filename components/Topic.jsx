@@ -15,11 +15,8 @@ const Topic = ( {topic} ) => {
     useEffect(() => {
         const fetchArticles = async() => {
             if (topic) {
-
-
                 const articlesArr = await getArticlesByTopic(topic)
-                console.log('???????', articlesArr[0])
-                
+                console.log(articlesArr[0], 'llllll')
                 setHeadlinesArr(articlesArr)
             }
         }

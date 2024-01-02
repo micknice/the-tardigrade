@@ -78,7 +78,6 @@ const Footer = () => {
                             </div>
                         }
 
-
                         <div className='w-px bg-guard-div-blue h-2/3'/>
                         {tabTopic && tabTopic === 'science' &&
                             <div className='flex items-center border-t-4 border-guard-topic-pink' onClick={() => handleTabClick('science')}>

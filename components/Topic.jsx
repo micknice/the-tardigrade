@@ -69,7 +69,9 @@ const Topic = ( {topic} ) => {
                                 <div className='col-span-1 h-2 '></div>
                                 <div className='col-span-1 '></div>
                             </div>
+                            
                         </div>
+                        
                         }
 
                         {isCondensed &&
@@ -96,10 +98,15 @@ const Topic = ( {topic} ) => {
                                 </div>
                             </div>
                                 <div className='col-span-1 h-1'></div>
+                                
                         </div>
                         }
 
                     </div>
+                    <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
+                            <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
+                            <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
+                            <div className=' border-b-[1px] h-10 border-guard-div-grey'/>
                 </div>
             </div>
         </div>

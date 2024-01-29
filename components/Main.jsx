@@ -32,6 +32,7 @@ const Main = ({headlinesArr}) => {
                             <div className='h-full grid grid-cols-5 px-2 pr-20 gap-x-3 row-span-1 '>
                                 <WeatherWidget/>
                                 <BigArticleCard article={headlinesArr[0]}/>
+                                {/* <BigArticleCardLive article={headlinesArr[0]}/> */}
                                 <MediumArticleCard article={headlinesArr[1]}/>
                             </div>
 

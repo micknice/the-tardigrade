@@ -43,7 +43,7 @@ const MediumArticleCard = ({article}) => {
                 </Link>
             </div>
         )
-    } else if(article && article.topic === 'cooking') {
+    } else if(article && article.topic === 'news') {
         return (
             <div className=' col-span-1  pt-3 h-full w-full '>
                 <Link href={`/article/${article.article_id}`}>
@@ -103,6 +103,30 @@ const MediumArticleCard = ({article}) => {
                         <div className='h-2/5'>
                             {article &&
                                 <p className='text-guard-topictext-pink  text-xl font-black font-serif px-2 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                            }
+                            {article &&
+                                <p className='text-guard-subhead  text-xl font-medium font-serif leading-5 px-2'>{article.title}</p>
+                            }
+                        </div>
+                        {article &&
+                            <p className='text-guard-posted text-xs pt-12 px-2'>{getPostAge(article.created_at)}</p>
+                        }
+                    </div>
+                </Link>
+            </div>
+        )
+    } else if(article && article.topic === 'technology') {
+        return (
+            <div className=' col-span-1  pt-3 h-full w-full '>
+                <Link href={`/article/${article.article_id}`}>
+                    <div className='h-full w-full  bg-guard-topictile-beige hover:bg-guard-topictile-hover-beige'>
+                    {actualArticle &&
+                        <img className='h-2/5 w-full object-cover' src={actualArticle.article_img_url} alt='/'/>
+    
+                    }
+                        <div className='h-2/5'>
+                            {article &&
+                                <p className='text-guard-topictext-beige  text-xl font-black font-serif px-2 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                             }
                             {article &&
                                 <p className='text-guard-subhead  text-xl font-medium font-serif leading-5 px-2'>{article.title}</p>

@@ -67,7 +67,7 @@ const BigArticleCard = ({article}) => {
                  </Link>
             </div>
         )
-    } else if(article && article.topic === 'cooking') {
+    } else if(article && article.topic === 'news') {
         return (
             <div className='  pt-3 h-38 max-h-38 min-h-38'>
                 <Link href={`/article/${article.article_id}`}>
@@ -140,7 +140,7 @@ const BigArticleCard = ({article}) => {
             <div className='  pt-3 h-38 max-h-38 min-h-38'>
                 <Link href={`/article/${article.article_id}`}>
                     <div className=' h-full w-full  px-2 bg-guard-topictile-pink hover:bg-guard-topictile-hover-pink'>
-                        <div className='grid grid-cols-5 border-t-[1px] border-guard-topictext-sky'>
+                        <div className='grid grid-cols-5 border-t-[1px] border-guard-topictext-pink'>
 
                             <div className='col-span-2 w-full  object-cover border-t-[1px] border-guard-topictext-pink'>
                                 {actualArticle &&
@@ -154,6 +154,40 @@ const BigArticleCard = ({article}) => {
                                 <div className=' h-full border-t-[1px] '>
                                     {article &&
                                         <p className='text-guard-topictext-pink  text-xl font-black font-serif tracking-tighter leading-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                                    }
+                                    {article &&
+                                        <p className='text-guard-subhead  text-lg font-medium font-serif leading-5'>{article.title}</p>
+                                    }
+                                    
+                                    <div className='flex items-end'>
+                                        <p className='text-guard-posted text-xs pt-2 pb-3'>{getPostAge(article.created_at)}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Link>
+            </div>
+        )
+    } else if (article && article.topic === 'technology') {
+        return (
+            <div className='  pt-3 h-38 max-h-38 min-h-38'>
+                <Link href={`/article/${article.article_id}`}>
+                    <div className=' h-full w-full  px-2 bg-guard-topictile-beige hover:bg-guard-topictile-hover-beige'>
+                        <div className='grid grid-cols-5 border-t-[1px] border-guard-topictext-beige'>
+
+                            <div className='col-span-2 w-full  object-cover border-t-[1px] border-guard-topictext-beige'>
+                                {actualArticle &&
+                                <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  alt='/'/>
+        
+                                }
+            
+                            </div>                    
+                            <div className='col-span-3  h-full  hover:bg-guard-topictile-hover-beige px-2'>
+                                {/* text */}
+                                <div className=' h-full border-t-[1px] '>
+                                    {article &&
+                                        <p className='text-guard-topictext-beige  text-xl font-black font-serif tracking-tighter leading-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                                     }
                                     {article &&
                                         <p className='text-guard-subhead  text-lg font-medium font-serif leading-5'>{article.title}</p>

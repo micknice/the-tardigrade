@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { RiFacebookFill } from 'react-icons/ri'
 
-
-
 const ButtonFb = ({topic}) => {
     
     const [hover, setHover] = useState(false)

@@ -8,7 +8,8 @@ const platChat = {channelName: 'Plat Chat',channelId: 'UCvqRdlKsE5Q8mf8YXbdIJLw'
 const lofiGirl = {channelName: 'Lofi Girl',channelId: 'UCSJ4gkVC6NrvII8umztf0Ow', strap: 'That girl studying by the window non-stop'}
 
 
-const channelArr = [thePrimagen, modular, theoT3, nasa, nasaSpaceFlight, platChatValorant, platChat, lofiGirl]
+// const channelArr = [thePrimagen, modular, theoT3, nasa, nasaSpaceFlight, platChatValorant, platChat, lofiGirl]
+const channelArr = [lofiGirl]
 
 
 

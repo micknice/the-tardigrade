@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { getArticleByArticleId, getArticleFromArticleId } from '../pages/api/news/newsApi'
-import { getPostAge } from '../utils/utils'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
-import ReactLoading from 'react-loading';
-
-
-
-
 
 const BigArticleCard = ({article}) => {
 
     const [actualArticle, setActualArticle] = useState(null)
     const [actualArticleBody, setActualArticleBody] = useState(null)
-    
 
     useEffect(() => {
         if(article) {
@@ -64,9 +55,7 @@ const BigArticleCard = ({article}) => {
                                 <div className='col-span-2 w-full  object-cover'>
                                     {actualArticle &&
                                     <img className='object-contain w-full h-auto' src={actualArticle.article_img_url}  alt='/'/>
-            
                                     }
-                
                                 </div>                    
                         </div>
                  </Link>

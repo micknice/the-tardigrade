@@ -15,23 +15,6 @@ const ArticlePage = () => {
   const { topic } = router.query;
   
   const [articles, setArticles] = useState(null);
-    
-  
-    
-  
-  useEffect(() => {
-    if (topic) {
-      const fetchArticle = async () => {
-        const articlesData = await getArticlesByTopic(topic);
-        setArticles(articlesData);
-      };
-      fetchArticle();
-    }
-  }, [topic]);
-
-  // if (!articles) {
-  //   return <p>Loading...</p>;
-  // }
   
   return (
     <div>

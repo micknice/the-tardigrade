@@ -20,7 +20,9 @@ export default function Home() {
     useEffect(() => {
         const fetchArticles = async() => {
           console.log('fetching articles')
-            const articlesArr = await getArticles()
+            const articlesArrFetch = await getArticles()
+            const articlesArr = articlesArrFetch.filter((x) => x.topic !== 'cooking' )
+            
             const headlines = []
             for(let i = 0; i < 10; i++) {
                 const randomIndex = Math.floor(Math.random() * (articlesArr.length))
@@ -34,7 +36,7 @@ export default function Home() {
             console.log(liveChannels, 'LIVE CHANNELS!!!!')
          }
         fetchArticles()
-        // fetchLive()
+        fetchLive()
 
     }, [])
 

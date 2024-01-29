@@ -1,8 +1,6 @@
 import React, {  useState } from 'react'
 import { RiTwitterXFill} from 'react-icons/ri'
 
-
-
 const ButtonX = ({topic}) => {
     
     const [hover, setHover] = useState(false)

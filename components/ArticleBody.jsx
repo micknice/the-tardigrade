@@ -5,7 +5,6 @@ import ButtonMail from './ButtonMail'
 import { PiCameraFill } from 'react-icons/pi'
 import Link from 'next/link'
 
-
 const ArticleBody = ({article}) => {
     return (
         <div className='col-span-2 w-11/12 px-2 pt-2'>

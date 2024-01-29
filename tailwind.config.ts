@@ -49,6 +49,7 @@ const config: Config = {
         'guard-topicheadtext-pink' : '#7d0068',
         'guard-topictile-pink': '#f6f6f6',
         'guard-topictile-hover-pink' : '#ededed',
+
         
         'guard-tilebg-dark': '#d1d1d1',
         'guard-bg-white': '#ffffff',

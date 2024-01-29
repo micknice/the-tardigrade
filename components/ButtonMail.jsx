@@ -1,8 +1,6 @@
 import React, {useState } from 'react'
 import { GoMail } from 'react-icons/go'
 
-
-
 const ButtonMail = ({topic}) => {
     
     const [hover, setHover] = useState(false)

@@ -8,26 +8,10 @@ import { useMediaQuery } from '@mui/material'
 
 const CommentsMobile = dynamic(() => import("./CommentsMobile"), { ssr: false });
 
-
 const ArticleMobile = ({article}) => {
     const isCondensed = useMediaQuery('(max-width: 1470px)');
-   
     
     const [headlinesArr, setHeadlinesArr] = useState([])
-
-    useEffect(() => {
-        const fetchArticles = async() => {
-            const articlesArr = await getArticles()
-            const headlines = []
-            for(let i = 0; i < 10; i++) {
-                const randomIndex = Math.floor(Math.random() * (articlesArr.length))
-                headlines.push(articlesArr[randomIndex])
-            }
-            setHeadlinesArr(headlines)
-        }
-        fetchArticles()
-
-    }, [])
 
     return (
         <div className=' w-full bg-white flex  justify-center items-center '>
@@ -38,17 +22,11 @@ const ArticleMobile = ({article}) => {
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
                     <div className='h-full w-full justify-center items-center '> 
-                                    <ArticleBodyMobile article={article}/>
-                        
-
-                            
-                            <CommentsMobile article={article}/>
+                        <ArticleBodyMobile article={article}/>
+                        <CommentsMobile article={article}/>
                     </div> 
-
-                            
                 </div>
             </div>
-
         </div>
     )
 }

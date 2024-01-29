@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react'
 import getCurrentWeatherReport  from '../pages/api/weather/currentWeather'
 import getDailyForecastWeatherReport from '../pages/api/weather/forecastDailyWeather'
 import ReactLoading from 'react-loading';
-import {HiChevronDown} from 'react-icons/hi2'
-
 
 const WeatherWidget = () => {
 
@@ -54,7 +52,6 @@ const WeatherWidget = () => {
             const fetchReport = async() => {
                     const report = await getCurrentWeatherReport(position)
                     setWeather(report)
-                    console.log(report)
             } 
             const fetchDaily = async() => {
                 const dailyReport = await getDailyForecastWeatherReport(position)

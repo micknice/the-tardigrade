@@ -4,7 +4,6 @@ import ButtonFb from './ButtonFb'
 import ButtonX from './ButtonX'
 import ButtonMail from './ButtonMail'
 
-
 const ArticleInfoMobile = ({article}) => {
 
     if (article && article.topic === 'coding') {

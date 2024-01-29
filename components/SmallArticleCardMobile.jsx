@@ -12,7 +12,6 @@ const SmallArticleCardMobile = ({article}) => {
             const fetchArticle = async() => {
                 const articleActual = await getArticleByArticleId(article.article_id)
                 setActualArticle(articleActual)
-                
             }
             fetchArticle()
         }
@@ -38,7 +37,7 @@ const SmallArticleCardMobile = ({article}) => {
 
             </div>
         )
-    } else if (article && article.topic === 'cooking') {
+    } else if (article && article.topic === 'news') {
         return (
             <div className=' pt-1 h-full w-full '>
                 <Link href={`/article/${article.article_id}`}>
@@ -64,6 +63,44 @@ const SmallArticleCardMobile = ({article}) => {
                     <div className='col-span-1 border-t-[1px] border-guard-topictext-sky h-full  bg-guard-topictile-sky hover:bg-guard-topictile-hover-orange flex flex-col'>
                         {article &&
                             <p className='text-guard-topictext-sky  text-lg font-black font-serif px-2 row-span-1 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                        }
+                            {article &&
+                                <p className='text-guard-subhead  text-lg font-medium font-serif leading-5 px-2 row-span-2'>{getShortenedTitle(article.title)}</p>
+                            }
+                            {article &&
+                                <p className='text-guard-posted text-xs pt-2 pb-1 px-2 row-span-1'>{getPostAge(article.created_at)}</p>
+                            }
+                    </div>
+                </Link>
+
+            </div>
+        )
+    } else if (article && article.topic === 'science') {
+        return (
+            <div className=' pt-1 h-full w-full '>
+                <Link href={`/article/${article.article_id}`}>
+                    <div className='col-span-1 border-t-[1px] border-guard-topictext-pink h-full  bg-guard-topictile-pink hover:bg-guard-topictile-hover-pink flex flex-col'>
+                        {article &&
+                            <p className='text-guard-topictext-pink  text-lg font-black font-serif px-2 row-span-1 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
+                        }
+                            {article &&
+                                <p className='text-guard-subhead  text-lg font-medium font-serif leading-5 px-2 row-span-2'>{getShortenedTitle(article.title)}</p>
+                            }
+                            {article &&
+                                <p className='text-guard-posted text-xs pt-2 pb-1 px-2 row-span-1'>{getPostAge(article.created_at)}</p>
+                            }
+                    </div>
+                </Link>
+
+            </div>
+        )
+    } else if (article && article.topic === 'technology') {
+        return (
+            <div className=' pt-1 h-full w-full '>
+                <Link href={`/article/${article.article_id}`}>
+                    <div className='col-span-1 border-t-[1px] border-guard-topictext-beige h-full  bg-guard-topictile-beige hover:bg-guard-topictile-hover-beige flex flex-col'>
+                        {article &&
+                            <p className='text-guard-topictext-beige  text-lg font-black font-serif px-2 row-span-1 tracking-tighter'>{`${article.topic[0].toUpperCase()}${article.topic.slice(1, article.topic.length)}`}</p>
                         }
                             {article &&
                                 <p className='text-guard-subhead  text-lg font-medium font-serif leading-5 px-2 row-span-2'>{getShortenedTitle(article.title)}</p>

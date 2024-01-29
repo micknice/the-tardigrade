@@ -3,7 +3,7 @@ const MostViewedItem = ({article}) => {
 
     const isCondensed = useMediaQuery('(max-width: 1670px)');
     return (
-        <div className=' grid grid-cols-5 w-full h-20 pt-2 gap-x-2'>
+        <div className=' grid grid-cols-5 w-full h-auto pt-2 gap-x-2'>
                 {!isCondensed &&
             <div className=' w-16  h-16 rounded-full '>
 

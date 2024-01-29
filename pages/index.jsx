@@ -33,7 +33,7 @@ export default function Home() {
         const fetchLive = async() => { 
             console.log('fetching live')
             const liveChannels = await getAllLiveChannelInfo()
-            console.log(liveChannels, 'LIVE CHANNELS!!!!')
+            // console.log(liveChannels, 'LIVE CHANNELS!!!!')
          }
         fetchArticles()
         fetchLive()

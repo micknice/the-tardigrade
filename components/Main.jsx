@@ -83,6 +83,10 @@ const Main = ({headlinesArr}) => {
                         </div>
                         }
                     </div>
+                    <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
+                    <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
+                    <div className=' border-b-[1px] h-1 border-guard-div-grey'></div>
+                    <div className=' border-b-[1px] h-10 border-guard-div-grey'/>
                 </div>
             </div>
         </div>

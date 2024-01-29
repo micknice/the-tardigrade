@@ -65,7 +65,7 @@ const checkIfLive = async(channelId) => {
     console.log(channelId, 'channel')
     const res = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&eventType=live&type=video&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`) 
     const data = await res.json()    
-    console.log(data, 'dataYT')
+    // console.log(data, 'dataYT')
     
 
     return data.items.length > 0
@@ -77,7 +77,7 @@ const getVideoInfo = async(videoId) => {
     
     const data = await res.json()
     
-    console.log('video res', data)
+    // console.log('video res', data)
     return data.items[0]
 }   
 
@@ -87,13 +87,13 @@ const getAllLiveChannelInfo = async() => {
         
         const isLive = await checkIfLive(channel.channelId)
         if (isLive) {
-            console.log(isLive, 'islive')
+            // console.log(isLive, 'islive')
             const videoInfo = await getVideoInfo(channel.channelId)
             liveChannelArr.push({channel, videoInfo})
         }
     })
     await Promise.all(promises)
-    console.log('LCA', liveChannelArr)
+    // console.log('LCA', liveChannelArr)
     return liveChannelArr
 }
 
